@@ -130,3 +130,4 @@ if __name__ == '__main__':
     print('\tV1 Execution Time:', ex_v1)
     print('\tV2 Execution Time:', ex_v2)
     print('\tV3 Execution Time:', ex_v3)
+    print(f'\tWas V3 the fastest? **{ex_v3 < ex_v1 and ex_v3 < ex_v2}**')

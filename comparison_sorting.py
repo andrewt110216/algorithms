@@ -31,7 +31,6 @@ def compare_sorting_algorithms(array: list) -> list:
 # Run the comparisons for varying input quantities
 
 x_values = list(map(int, np.linspace(10, 1_000, 100)))
-print(x_values)
 [10**i for i in range(1, 6)]  # Number of inputs
 times_bubble = []
 times_insertion = []

@@ -5,17 +5,28 @@ Merge Sort
 
 A divide-and-conquer sorting algorithm implemented recursively.
 
-Merge sort is more efficient than quadratic sorting algorithms, such as
+Merge sort is more efficient than quadratic-time sorting algorithms, such as
  SelectionSort, InsertionSort, and BubbleSort.
 
-Split the the array into two parts, then sort each part recursively.
+Split the array into two parts, then sort each part recursively.
 Merge the two sorted parts into the final sorted list.
 
 Base Case: len(array) <= 1 --> Return array
-"""
 
-def merge(a: list, b:list, layer) -> list:
-    """The final 'merge' step of the merge_sort algorithm"""
+Note: I added doctests (in addition to my own custom tests) as I was
+experimenting with the doctest library.
+"""
+# DO NOT CHANGE debug HERE. SEE BELOW.
+debug = False  # Set to false for any external imports / calls
+
+def merge(a: list, b:list, layer=0) -> list:
+    """
+    The merge subroutine of the merge_sort algorithm.
+    Merge two sorted lists into a single sorted list.
+
+    >>> merge([0, 1, 5], [-5, 2, 4])
+    [-5, 0, 1, 2, 4, 5]
+    """
     c = []
     i, j = 0, 0
     while i < len(a) and j < len(b):
@@ -34,7 +45,12 @@ def merge(a: list, b:list, layer) -> list:
 
 
 def merge_sort(lst: list, layer=0) -> list:
-    """Sort a list using the merge sort algorithm"""
+    """
+    Sort a list using the merge sort algorithm
+
+    >>> merge_sort([12, -5, 0, 99, 4, 12, -1, 32])
+    [-5, -1, 0, 4, 12, 12, 32, 99]
+    """
     layer += 1
     mid = int(len(lst) // 2)
     if debug: print(f"{' '*layer*4}New Layer for {lst}...")
@@ -50,12 +66,20 @@ def merge_sort(lst: list, layer=0) -> list:
 
 # ================================ TEST CASES ================================
 
+if __name__ == '__main__':
+
 # ----------------------------------------------------------------------------
 # Set to true to see debugging print statements from function execution
-debug = False
+    debug = True
 # ----------------------------------------------------------------------------
 
-if __name__ == '__main__':
+    import doctest
+    # Temporarily set debug to False to allow doctests
+    temp = debug
+    debug = False
+    doctest.testmod()
+    # Restore debug setting
+    debug = temp
 
     tests = 0
     failed_tests = 0
