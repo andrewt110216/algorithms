@@ -1,16 +1,23 @@
 # Learning Algorithms
-# [ALGORITHM]
+# Count Inversions (Divide & Conquer)
 # Andrew Tracey
-# [DATE]
+# April 20, 2022
 
 # DESCRIPTION
-# Goal:
+# Goal: Count the number of inversions in a given array of length n, with the
+# distinct elements 1 to n, where an inversion is every pair of indexes i, j
+# where i < j and arr[j] < arr[i]. That is, arr[j] is to the right of arr[i]
+# and is a smaller value than it.
 # Method:
 # 
 # 
 # 
-# 
-# 
+# Notes:
+# Since we are piggybacking on merge sort, which we know runs in n*logn time,
+# and we are only adding the addition of the accumulation, our algorithm also
+# runs in O(n*logn) time.
+# This is an accomplishment, since we can be counting up to a quadratic number
+# of inversions. The case of an array in reverse (descending) order
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
@@ -66,3 +73,4 @@ if __name__ == '__main__':
         print("\t|| PASS! ||")
         print("\t===========")
     print("".center(divider_width, '='))
+
