@@ -1,5 +1,5 @@
 # Learning Algorithms
-# Binary Search - Recursive Approach
+# Binary Search - Iterative Approach
 # Andrew Tracey
 # April 19, 2022
 
@@ -14,17 +14,16 @@
 
 # Assume the sequence contains unique elements.
 
-# Recursive approach. Per the master method, run time = O(logn), where:
-#  a = 1 (only one recursive call is made at each level)
-#  b = 2 (the array size is halved at each level)
-#  d = 0 (outside of recursion, the only work done is comparisons)
-# Therefore, T(n) = O(n^0 * logn) = O(logn)
+# Iterative approach. Perhaps more intuitive.
+# Runtime is O(logn), because in the worst case, the array of size n is halved
+# as many times as necessary until there is just 1 element remaining, which is
+# the definition of log2(n).
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 # ============================== IMPLEMENTATION ==============================
 
-def binary_search(sequence, target, start=0, end=False):
+def binary_search(sequence, target):
     """
     Return the index at which a target value is found in sequence.
 
@@ -32,23 +31,22 @@ def binary_search(sequence, target, start=0, end=False):
     :param target: the value to be searched for in sequence
     :return index: the index of sequence at which target is found
     """
-
-    if not end:
-        end = len(sequence) - 1
-
-    if end >= start:
+    n = len(sequence)
+    start = 0
+    end = n - 1
+    while start <= end:
         i = (start + end) // 2
-
-        if sequence[i] == target:
+        if debug: print(f"Checking midpoint {i} of [{start}:{end}]...")
+        if target > sequence[i]:
+            start = i + 1
+            if debug: print(f"\t{target} > {sequence[i]}. Shifting right.")
+        elif target < sequence[i]:
+            end = i - 1
+            if debug: print(f"\t{target} < {sequence[i]}. Shifting left.")
+        else:  # sequence[index] == target
+            if debug: print(f"\tIt was a match! Returning {i}")
             return i
-        elif target < sequence[i]:  # target to left of i
-            return binary_search(sequence, target, start, i - 1)
-        elif target > sequence[i]:  # target to right of i
-            return binary_search(sequence, target, i + 1, end)
-
-    # Target was not found
     return False
-
 
 # ================================ TEST CASES ================================
 
@@ -58,7 +56,7 @@ if __name__ == '__main__':
 
 # ----------------------------------------------------------------------------
 # Set to true to see debugging print statements, if any, from execution
-    debug = True
+    debug = False
 # ----------------------------------------------------------------------------
 
     tests = 0
@@ -103,8 +101,8 @@ if __name__ == '__main__':
 
     print(f" TEST CASE: Base ".center(divider_width, "-"))
     tests += 1
-    length = 50  # Approximate, before removing duplicates
-    sequence = list(set([random.randint(-length, length) for _ in range(length)]))
+    length = 1000
+    sequence = list(set([random.randint(-1000, 1000) for _ in range(length)]))
     target = sequence[random.randint(1, len(sequence))-1]
     sequence.sort()
     test_input = (sequence, target)
