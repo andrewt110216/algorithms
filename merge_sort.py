@@ -19,7 +19,8 @@ experimenting with the doctest library.
 # DO NOT CHANGE debug HERE. SEE BELOW.
 debug = False  # Set to false for any external imports / calls
 
-def merge(a: list, b:list, layer=0) -> list:
+
+def merge(a: list, b: list, layer=0) -> list:
     """
     The merge subroutine of the merge_sort algorithm.
     Merge two sorted lists into a single sorted list.
@@ -68,18 +69,15 @@ def merge_sort(lst: list, layer=0) -> list:
 
 if __name__ == '__main__':
 
-# ----------------------------------------------------------------------------
-# Set to true to see debugging print statements from function execution
+    # ------------------------------------------------------------------------
+    # Set to true to see debugging print statements from function execution
     debug = True
-# ----------------------------------------------------------------------------
+    # ------------------------------------------------------------------------
 
     import doctest
-    # Temporarily set debug to False to allow doctests
     temp = debug
     debug = False
     doctest.testmod()
-    # Restore debug setting
-    debug = temp
 
     tests = 0
     failed_tests = 0
@@ -124,7 +122,6 @@ if __name__ == '__main__':
         print("\n > Result: **WRONG**\n")
         failed_tests += 1
 
-
     print(f" ALL RESULTS ".center(divider_width, "="))
     print(f"\nTOTAL TESTS RUN: {tests}")
     print("\nOVERALL RESULT:\n")
@@ -139,4 +136,3 @@ if __name__ == '__main__':
         print("\t|| PASS! ||")
         print("\t===========")
     print("".center(divider_width, '='))
-
