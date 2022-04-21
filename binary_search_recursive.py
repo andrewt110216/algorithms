@@ -6,11 +6,11 @@
 # DESCRIPTION
 # Goal: Return the index of a target value in a sorted sequence (e.g. a list)
 # Method: Basically, play Irish poker. Start by guessing the middle element.
-# If this is greater than the target, then move the "end" of the relevant range
-# to the element to the left of the middle. If it is less than the target, then
-# move the "start" of the relevant range to the element to the right of the
-# middle. Then, guess the middle of the new relevant range. Repeat this process
-# until the target is found, or return False if not found.
+# If this is greater than the target, then move the "end" of the relevant
+# range to the element to the left of the middle. If it is less than the
+# target, then move the "start" of the relevant range to the element to the
+# right of the middle. Then, guess the middle of the new relevant range.
+# Repeat this process until the target is found, or return False if not found.
 
 # Assume the sequence contains unique elements.
 
@@ -24,12 +24,15 @@ debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 # ============================== IMPLEMENTATION ==============================
 
-def binary_search(sequence, target, start=0, end=False):
+
+def binary_search(sequence, target, start=0, end=None):
     """
     Return the index at which a target value is found in sequence.
 
     :param sequence: a list of unique values sorted in ascending order
     :param target: the value to be searched for in sequence
+    :param start: the index at which to start the current search
+    :param end: the index at which to end the current search
     :return index: the index of sequence at which target is found
     """
 
@@ -80,7 +83,7 @@ if __name__ == '__main__':
     else:
         print("\n > Test Result: **FAIL.**\n")
         print(f"\t > Expected Result was {expected_result}\n")
-        failed_btests += 1
+        failed_tests += 1
 
 # New Test Case --------------------------------------------------------------
 
@@ -104,15 +107,17 @@ if __name__ == '__main__':
     print(f" TEST CASE: Base ".center(divider_width, "-"))
     tests += 1
     length = 50  # Approximate, before removing duplicates
-    sequence = list(set([random.randint(-length, length) for _ in range(length)]))
-    target = sequence[random.randint(1, len(sequence))-1]
-    sequence.sort()
-    test_input = (sequence, target)
+    test_array = list(set(
+        [random.randint(-length, length) for _ in range(length)]
+    ))
+    test_target = test_array[random.randint(1, len(test_array))-1]
+    test_array.sort()
+    test_input = (test_array, test_target)
     print('Input:', test_input)
     result = binary_search(*test_input)
     print('Output:', result)
 
-    expected_result = sequence.index(target)
+    expected_result = test_array.index(test_target)
     if result == expected_result:
         print("\n > Test Result: **PASS!**\n")
     else:
