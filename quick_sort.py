@@ -4,72 +4,72 @@
 # April 21, 2022
 
 # DESCRIPTION
-# Goal: Sort an array with n distinct elements.
+# Goal: Sort an array of n distinct elements.
 # Method:
-# Recursive divide and conquer.
+# Divide and Conquer.
 # Choose a 'pivot' element and partition the elements around the pivot such
 # that all elements to the left of the pivot are smaller and all elements to
 # the right are larger. Accomplish this by scanning through each element, and
 # completing swaps to partition properly.
-# Then, recursively sort the subarrays now on the left and right of pivot.
+# Then, recursively sort the subarrays to the left and right of pivot, until
+# the entire input array has been sorted.
 
 # NOTES
 # Runtime is O(n * log n), because there are logn levels of recursive calls,
 # and the Partition subroutine runs in linear time O(n).
+# By Master Method, a = 2, b = 2, d = 1 ==> Case 1 ==> T(n) = O(n * log n).
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 # ============================== IMPLEMENTATION ==============================
 
-def partition(A, start, end):
+def partition(arr, start, end):
     """
-    Partition the subsection of A between start and end (inclusive) around
+    Partition the subsection of arr between start and end (inclusive) around
     a pivot element.
 
-    :param list A: the entire list
+    :param list arr: the entire list
     :param int start: the index of the first element of the subarray
     :param int end: the index of the last element of the subarray
     :return: None. Side effect of partitioning the subarray
     """
-    pivot = A[start]
-    i = start + 1  # i is the first known number greater than pivot
+
+    pivot = arr[start]
+    i = start + 1  # the first evaluated number that is greater than pivot
     if debug:
-        print(f' > Start Partition on {A[start:end]}. P={pivot}. A={A}.')
-    # if end - start == 1:
-    #     if A[start] > A[end]:
-    #         A[start], A[end] = A[end], A[start]
-    #     return start
-    for j in range(start+1, end+1):  # j is the current item of the scan
+        print(f' > Start Partition on {arr[start:end]}. P={pivot}. arr={arr}.')
+
+    for j in range(start+1, end+1):
             if debug: print(f'   > Scanning...i={i}, j={j}')
-            if A[j] > pivot:
-                # do nothing
-                pass
-            elif A[j] < pivot: # ADD EQUALITY?? Ignoring for now.
-                # Swap A[j] and A[i], i++
-                A[i], A[j] = A[j], A[i]
+            if arr[j] < pivot: # [if arr[j] > pivot -> do nothing]
+                # Swap arr[j] and arr[i] and increment i
+                arr[i], arr[j] = arr[j], arr[i]
                 i += 1
-    # j has fallen off the end. Now swap pivot (A[start]) with A[i-1]
-    A[start], A[i-1] = A[i-1], A[start]
-    if debug: print(f' > End Partition on {A[start:end]}. New P_i={i-1}. A={A}.')
+
+    # With j exhausted, final step is to swap pivot (arr[start]) with arr[i-1]
+    arr[start], arr[i - 1] = arr[i - 1], arr[start]
+    if debug:
+        print(f' > End Partition on {arr[start:end]}. P_i={i-1}. arr={arr}.')
     return i - 1
 
-def quick_sort(A, l, r, layer=0):
+def quick_sort(arr, l, r, layer=0):
     """
-    :param list A: the array
+    :param list arr: the array
     :param int l: the index of the first element of the subarray
     :param int r: the index of the last element of the subarray
     :param int layer: counts the # of recursive calls for debugging
-    :return: None. Side effect is sorting the array passed by ref.
+    :return: Side effect is sorting the array passed by reference
     """
+
     layer += 1
     if debug: print(f'Starting layer {layer}. l={l}, r={r}.')
     n = r - l + 1
     if n == 1:
         return  # No sorting needed
     if l < r:
-        k = partition(A, l, r)
-        quick_sort(A, l, k-1, layer)
-        quick_sort(A, k+1, r, layer)
+        k = partition(arr, l, r)
+        quick_sort(arr, l, k - 1, layer)
+        quick_sort(arr, k + 1, r, layer)
 
 # ================================ TEST CASES ================================
 
@@ -105,7 +105,7 @@ if __name__ == '__main__':
 
 # New Test Case --------------------------------------------------------------
 
-    print(f" TEST CASE: Add Negatives, 0, Longer ".center(divider_width, "-"))
+    print(f" TEST CASE: Add Neg's & 0, Longer ".center(divider_width, "-"))
     tests += 1
     test_input = [-2, 3, 8, 2, -5, 12, 5, 1, 4, -7, 6, 0, 15]
     length = len(test_input)
@@ -121,7 +121,6 @@ if __name__ == '__main__':
         print("\n > Test Result: **FAIL.**\n")
         print(f"\t > Expected Result: {expected_result}\n")
         failed_tests += 1
-
 
 # New Test Case --------------------------------------------------------------
 
@@ -142,7 +141,6 @@ if __name__ == '__main__':
         print(f"\t > Expected Result: {expected_result}\n")
         failed_tests += 1
 
-
 # New Test Case --------------------------------------------------------------
 
     print(f" TEST CASE: Length 1 ".center(divider_width, "-"))
@@ -162,12 +160,49 @@ if __name__ == '__main__':
         print(f"\t > Expected Result: {expected_result}\n")
         failed_tests += 1
 
-
 # New Test Case --------------------------------------------------------------
 
     print(f" TEST CASE: Length 2 ".center(divider_width, "-"))
     tests += 1
     test_input = [5, 3]
+    length = len(test_input)
+    working_array = test_input.copy()
+    print('Input:', test_input)
+    quick_sort(working_array, 0, length-1)
+    print('Output:', working_array)
+
+    expected_result = sorted(test_input)
+    if working_array == expected_result:
+        print("\n > Test Result: **PASS!**\n")
+    else:
+        print("\n > Test Result: **FAIL.**\n")
+        print(f"\t > Expected Result: {expected_result}\n")
+        failed_tests += 1
+
+# New Test Case --------------------------------------------------------------
+
+    print(f" TEST CASE: Length 2, Sorted ".center(divider_width, "-"))
+    tests += 1
+    test_input = [3, 5]
+    length = len(test_input)
+    working_array = test_input.copy()
+    print('Input:', test_input)
+    quick_sort(working_array, 0, length-1)
+    print('Output:', working_array)
+
+    expected_result = sorted(test_input)
+    if working_array == expected_result:
+        print("\n > Test Result: **PASS!**\n")
+    else:
+        print("\n > Test Result: **FAIL.**\n")
+        print(f"\t > Expected Result: {expected_result}\n")
+        failed_tests += 1
+
+# New Test Case --------------------------------------------------------------
+
+    print(f" TEST CASE: Length 3 ".center(divider_width, "-"))
+    tests += 1
+    test_input = [3, 5, 1]
     length = len(test_input)
     working_array = test_input.copy()
     print('Input:', test_input)
