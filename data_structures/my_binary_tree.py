@@ -86,21 +86,20 @@ class BinaryTree:
 		return traversal
 
 	# def post_order_iter(self, cur, traversal=''):
-		# Cannot implement without creating a Parent method of a TreeNode
+		# Cannot implement without creating a getParent() method of a TreeNode
 
 	def level_order(self, traversal=''):
 		# Use a queue to store the left & right nodes before taking the root
 		q = queue.Queue()
-		cur = self.root
-		q.enqueue(cur)
-		while cur is not None:
-			cur = q.dequeue()
+		q.enqueue(self.root)
+		while not q.isEmpty():
+			cur = q.dequeue().value
 			# Add left and right nodes to queue
 			if cur.left:
 				q.enqueue(cur.left)
 			if cur.right:
 				q.enqueue(cur.right)
-			traversal += str({cur})
+			traversal += str({cur.data}) + '-'
 		return traversal
 
 def map_to_tree(map):
@@ -111,17 +110,23 @@ def map_to_tree(map):
 	:return tree: tree object populated with map key-value pairs
 	"""
 	t = BinaryTree()
-	for i, value in map.items():
-		new_node = TreeNode(value)
-		if i == 1:
-			t.root = new_node
+	q = queue.Queue()
+	t.root = TreeNode(map[1])
+	load_q = (t.root, 1)
+	q.enqueue(load_q)
+	while not q.isEmpty():
+		out = q.dequeue().value
+		cur = out[0]  # current TreeNode
+		i = out[1]  # key of cur
 		if 2*i in map:
-			new_node.left = TreeNode(map[2 * i])
+			new_node = TreeNode(map[2*i])
+			cur.left = new_node
+			q.enqueue((cur.left, 2*i))
 		if 2*i + 1 in map:
-			new_node.right = TreeNode(map[2 * i + 1])
-
+			new_node = TreeNode(map[2*i + 1])
+			cur.right = new_node
+			q.enqueue((cur.right, 2*i + 1))
 	return t
-
 
 if __name__ == "__main__":
 
@@ -166,13 +171,13 @@ if __name__ == "__main__":
 		5:'e',
 		6:'f',
 		7:'g',
-		8:'h',
 	}
 	t = map_to_tree(tree_mapping)
-	print('  Preorder:', t.traverse('pre'))
-	print('  Inorder:', t.traverse('in'))
-	print('  Postorder:', t.traverse('post'))
-
+	print('  Pre-Order (Recursive):', t.traverse('pre'))
+	print('  Pre-Order (Iterative):', t.traverse('pre', 'iter'))
+	print('  In-Order (Recursive):', t.traverse('in'))
+	print('  In-Order (Iterative):', t.traverse('in', 'iter'))
+	print('  Post-Order (Recursive):', t.traverse('post'))
+	print('  Post-Order (Iterative):', t.traverse('post', 'iter'))
+	print('  Level-Order:', t.traverse('level'))
 	print('-' * 45)
-
-	# TODO: change shortcut for move up/down lines

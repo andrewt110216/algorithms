@@ -15,12 +15,12 @@ class QueueNode:
 class Queue:
 	""""Representation of a queue as a singly-linked list"""
 
-	def __init__(self, capacity=False):
+	def __init__(self, capacity=None):
 		# pointers for the first node (head) and last node (tail) in queue
 		self.head = None
 		self.tail = None
 
-		# maximum length of the queue
+		# maximum length of the queue. If no capacity, None
 		self.CAPACITY = capacity
 
 	def __repr__(self):
@@ -71,7 +71,7 @@ class Queue:
 		return self.getSize() == 0
 
 	def isFull(self):
-		if not self.CAPACITY:
+		if self.CAPACITY is None:
 			return False
 		return self.getSize() >= self.CAPACITY
 
@@ -94,7 +94,6 @@ if __name__ == "__main__":
 	from random import randint
 
 	# Demonstrate the functionality of a Queue
-
 	print('-' * 45)
 	print('Enqueue and Dequeue:')
 	q = Queue()
@@ -113,11 +112,17 @@ if __name__ == "__main__":
 	print('-' * 45)
 	q = Queue(20)
 	for _ in range(20):
-		q.enqueue(randint(1, 40))
+		q.enqueue(randint(1, 30))
 	print(' Queue:', q)
+	print(' Capacity:', q.CAPACITY)
+	print(' Is Queue Full?:', ['No', 'Yes'][q.isFull()])
 	print(' Try to add to the Full Queue:')
-	q.enqueue(5)
+	q.enqueue(1)
 	print(' Search for a random number in the random Queue:')
+	target = randint(1, 40)
+	print('  Target Value:', target)
+	print('  Search Result:', q.getPosition(target))
+	print(' Again...search for a random number in the random Queue:')
 	target = randint(1, 40)
 	print('  Target Value:', target)
 	print('  Search Result:', q.getPosition(target))
