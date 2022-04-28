@@ -31,7 +31,7 @@ def partition(arr, start, end):
     :param list arr: the entire list
     :param int start: the index of the first element of the subarray
     :param int end: the index of the last element of the subarray
-    :return: None. Side effect of partitioning the subarray
+    :return: side effect of partitioning the subarray
     """
 
     pivot = arr[start]
@@ -39,9 +39,9 @@ def partition(arr, start, end):
     if debug:
         print(f' > Start Partition on {arr[start:end]}. P={pivot}. arr={arr}.')
 
-    for j in range(start+1, end+1):
+    for j in range(start + 1, end + 1):
             if debug: print(f'   > Scanning...i={i}, j={j}')
-            if arr[j] < pivot: # [if arr[j] > pivot -> do nothing]
+            if arr[j] < pivot: # if arr[j] > pivot => do nothing
                 # Swap arr[j] and arr[i] and increment i
                 arr[i], arr[j] = arr[j], arr[i]
                 i += 1
@@ -58,7 +58,7 @@ def quick_sort(arr, l, r, layer=0):
     :param int l: the index of the first element of the subarray
     :param int r: the index of the last element of the subarray
     :param int layer: counts the # of recursive calls for debugging
-    :return: Side effect is sorting the array passed by reference
+    :return: side effect is sorting the array passed by reference
     """
 
     layer += 1
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
     print(f" TEST CASE: Add Neg's & 0, Longer ".center(divider_width, "-"))
     tests += 1
-    test_input = [-2, 3, 8, 2, -5, 12, 5, 1, 4, -7, 6, 0, 15]
+    test_input = [-2, 3, 8, 2, -5, 12, 5, 1, 4, -7, 6, 0, 15, 7, 14, 13, -4]
     length = len(test_input)
     working_array = test_input.copy()
     print('Input:', test_input)
