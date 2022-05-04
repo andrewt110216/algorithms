@@ -1,12 +1,28 @@
-# Leetcode Problem #xxx
-# [PROBLEM NAME]
+# Leetcode Problem #x
+# NAME
 # Andrew Tracey
-# [DATE]
+# DATE
+
+# CATEGORY
+# 
 
 # PROBLEM DESCRIPTION
 # 
+#
 
-# Example:
+# Example 1:
+#
+
+# Example 2:
+#
+
+# Constraints
+#
+
+# Follow Up
+#
+
+# AT NOTES
 # 
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
@@ -14,38 +30,53 @@ debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 # ================================= SOLUTION =================================
 
 def solution(i):
-	"""DOC STRING"""
-	return i
+    """DOC STRING"""
+    return i
 
-# ================================ TEST CASES ================================
+
+# =============================== DRIVER CODE ================================
 
 if __name__ == '__main__':
 
-# ----------------------------------------------------------------------------
-# Set to true to see debugging print statements, if any, from execution
+    # ------------------------------------------------------------------------
+    # Set to true to see debugging print statements, if any
     debug = False
-# ----------------------------------------------------------------------------
 
     tests = 0
     failed_tests = 0
     divider_width = 78
 
-# New Test Case --------------------------------------------------------------
+# Decorator Function for Testing Output --------------------------------------
 
-    print(f" TEST CASE: Base ".center(divider_width, "-"))
-    tests += 1
-    test_input = True
-    print('Input:', test_input)
-    result = solution(test_input)
-    print('Output:', result)
+    def test_decorator(func):
+        """Decorator function to wrap around the solution"""
+        def wrapper(expected, description, *args, **kwargs):
+            global tests, failed_tests, divider_width
+            tests += 1
+            print(f" TEST CASE: {description} ".center(divider_width, "-"))
+            print('Input:', *args, **kwargs)
+            result = func(*args, **kwargs)
+            print('Output:', result)
 
+            if result == expected:
+                print("\n > Test Result: **PASS!**\n")
+            else:
+                print("\n > Test Result: **FAIL.**\n")
+                print(f"\t > Expected Result: {expected_result}\n")
+                failed_tests += 1
+
+        return wrapper
+
+    solution = test_decorator(solution)
+
+# ADD TEST CASES HERE--------------------------------------------------------
+
+    # Test Case Block
+    test_case_description = 'Base'
+    args = [True]
+    kwargs = {}
     expected_result = True
-    if result == expected_result:
-        print("\n > Test Result: **PASS!**\n")
-    else:
-        print("\n > Test Result: **FAIL.**\n")
-        print(f"\t > Expected Result: {expected_result}\n")
-        failed_tests += 1
+    solution(expected_result, test_case_description, *args, **kwargs)
 
 # SUMMARY ====================================================================
 
