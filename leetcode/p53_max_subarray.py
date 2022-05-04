@@ -4,7 +4,7 @@
 # May 4, 2022
 
 # CATEGORY
-# Arrays and Dynamic Programming
+# Arrays, Dynamic Programming
 
 # PROBLEM DESCRIPTION
 # Given an integer array nums, find the contiguous subarray (containing 
@@ -108,7 +108,7 @@ if __name__ == '__main__':
     kwargs = {}
     expected_result = 23
     solution(expected_result, test_case_description, *args, **kwargs)
-    
+
 
 # SUMMARY ====================================================================
 

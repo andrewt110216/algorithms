@@ -4,7 +4,7 @@
 # May 4, 2022
 
 # CATEGORY
-# Linked Lists
+# Linked Lists, Two Pointers
 
 # PROBLEM DESCRIPTION
 # Given head, the head of a linked list, determine if the linked list has a
@@ -57,7 +57,20 @@ class ListNode:
         return f'({self.val})'
 
 def solution(head: ListNode) -> bool:
-    """Check the linked list for a cycle"""
+    """Use a fast and slow pointer. Space O(1)."""
+    if head is not None:
+        slow = head
+        fast = head.next
+        while slow != fast:
+            if fast is None or fast.next is None:
+                return False
+            slow = slow.next
+            fast = fast.next.next
+        return True
+    return False
+
+def solution1(head: ListNode) -> bool:
+    """Traverse the list, tracking visited nodes in a set. Space O(n)"""
     if head is None:
         return False
     current = head
@@ -153,6 +166,15 @@ if __name__ == '__main__':
     head.next.next = ListNode(0)
     head.next.next.next = ListNode(-4)
     head.next.next.next.next = ListNode(5)
+    args = [head]
+    kwargs = {}
+    expected_result = False
+    solution(expected_result, test_case_description, *args, **kwargs)
+
+    # Test Case Block
+    test_case_description = 'Two Elements'
+    head = ListNode(1)
+    head.next = ListNode(2)
     args = [head]
     kwargs = {}
     expected_result = False
