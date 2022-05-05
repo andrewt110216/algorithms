@@ -1,4 +1,5 @@
 # April 24, 2022
+# Revisited May 4, 2022 to practice using collections.deque
 
 """Practice implementation and functions with stacks in Python"""
 
@@ -103,3 +104,39 @@ if __name__ == "__main__":
 	print(' Stack:', stack)
 	print(' Attempt to pop from the Stack while it is empty...')
 	stack.pop()
+
+	# Practice using deque from the collections module
+	# Equivalent methods for a deque:
+	#  - push = append
+	#  - pop = pop
+	#  - getSize = len(deque)
+	#  - isFull = 
+	#  - isEmpty = 
+	print(f"Now, let's use collections.deque to create a stack")
+	print('-' * 45)
+	import collections
+
+	stack = collections.deque()
+	print('My Empty Stack:', stack)
+	print('Push 1 to the stack using deque.append method...')
+	stack.append(1)
+	print(' Stack:', stack)
+	print('Push some more numbers into the stack...')
+	for i in range(2, 11):
+		print('  Append:', i)
+		stack.append(i)
+	print(' Stack:', stack)
+	print('Length:', len(stack))
+	nums = [3, 3, 1, 10, 5, 11]
+	print('Add the following array to the deck with "extend":', nums)
+	stack.extend(nums)
+	print(' Stack:', stack)
+	print("Count the number of 3's in the stack:", stack.count(3))
+	print('Find the first 3 in the stack (return its index):', stack.index(3))
+	print('Clear the stack...')
+	stack.clear()
+	print(' Stack:', stack)
+	print('Try to pop from an empty stack, returning an index error')
+	print(stack.pop())
+
+

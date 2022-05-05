@@ -34,7 +34,7 @@ def solution(nums):
     # subarray ending at each index, then we can return the max of those
     # max values.
     # We'll save the max values in a parallel array, and set the initial
-    # max value for each element to its own value (since)
+    # max value for each element to its own value
     max_sums = nums.copy()
 
     # Subproblem: the max_sum for a particular index is equal to its value
