@@ -51,12 +51,40 @@
 # update it, and recurse on that pixel to evaluate it's connections.
 # Return the final image.
 
+# In solution #2, an iterative approach is used, using a stack. This may be more efficient because
+# recursion uses call stack memory, which could be more limited for very large input sizes.
+
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 # ================================= SOLUTION =================================
 
 def solution(image: list[list[int]], sr: int, sc: int, newColor: int) -> list[list[int]]:
-    """Recursive solution. Attempt #1."""
+    """Solution #2: Iterative"""
+    
+    color = image[sr][sc]
+    if color == newColor:
+        return image
+    
+    stack = [(sr, sc)]
+    visited = set()
+    while stack:
+        r, c = stack.pop()
+        visited.add((sr, sc))
+        if image[r][c] == color:
+            image[r][c] = newColor
+            # add valid connections to stack
+            if c >= 1 and (r, c - 1) not in visited:
+                stack.append((r, c - 1))
+            if c < len(image[0]) - 1 and (r, c + 1) not in visited:
+                stack.append((r, c + 1))
+            if r >= 1 and (r - 1, c) not in visited:
+                stack.append((r - 1, c))
+            if r < len(image) - 1 and (r + 1, c) not in visited:
+                stack.append((r + 1, c))
+    return image
+
+def solution1(image: list[list[int]], sr: int, sc: int, newColor: int) -> list[list[int]]:
+    """Solution #1: Recursive"""
     
     # helper function to check for in-bounds 4-directional connections
     def get_connections(row, column):
@@ -88,16 +116,15 @@ def solution(image: list[list[int]], sr: int, sc: int, newColor: int) -> list[li
             if image[r][c] == scolor:
                 image[r][c] = newColor
                 recurse(r, c)
-        
-        return image
-    
+
     # Save initial color of starting pixel, then change it's color
     scolor = image[sr][sc]
     image[sr][sc] = newColor
     visited = set((sr, sc))
     
     # Initiate recursion, from the starting pixel
-    return recurse(sr, sc)
+    recurse(sr, sc)
+    return image
 
 
 # =============================== DRIVER CODE ================================
