@@ -21,7 +21,7 @@
 # and we are only adding the addition of the accumulation, our algorithm also
 # runs in O(n*logn) time.
 # This is an accomplishment, since we know that the brute force iterative
-# approach is O(n). See separate file for the iterative algorithm.
+# approach is O(n^2). See separate file for the iterative algorithm.
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
@@ -61,10 +61,10 @@ def sort_and_count(array):
     mid = len(array) // 2
     left = array[:mid]
     right = array[mid:]
-    left_sorted, x = sort_and_count(left)
-    right_sorted, y = sort_and_count(right)
-    merged, z = merge(left_sorted, right_sorted)
-    total_inversions = x + y + z
+    left_sorted, left_inversions = sort_and_count(left)
+    right_sorted, right_inversions = sort_and_count(right)
+    merged, split_inversions = merge(left_sorted, right_sorted)
+    total_inversions = left_inversions + right_inversions + split_inversions
 
     return merged, total_inversions
 

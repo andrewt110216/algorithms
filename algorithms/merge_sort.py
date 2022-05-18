@@ -53,12 +53,12 @@ def merge_sort(lst: list, layer=0) -> list:
     [-5, -1, 0, 4, 12, 12, 32, 99]
     """
     layer += 1
-    mid = int(len(lst) // 2)
     if debug: print(f"{' '*layer*4}New Layer for {lst}...")
     if len(lst) <= 1:
         if debug: print(f"{' '*layer*4}> Base: return self")
         return lst
     else:
+        mid = int(len(lst) // 2)
         a = lst[:mid]
         b = lst[mid:]
         if debug: print(f"{' '*layer*4}a: {a}, b: {b}...")
