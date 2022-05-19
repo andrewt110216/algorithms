@@ -37,6 +37,7 @@ def solution(i):
 # =============================== DRIVER CODE ================================
 
 if __name__ == '__main__':
+    from datetime import datetime
 
     # ------------------------------------------------------------------------
     # Set to true to see debugging print statements, if any
@@ -55,8 +56,10 @@ if __name__ == '__main__':
             tests += 1
             print(f" TEST CASE: {description} ".center(divider_width, "-"))
             print('Input:', *args, **kwargs)
+            start = datetime.now()
             result = func(*args, **kwargs)
             print('Output:', result)
+            print('Time:', datetime.now() - start)
 
             if result == expected:
                 print("\n > Test Result: **PASS!**\n")
@@ -67,6 +70,7 @@ if __name__ == '__main__':
 
         return wrapper
 
+    # For testing, decorate the solution function
     solution = test_decorator(solution)
 
 # ADD TEST CASES HERE--------------------------------------------------------
