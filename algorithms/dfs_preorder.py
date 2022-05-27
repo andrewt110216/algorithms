@@ -36,7 +36,21 @@ def preorder_iterative(root):
         else:
             cur = stack.pop()
             cur = cur.right
+    return traversal
     
+# ITERATIVE APPROACH #2
+def preorder_iterative2(root):
+    traversal = []
+    stack = [root]
+    while stack:
+        cur = stack.pop()
+        if cur:
+            traversal.append(cur.val)
+            # need to add right to stack first, so that left gets popped first
+            if cur.right:
+                stack.append(cur.right)
+            if cur.left:
+                stack.append(cur.left)
     return traversal
 
 
@@ -58,8 +72,8 @@ if __name__ == '__main__':
         return recurse()
 
     # TEST INPUTS
-    funcs = [preorder_iterative, preorder_recursive]
-    func_names = ['Iterative', 'Recursive']
+    funcs = [preorder_iterative, preorder_iterative2, preorder_recursive]
+    func_names = ['Iterative #1', 'Iterative #2', 'Recursive']
     inputs = [[1, 2, 5, 3, 4, 6, 7],
               [],
               [4, 2, 5, None, 3]
