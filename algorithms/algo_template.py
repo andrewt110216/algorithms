@@ -52,7 +52,7 @@ if __name__ == '__main__':
                 print("\n > Test Result: **PASS!**\n")
             else:
                 print("\n > Test Result: **FAIL.**\n")
-                print(f"\t > Expected Result: {expected_result}\n")
+                print(f"\t > Expected Output: {expected_result}\n")
                 failed_tests += 1
 
         return wrapper
