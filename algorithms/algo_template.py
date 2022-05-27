@@ -17,8 +17,8 @@ debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 # ============================== IMPLEMENTATION ==============================
 
 def algorithm(i):
-	"""DOC STRING"""
-	return i
+    """DOC STRING"""
+    return i
 
 # ================================ TEST CASES ================================
 
