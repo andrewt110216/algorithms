@@ -31,6 +31,8 @@ debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 def solution(i):
     """DOC STRING"""
+    # time complexity: 
+    # space complexity: 
     return i
 
 
