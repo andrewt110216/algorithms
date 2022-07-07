@@ -45,16 +45,65 @@
 # outer loops. Since each entire island is 'hidden' after we conquer it, each
 # time we find new land in the loops, it is a new island, so we increment our
 # count.
+#
+# Solution 2: using BFS is similarly simple and effective
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 # ================================= SOLUTION =================================
+# if using multiple solutions, name the function you want to use 'solution',
+# and change the name of other functions (e.g. 'solution1', 'solution2', etc.)
+
+from collections import deque
 
 def solution(grid):
+    """Solution 2: BFS"""
+    # time complexity: O(m * n)
+    # - see explanation below
+    # space complexity: O(min(m, n))
+    # - the queue is the only additional non-constant-sized data structure
+    #   in the worst case where the grid is all land, the largest the queue
+    #   can grow is minimum of the size of the rows or columns
+
     m = len(grid)
     n = len(grid[0])
     islands = 0
-    
+
+    def bfs(row, col):
+        """BFS from grid[r][c] to valid cells with value 1"""
+        q = deque([(row, col)])
+        while q:
+            r, c = q.popleft()
+            for d in [(1,0),(-1,0),(0,1),(0,-1)]:
+                i, j = r + d[0], c + d[1]
+                if 0 <= i < m and 0 <= j < n and grid[i][j] == "1":
+                    grid[i][j] = "0"
+                    q.append((i, j))
+
+    for r in range(m):
+        for c in range(n):
+            if grid[r][c] == "1":
+                islands += 1
+                bfs(r, c)
+
+    return islands
+
+def solution1(grid):
+    """Solution 1: DFS"""
+    # time complexity: O(m * n)
+    # - consider the case where all cells are land. In the for loops, we will
+    #   change all cells into 0's on the very first dfs, from (0, 0). We've
+    #   now visited every cell. When we continue the loop, we will visit all
+    #   remaining cells again, but do no further work after seeing that the 
+    #   value is set to 0. Therefore, our worst case is 2 * O(m*n) = O(m*n)
+    # space complexity: O(m * n)
+    # - consider the above example: we have a DFS call for every cell, so the
+    #   length of the stack is m * n
+
+    m = len(grid)
+    n = len(grid[0])
+    islands = 0
+
     def dfs(r, c):
         """DFS from grid[r][c] to valid cells with value 1"""
         if r < 0 or r >= m or c < 0 or c >= n or grid[r][c] == "0":
@@ -64,7 +113,7 @@ def solution(grid):
         dfs(r + 1, c)
         dfs(r, c - 1)
         dfs(r, c + 1)
-    
+
     # search grid for land, and conquer each island as it is discovered
     for r in range(m):
         for c in range(n):
