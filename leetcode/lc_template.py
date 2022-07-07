@@ -28,6 +28,8 @@
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 # ================================= SOLUTION =================================
+# if using multiple solutions, name the function you want to use 'solution',
+# and change the name of other functions (e.g. 'solution1', 'solution2', etc.)
 
 def solution(i):
     """DOC STRING"""
