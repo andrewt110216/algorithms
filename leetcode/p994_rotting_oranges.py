@@ -51,6 +51,47 @@ debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 import collections
 
 def solution(grid):
+    """Second solution, removing use of deque and visited cells"""
+    # time complexity: O(m * n)
+    # space complexity: O(m * n)
+    #  - in worst case, the list of rotten oranges could be every cell
+
+    m = len(grid)
+    n = len(grid[0])
+    
+    # get initial rotten oranges and count fresh ones
+    current_level = []
+    fresh = 0
+    for r in range(m):
+        for c in range(n):
+            if grid[r][c] == 2:
+                current_level.append((r, c))
+            elif grid[r][c] == 1:
+                fresh += 1
+    
+    # update rotten oranges one BFS level at a time
+    minute = 0
+    while current_level and fresh:
+        minute += 1
+        next_level = []
+        for r, c in current_level:
+            for d in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
+                i, j = r + d[0], c + d[1]
+                if 0 <= i < m and 0 <= j < n:
+                    if grid[i][j] == 1:
+                        grid[i][j] = 2
+                        fresh -= 1
+                        next_level.append((i, j))
+        current_level = next_level
+    
+    if fresh:
+        return -1
+    else:
+        return minute
+
+
+def solution1(grid):
+    """Initial solution"""
     # time complexity: 2 * O(m * n) (discovery, then BFS) = O(m * n)
     # space complexity: 2 * O(m * n) (queue, visited cells) = O(m * n)
 
