@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
     print(f"START OF NEW EXECUTION".center(100, "="))
 
-    graph_input_path = 'algorithms/randomized_contraction_input.txt'
+    graph_input_path = 'algorithms/input-files/karger_min_cut_input.txt'
     graph_input = load_graph_from_file(graph_input_path)
     expected_result = 17  # Per Stanford Algorithms course assignment
 

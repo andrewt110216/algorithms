@@ -125,7 +125,7 @@ if __name__ == '__main__':
 
     # ----- Run Test Cases & Optionally Add The Assignment Case -----
     add_assignment = True
-    filename_base = 'kosaraju-inputs/kosaraju_scc_input'
+    filename_base = 'input-files/kosaraju_scc_input'
     cases_failed = 0
     # cases[i - 1] = [graph size, expected result]
     cases = [

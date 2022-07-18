@@ -210,7 +210,7 @@ if __name__ == '__main__':
 
 # DRIVER CODE FOR ASSIGNMENT SOLUTIONS
 # ===========================================================================
-filepath = 'quick_sort_input.txt'
+filepath = 'algorithms/input-files/quick_sort_input.txt'
 input_array = get_input(filepath)
 length = len(input_array)
 

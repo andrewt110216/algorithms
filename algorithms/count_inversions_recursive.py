@@ -133,7 +133,7 @@ if __name__ == '__main__':
 
     print(f" Test: Huge Input".center(divider_width, "-"))
     tests += 1
-    test_input = read_input_from_file('count_inversions_input.txt')
+    test_input = read_input_from_file('input-files/count_inversions_input.txt')
     print(f'Input Length {len(test_input):,}')
     print('First 15 elements:', test_input[:15], '...')
     result = sort_and_count(test_input)[1]
