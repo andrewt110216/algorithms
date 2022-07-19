@@ -2,10 +2,7 @@
 
 This is a collection of files I created while learning data structures and algorithms, including my solutions to some leetcode and hackerrank problems.
 
-<br>
-
 ## Leetcode Problem Solutions
-<hr>
 
 |  #  | Description | Difficulty |
 | --- | --- | --- |
