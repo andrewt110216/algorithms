@@ -1,7 +1,5 @@
 # Leetcode Problem #3
 # Longest Substring Without Repeating Characters
-# Andrew Tracey
-# May 5, 2022
 
 # CATEGORY
 # Strings, Sliding Windows

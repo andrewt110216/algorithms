@@ -1,63 +1,89 @@
-# Leetcode Problem #344
-# Reverse String
-# Andrew Tracey
-# June 30, 2022
+# Leetcode Problem #203
+# Remove Linked List Elements
 
 # CATEGORY
-# Two Pointers
+# Linked Lists
 
 # PROBLEM DESCRIPTION
-# Write a function that reverses a string. The input string is given as an array
-# of characters s. You must do this by modifying the input array in-place with
-# O(1) extra memory.
+# Given the head of a linked list and an integer val, remove all the nodes of
+# the linked list that has Node.val == val, and return the new head. 
 
 # Example 1:
-# Input: s = ["h","e","l","l","o"]
-# Output: ["o","l","l","e","h"]
+# Input: head = [1,2,6,3,4,5,6], val = 6
+# Output: [1,2,3,4,5]
 
 # Example 2:
-# Input: s = ["H","a","n","n","a","h"]
-# Output: ["h","a","n","n","a","H"]
+# Input: head = [], val = 1
+# Output: []
+
+# Example 3:
+# Input: head = [7,7,7,7], val = 7
+# Output: []
 
 # Constraints
-# 1 <= s.length <= 10^5
-# s[i] is a printable ascii character.
+# The number of nodes in the list is in the range [0, 10^4].
+# 1 <= Node.val <= 50
+# 0 <= val <= 50
 
-# AT NOTES
-# Use two pointers, starting at each end of the array and moving inwards.
-# Consider element 0 and n - 1 as 'opposite' around the center. Swap them, then
-# move on to elements 1 and n - 2.
-# This can be done either with two explicitly defined pointers and a while loop
-# stopping when left == right, or with a for loop on the first half of the 
-# elements, since the second pointer can always be calculated from the left
-# element, i, as n - 1 - i.
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 # ================================= SOLUTION =================================
 
-def solution(s):
-    """Two pointers. While loop."""
-    n = len(s)
-    left = 0
-    right = n - 1
-    while left < right:
-        s[left], s[right] = s[right], s[left]
-        left += 1
-        right -= 1
-    return s
+# ADDED FUNCTIONS TO CONVERT BETWEEN LINKED LIST AND ARRAY FOR TESTING
+def to_array(head):
+    """Turn the list into an array"""
+    if head is None:
+        return []
+    array = []
+    cur_node = head
+    while cur_node.next:
+        array.append(cur_node.val)
+        cur_node = cur_node.next
+    array.append(cur_node.val)
+    return array
 
-def solution1(s):
-    """Two pointers. For loop, calculating second pointer each time"""
-    n = len(s)
-    for i in range(n // 2):
-        s[i], s[n - 1 - i] = s[n - 1 - i], s[i]
-    return s
+def from_array(array):
+    """Build a Linked List from an array"""
+    n = len(array)
+    if n == 0:
+        return None
+    if n == 1:
+        return ListNode(array[0])
+    else:
+        head = ListNode(array[0])
+        prev = head
+        i = 1
+        while i < n:
+            new_node = ListNode(array[i])
+            prev.next = new_node
+            prev = prev.next
+            i += 1
+    return head
+
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def solution(head, val):
+    """Remove each occurence of val from the list starting at head"""
+    if head is None:
+        return head
+    prehead = ListNode(val=0, next=head)
+    prev = prehead
+    while prev.next is not None:
+        if prev.next.val == val:
+            prev.next = prev.next.next
+        else:
+            prev = prev.next
+    return prehead.next
+
 
 # =============================== DRIVER CODE ================================
 
 if __name__ == '__main__':
-    from datetime import datetime
 
     # ------------------------------------------------------------------------
     # Set to true to see debugging print statements, if any
@@ -75,11 +101,9 @@ if __name__ == '__main__':
             global tests, failed_tests, divider_width
             tests += 1
             print(f" TEST CASE: {description} ".center(divider_width, "-"))
-            print('Input:', *args, **kwargs)
-            start = datetime.now()
-            result = func(*args, **kwargs)
+            print('Input:', to_array(args[0]), args[1])
+            result = to_array(func(*args, **kwargs))
             print('Output:', result)
-            print('Time:', datetime.now() - start)
 
             if result == expected:
                 print("\n > Test Result: **PASS!**\n")
@@ -90,37 +114,29 @@ if __name__ == '__main__':
 
         return wrapper
 
-    # For testing, decorate the solution function
     solution = test_decorator(solution)
 
 # ADD TEST CASES HERE--------------------------------------------------------
 
     # Test Case Block
     test_case_description = 'Example 1'
-    args = [["h","e","l","l","o"]]
+    args = [from_array([1,2,6,3,4,5,6]), 6]
     kwargs = {}
-    expected_result = ["o","l","l","e","h"]
+    expected_result = [1,2,3,4,5]
     solution(expected_result, test_case_description, *args, **kwargs)
 
-#    # Test Case Block
+    # Test Case Block
     test_case_description = 'Example 2'
-    args = [["H","a","n","n","a","h"]]
+    args = [from_array([]), 1]
     kwargs = {}
-    expected_result = ["h","a","n","n","a","H"]
+    expected_result = []
     solution(expected_result, test_case_description, *args, **kwargs)
 
-#    # Test Case Block
-    test_case_description = 'Single Element'
-    args = [["a"]]
+    # Test Case Block
+    test_case_description = 'Example 3'
+    args = [from_array([7,7,7,7]), 7]
     kwargs = {}
-    expected_result = ["a"]
-    solution(expected_result, test_case_description, *args, **kwargs)
-
-#    # Test Case Block
-    test_case_description = 'Two Element'
-    args = [["a", "b"]]
-    kwargs = {}
-    expected_result = ["b", "a"]
+    expected_result = []
     solution(expected_result, test_case_description, *args, **kwargs)
 
 # SUMMARY ====================================================================

@@ -1,7 +1,5 @@
 # Leetcode Problem #148
 # Sort List
-# Andrew Tracey
-# April 18, 2022
 
 # Given the head of a linked list, return the list after sorting it in 
 #  ascending order.

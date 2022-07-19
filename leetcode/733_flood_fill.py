@@ -1,7 +1,5 @@
 # Leetcode Problem #733
 # Flood Fill
-# Andrew Tracey
-# May 15, 2022
 
 # CATEGORY
 # Depth-First-Search (DFS)

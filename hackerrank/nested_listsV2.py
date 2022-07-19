@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # Nested Lists
-# Author: Andrew Tracey
-# Completed: September 17, 2021
 
 # --- PROBLEM DESCRIPTION ---
 # Given the names and grades for each student in a class of  students,

@@ -1,7 +1,5 @@
 # Leetcode Problem #286
 # Walls and Gates
-# Andrew Tracey
-# July 7, 2022
 
 # CATEGORY
 # BFS, Shortest Path

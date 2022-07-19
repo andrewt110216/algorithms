@@ -1,7 +1,5 @@
 # Leetcode Problem #542
 # 01 Matrix
-# Andrew Tracey
-# May 19, 2022
 
 # CATEGORY
 # Array, Dynamic Programming

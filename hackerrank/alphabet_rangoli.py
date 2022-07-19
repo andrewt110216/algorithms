@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # Alphabet Rangoli
-# Author: Andrew Tracey
-# Completed: January 1, 2022
 
 # --- PROBLEM DESCRIPTION ---
 # You are given an integer, N.

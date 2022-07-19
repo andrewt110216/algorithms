@@ -1,7 +1,5 @@
 # Leetcode Problem #200
 # Number of Islands
-# Andrew Tracey
-# July 7, 2022
 
 # CATEGORY
 # DFS

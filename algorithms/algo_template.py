@@ -1,7 +1,5 @@
 # Learning Algorithms
 # [ALGORITHM]
-# Andrew Tracey
-# [DATE]
 
 # DESCRIPTION
 # Goal:

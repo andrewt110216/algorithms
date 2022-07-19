@@ -1,7 +1,5 @@
 # Leetcode Problem #x
 # NAME
-# Andrew Tracey
-# DATE
 
 # CATEGORY
 # 

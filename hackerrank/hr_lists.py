@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # Lists
-# Author: Andrew Tracey
-# Completed: October 10, 2021
 
 # --- PROBLEM DESCRIPTION ---
 # Consider a list (list = []). You can perform the following commands:

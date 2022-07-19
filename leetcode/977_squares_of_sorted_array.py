@@ -1,7 +1,5 @@
 # Leetcode Problem #977
 # Squares of a Sorted Array
-# Andrew Tracey
-# May 3, 2022
 
 # PROBLEM DESCRIPTION
 # Given an integer array nums sorted in non-decreasing order, return

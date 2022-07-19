@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # Find a string
-# Author: Andrew Tracey
-# Completed: September 12, 2021
 
 # --- PROBLEM DESCRIPTION ---
 # In this challenge, the user enters a string and a substring.

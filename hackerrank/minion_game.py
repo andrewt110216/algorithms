@@ -1,6 +1,5 @@
 # Hackerrank Problem
-# Author: Andrew Tracey
-# Completed: January 13, 2022
+# Minion Game
 
 # Game Rules
 #   Both players are given the same string.

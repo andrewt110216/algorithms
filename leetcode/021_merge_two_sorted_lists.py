@@ -1,7 +1,5 @@
 # Leetcode Problem #21
 # Merge Two Sorted Lists
-# Andrew Tracey
-# April 7, 2022 - Revisited May 4, 2022
 
 # CATEGORY
 # Linked Lists, Recursion

@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # Python Time Delta
-# Author: Andrew Tracey
-# Completed: October 11, 2021
 
 # Link: https://www.hackerrank.com/challenges/python-time-delta/problem
 # --- PROBLEM DESCRIPTION ---

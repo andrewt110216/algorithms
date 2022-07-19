@@ -1,7 +1,5 @@
 # Leetcode Problem #695
 # Max Area of Island
-# Andrew Tracey
-# May 15, 2022
 
 # CATEGORY
 # Depth-First-Search

@@ -1,8 +1,5 @@
 # Leetcode Problem #34
 # Find First and Last Position of Element in Sorted Array
-# SOLUTION VERSION #2 - See Version #1 in Separate File
-# Andrew Tracey
-# April 21, 2022
 
 # PROBLEM DESCRIPTION
 # Given an array of integers (nums) sorted in non-decreasing order, find the
@@ -14,12 +11,35 @@
 # Input: [5, 7, 7, 8, 8, 10], target = 8
 # Output: [3,4]
 
+# Example 2:
+# Input: [5, 7, 7, 8, 8, 10], target = 6
+# Output: [-1,-1]
+
+# Example 3:
+# Input: [], target = 0
+# Output: [-1,-1]
+
 # PLAN
-# We can basically run two binary searches. First, we will do a binary search
-# to identify the first occurence of target. Then, we will do another search
-# to identify the last occurence. The searches will be done consecutively.
-# We will just tweak the binary search alogirthm to allow for the option to
-# look for the first or last occurence.
+# Use binary search, which runs in O(log n), as needed.
+# When we find a match, we'll need to store it AND its index. In fact, we
+# should only store its index, and all indexes at which we find a match.
+# Then, we'll simply sort the index locations, and return the first and last.
+# Is it too costly to also sort that list? It is, in fact, since sorting in
+# Python has time complexity O(n * log n), which is too big...hmm...
+# We'll have to be more clever. At each recursive call, we'll have to return
+# only the highest and lowest indexes where target is found. It is OK to add
+# operations in the recursions, as long as they are independent of n.
+# ...OK. I just got it. The array is already sorted! So once we find a match,
+# we don't actually have to contine. We just have to look left and right until
+# we find a different number, and return the outermost positions of target!
+
+# CONCLUSION
+# This implementation turned out to still be a bit tricky. After finding a match, it was
+# difficult to manage the indexes of the linear scan left/right to not go out
+# of bounds was difficult, and, doing a linear scan actually could increase
+# the overall runtime to O(n), if, say, all elements of the array were
+# the target.
+# PLEASE SEE V2 SOLUTION IN SEPARATE FILE.
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
@@ -28,60 +48,33 @@ class Solution:
     def searchRange(self, nums, target, start=0, end=None):
         """Find the first and last position of target in nums"""
 
-        first_position = self.find_bound(nums, target, first=True)
-        if first_position == -1:
-            return [-1, -1]
-        last_position = self.find_bound(nums, target, first=False)
-
-        return [first_position, last_position]
-
-    def find_bound(self, nums, target, first=True):
-        """
-        Binary search an array for a target value, where the target may
-        occur x >= 0 times in array. Return the index of either the first
-        or last occurence of target in the array.
-
-        :param list nums: list to be searched
-        :param int target: value to be searched for in nums
-        :param int start: index at which to start the search
-        :param int end: index at which to end the search
-        :param boolean first: True to find first occurence; False to find last
-        :return int: the index at which target was found; -1 if not found
-        """
-
-        # Return -1 if nums is empty
-        if not nums:
-            return -1
-
-        # Initiate start and end indexes
-        n = len(nums)
-        start, end = 0, n
-        mid = (start + end) // 2
-
-        # Binary search until start >= end
-        while start <= end and mid in range(n):
-            if target == nums[mid]:
-                if first:
-                    # Two cases to determine if our value is the first
-                    if mid == start or nums[mid - 1] < target:
-                        return mid
-                    else:  # Ours was not the first
-                        end = mid - 1
-                else:  # first = False
-                    # Two cases to determine if our value is the last
-                    if mid in [end, n - 1] or nums[mid + 1] > target:
-                        return mid
-                    else:  # Ours was not the last
-                        start = mid + 1
-            elif target < nums[mid]:
-                end = mid - 1
-            elif target > nums[mid]:
-                start = mid + 1
-            # Reset mid for next iteration
-            mid = (start + end) // 2
+        # Make sure num is nonempty. If not, return [-1, -1]
+        if nums:
+            # Initiate the end value
+            if end is None:
+                end = len(nums)
+            # Recursively search for target with binary search
+            if end > start:
+                mid = (start + end) // 2
+                if target == nums[mid]:
+                    # Set the first and last occurences to mid
+                    first = last = mid
+                    # Go left for as long as the value is still target
+                    while first > 0 and nums[first - 1] == target:
+                        first -= 1
+                    # Now go right
+                    while last < len(nums) - 1 and nums[last + 1] == target:
+                        last += 1
+                    return [first, last]
+                elif target < nums[mid]:
+                    args = [nums, target, start, mid - 1]
+                    return self.searchRange(*args)
+                elif target > nums[mid]:
+                    args = [nums, target, mid + 1, end]
+                    return self.searchRange(*args)
 
         # No matches found
-        return -1
+        return [-1, -1]
 
 # ================================ TEST CASES ================================
 
@@ -152,7 +145,7 @@ if __name__ == '__main__':
 
 # New Test Case --------------------------------------------------------------
 
-    print(f" TEST CASE: Many Targets at Start".center(divider_width, "-"))
+    print(f" TEST CASE: Add Negatives and Zeros".center(divider_width, "-"))
     tests += 1
     test_input = ([-5, -5, -5, -5, -5, -1, 0, 0, 1, 1, 3, 6, 9, 100], -5)
     print('Input:', test_input)
@@ -170,25 +163,7 @@ if __name__ == '__main__':
 
 # New Test Case --------------------------------------------------------------
 
-    print(f" TEST CASE: Many Targets at End".center(divider_width, "-"))
-    tests += 1
-    test_input = ([0, 0, 1, 1, 3, 6, 9, 100, 112, 112, 112, 112], 112)
-    print('Input:', test_input)
-    solution = Solution()
-    result = solution.searchRange(*test_input)
-    print('Output:', result)
-
-    expected_result = [8, 11]
-    if result == expected_result:
-        print("\n > Test Result: **PASS!**\n")
-    else:
-        print("\n > Test Result: **FAIL.**\n")
-        print(f"\t > Expected Result: {expected_result}\n")
-        failed_tests += 1
-
-# New Test Case --------------------------------------------------------------
-
-    print(f" TEST CASE: Only One Value (Length 2)".center(divider_width, "-"))
+    print(f" TEST CASE: Only One Value".center(divider_width, "-"))
     tests += 1
     test_input = ([2, 2], 2)
     print('Input:', test_input)
@@ -197,42 +172,6 @@ if __name__ == '__main__':
     print('Output:', result)
 
     expected_result = [0, 1]
-    if result == expected_result:
-        print("\n > Test Result: **PASS!**\n")
-    else:
-        print("\n > Test Result: **FAIL.**\n")
-        print(f"\t > Expected Result: {expected_result}\n")
-        failed_tests += 1
-
-# New Test Case --------------------------------------------------------------
-
-    print(f" TEST CASE: Only One Value (Length 2)".center(divider_width, "-"))
-    tests += 1
-    test_input = ([2, 2], 3)
-    print('Input:', test_input)
-    solution = Solution()
-    result = solution.searchRange(*test_input)
-    print('Output:', result)
-
-    expected_result = [-1, -1]
-    if result == expected_result:
-        print("\n > Test Result: **PASS!**\n")
-    else:
-        print("\n > Test Result: **FAIL.**\n")
-        print(f"\t > Expected Result: {expected_result}\n")
-        failed_tests += 1
-
-# New Test Case --------------------------------------------------------------
-
-    print(f" TEST CASE: Only One Value (Length 5)".center(divider_width, "-"))
-    tests += 1
-    test_input = ([6, 6, 6, 6, 6], 6)
-    print('Input:', test_input)
-    solution = Solution()
-    result = solution.searchRange(*test_input)
-    print('Output:', result)
-
-    expected_result = [0, 4]
     if result == expected_result:
         print("\n > Test Result: **PASS!**\n")
     else:

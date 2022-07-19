@@ -1,7 +1,5 @@
 # Leetcode Problem #77
 # Combinations
-# Andrew Tracey
-# July 15, 2022
 
 # CATEGORY
 # Backtracking

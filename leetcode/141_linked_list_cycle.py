@@ -1,7 +1,5 @@
 # Leetcode Problem #141
 # Linked List Cycle
-# Andrew Tracey
-# May 4, 2022
 
 # CATEGORY
 # Linked Lists, Two Pointers

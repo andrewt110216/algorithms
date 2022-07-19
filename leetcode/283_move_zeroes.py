@@ -1,7 +1,5 @@
 # Leetcode Problem #283
 # Move Zeroes
-# Andrew Tracey
-# May 3, 2022
 
 # PROBLEM DESCRIPTION
 # Given an integer array nums, move all 0's to the end of it while

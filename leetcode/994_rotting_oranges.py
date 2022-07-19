@@ -1,7 +1,5 @@
 # Leetcode Problem #994
 # Rotting Oranges
-# Andrew Tracey
-# July 6, 2022
 
 # CATEGORY
 # Array, BFS

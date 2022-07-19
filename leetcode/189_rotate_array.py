@@ -1,7 +1,5 @@
 # Leetcode Problem #189
 # Rotate Array
-# Andrew Tracey
-# May 3, 2022
 
 # PROBLEM DESCRIPTION
 # Given an array, rotate the array to the right by k steps, where

@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # Find a string
-# Author: Andrew Tracey
-# Completed: September 12, 2021
 
 # Version 2:
 # This is my second script to solve this problem, more efficiently than the

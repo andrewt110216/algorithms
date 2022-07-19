@@ -1,72 +1,72 @@
-# Leetcode Problem #1
-# Two Sum
-# Andrew Tracey
-# May 4, 2022
+# Leetcode Problem #20
+# Valid Parentheses
 
 # CATEGORY
-# Arrays, Dynamic Programming
+# Stacks
 
 # PROBLEM DESCRIPTION
-# Given an array of integers nums and an integer target, return indices of the
-# two numbers such that they add up to target.
-# You may assume that each input would have exactly one solution, and you may
-# not use the same element twice.
-# You can return the answer in any order.
+# Given a string s containing just the characters '(', ')', '{', '}',
+# '[' and ']', determine if the input string is valid.
+# An input string is valid if:
+#  - Open brackets must be closed by the same type of brackets.
+#  - Open brackets must be closed in the correct order.
 
 # Example 1:
-# Input: nums = [2,7,11,15], target = 9
-# Output: [0,1]
-# Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+# Input: s = "()"
+# Output: true
 
 # Example 2:
-# Input: nums = [3,2,4], target = 6
-# Output: [1,2]
+# Input: s = "()[]{}"
+# Output: true
 
 # Example 3:
-# Input: nums = [3,3], target = 6
-# Output: [0,1]
+# Input: s = "(]"
+# Output: false
 
-# # Constraints
-# 2 <= nums.length <= 10^4
-# -10^9 <= nums[i] <= 10^9
-# -10^9 <= target <= 10^9
-# Only one valid answer exists.
-
-# Follow Up
-# Can you come up with an algorithm that is less than O(n^2) time complexity?
+# Constraints
+# 1 <= s.length <= 10^4
+# s consists of parentheses only '()[]{}'.
 
 # AT NOTES
-# The brute force approach would be a nested for loop, evaluating each pair
-# of elements until the target sum is found. This is O(n^2).
-# 
-# Instead, for each number, we can calculate the required value needed to add
-# to the taret. If we save the required number in a dictionary as a key, with
-# value as its index, then as we iterate over nums we can search for the
-# complementary number needed, and when it is found, we return the keys of the
-# two numbers.
+# Use a stack. For each open bracket, push it to the stack.
+# When we encounter a closed bracket, we need to pop from the stack and make
+# sure that the popped bracket opens the closed bracket. If not, return False.
+# If the stack is empty while still traversing s, return False.
+# If we reach the end of s and the stack is empty, return False.
+# Use collections.deque for the stack
 
 debug = False  # DO NOT CHANGE HERE. False for file import. Change below.
 
 # ================================= SOLUTION =================================
+import collections
 
-def solution(nums, target):
-    """Store the complements needed for each value in a dictionary"""
-    complements = {}
-    for i in range(len(nums)):
-        if nums[i] in complements:
-            return [complements[nums[i]], i]
-        else:
-            complement = target - nums[i]
-            complements[complement] = i
+def solution(s):
+    """Use a stack to confirm brackets are closed correctly"""
 
-    return False
+    stack = collections.deque()
 
-def solution1(nums, target):
-    """Brute force iterative solution. O(n^2)"""
-    for i in range(len(nums)-1):
-        for j in range(i+1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [i, j]
+    # Iterate over each character in s
+    for char in s:
+        if char in ["(", "[", "{"]:
+            stack.append(char)
+        else:  # By constraints, char is a closing bracket in [")", "]", "}"]
+            
+            # If the stack is empty, this closed bracket was not last opened
+            if len(stack) <= 0:
+                return False
+
+            # Pop from stack and make sure it is the appropriate open bracket
+            removed = stack.pop()
+            if char == ")" and removed != "(":
+                return False
+            if char == "]" and removed != "[":
+                return False
+            if char == "}" and removed != "{":
+                return False
+
+    # If the stack is not empty, then an open bracket was not properly closed
+    if len(stack) == 0:
+        return True
     return False
 
 
@@ -109,23 +109,37 @@ if __name__ == '__main__':
 
     # Test Case Block
     test_case_description = 'Example 1'
-    args = [[2,7,11,15], 9]
+    args = ["()"]
     kwargs = {}
-    expected_result = [0, 1]
+    expected_result = True
     solution(expected_result, test_case_description, *args, **kwargs)
 
     # Test Case Block
     test_case_description = 'Example 2'
-    args = [[3,2,4], 6]
+    args = ["()[]{}"]
     kwargs = {}
-    expected_result = [1, 2]
+    expected_result = True
     solution(expected_result, test_case_description, *args, **kwargs)
 
     # Test Case Block
     test_case_description = 'Example 3'
-    args = [[3,3], 6]
+    args = ["(]"]
     kwargs = {}
-    expected_result = [0, 1]
+    expected_result = False
+    solution(expected_result, test_case_description, *args, **kwargs)
+
+    # Test Case Block
+    test_case_description = 'Nested Example - Correct'
+    args = ["([{()}])"]
+    kwargs = {}
+    expected_result = True
+    solution(expected_result, test_case_description, *args, **kwargs)
+
+    # Test Case Block
+    test_case_description = 'Nested Example - Incorrect'
+    args = ["([{()}[])"]
+    kwargs = {}
+    expected_result = False
     solution(expected_result, test_case_description, *args, **kwargs)
 
 # SUMMARY ====================================================================

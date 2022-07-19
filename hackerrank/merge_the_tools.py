@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # Merge The Tools
-# Author: Andrew Tracey
-# Completed: January 15, 2022
 
 # --- PROBLEM DESCRIPTION ---
 # Consider the following:

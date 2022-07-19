@@ -1,7 +1,5 @@
 # Leetcode Problem #53
 # Maximum Subarray
-# Andrew Tracey
-# May 4, 2022
 
 # CATEGORY
 # Arrays, Dynamic Programming

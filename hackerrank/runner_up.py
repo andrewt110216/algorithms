@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # Find the runner-up score
-# Author: Andrew Tracey
-# Completed: September 14, 2021
 
 # --- PROBLEM DESCRIPTION ---
 # Given the participants' score sheet for your University Sports Day,

@@ -1,7 +1,5 @@
 # Leetcode Problem #215
 # Kth Largest Element in an Array
-# Andrew Tracey
-# April 28, 2022
 
 # PROBLEM DESCRIPTION
 # Given an integer array nums and an integer k, return the kth largest

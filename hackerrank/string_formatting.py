@@ -1,7 +1,5 @@
 # Hackerrank Problem
 # String Formatting
-# Author: Andrew Tracey
-# Completed: December 7, 2021
 
 # --- PROBLEM DESCRIPTION ---
 # Given an integer n, print the following formats of each i from 1 to n:

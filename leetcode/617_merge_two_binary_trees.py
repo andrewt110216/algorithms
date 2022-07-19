@@ -1,7 +1,5 @@
 # Leetcode Problem #617
 # Merge Two Binary Trees
-# Andrew Tracey
-# May 18, 2022
 
 # CATEGORY
 # DFS / BFS
