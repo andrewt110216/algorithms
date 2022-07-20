@@ -2,8 +2,7 @@
 
 ![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests.yml/badge.svg) ![GitHub top language](https://img.shields.io/github/languages/top/andrewt110216/algorithms-and-data-structures)
 
-A collection of files created while learning algorithms & data structures and solving Leetcode problems.
-
+<em>A collection of files created while learning algorithms & data structures and solving Leetcode problems.</em>
 
 ## Leetcode Problem Solutions - Contents
 

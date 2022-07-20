@@ -1,0 +1,20 @@
+name: Leetcode Test Cases & Flake8 (V2)
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Lint with flake8
+        run: flake8 leetcode/p*
+      - name: Run LC test cases with pytest
+        run: pytest
