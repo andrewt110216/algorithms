@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | 001 | <a href="https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p001_solution.py" target="_blank">Two Sum</a> | Easy |
 | 003 | <a href="https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p003_solution.py" target="_blank">Longest Substring Without Repeating Characters</a> | Medium |
-| 020 | Valid Parentheses | Easy |
+| 020 | <a href="https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p020_solution.py" target="_blank">Valid Parentheses</a> | Easy |
 | 021 | Merge Two Sorted Linked Lists | Easy |
 | 034 | Find First and Last Position of Element in Sorted Array | Medium |
 | 053 | Maximum Subarray | Medium |

@@ -42,7 +42,7 @@ class Solution:
 
                 # check that the index of the top element from stack in the
                 # opening brackets list matches the index of char
-                # in the closing brackets list 
+                # in the closing brackets list
                 if stack:
                     open = stack.pop()
                     if closing.index(char) != opening.index(open):
@@ -62,7 +62,6 @@ class Solution:
 
         # nothing invalid was found, so s must be valid
         return True
-
 
     def valid_parentheses_first(self, s: str) -> bool:
         """
