@@ -9,7 +9,7 @@
 |  #  | Description | Difficulty |
 | --- | --- | --- |
 | 001 | [Two Sum](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p001_solution.py) | Easy |
-| 003 | Longest Substring Without Repeating Characters | Medium |
+| 003 | [Longest Substring Without Repeating Characters](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p003_solution.py) | Medium |
 | 020 | Valid Parentheses | Easy |
 | 021 | Merge Two Sorted Linked Lists | Easy |
 | 034 | Find First and Last Position of Element in Sorted Array | Medium |
