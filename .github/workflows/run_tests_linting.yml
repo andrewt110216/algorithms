@@ -14,6 +14,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Lint with flake8
-        run: flake8 leetcode/p*
+        run: flake8 leetcode/p* leetcode/template*
       - name: Run LC test cases with pytest
         run: pytest

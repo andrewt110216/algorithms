@@ -1,9 +1,12 @@
+# **UPDATE 'template' FILENAME FOR IMPORT AND REMOVE THIS COMMENT**
 from template_solution import Solution
+
 
 class TestClass:
 
     # run test case for each implementation in Solution
     s = Solution()
+
     def run_funcs(self, args, expected):
         for implementation in self.s.implementations:
             func = getattr(self.s, implementation)
@@ -14,7 +17,7 @@ class TestClass:
         expected = False
         self.run_funcs(args, expected)
 
-    def test1_example1(self):
+    def test2_example2(self):
         args = [False]
         expected = True
         self.run_funcs(args, expected)

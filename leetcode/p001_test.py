@@ -31,7 +31,7 @@ class TestClass:
         expected = [9_999, 10_000]
         self.run_funcs(args, expected)
 
-    def test4_no_solution(self):
+    def test5_no_solution(self):
         args = [[1, 2, 3, 4, 5], 10]
         expected = False
         self.run_funcs(args, expected)
