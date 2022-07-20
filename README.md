@@ -1,14 +1,14 @@
 # Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![GitHub top language](https://img.shields.io/github/languages/top/andrewt110216/algorithms-and-data-structures)
+![LC Problems](https://img.shields.io/badge/LC%20Problems-22-blue) ![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg)
 
 <em>A collection of files created while learning algorithms & data structures and solving Leetcode problems.</em>
 
-## Leetcode Problem Solutions - Contents
+## LC Problem Solutions
 
 |  #  | Description | Difficulty |
 | --- | --- | --- |
-| 001 | Two Sum | Easy |
+| 001 | [Two Sum](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p001_solution.py) | Easy |
 | 003 | Longest Substring Without Repeating Characters | Medium |
 | 020 | Valid Parentheses | Easy |
 | 021 | Merge Two Sorted Linked Lists | Easy |
