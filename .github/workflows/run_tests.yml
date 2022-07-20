@@ -1,4 +1,4 @@
-name: Leetcode Test Cases & Flake8
+name: LC Tests Cases & Flake8
 
 on: [push]
 
