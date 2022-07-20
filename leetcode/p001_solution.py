@@ -28,7 +28,7 @@ class Solution:
 
                 # return indexes of current num and its complement
                 return [seen[complement], i]
-            
+
             # otherwise, add num to seen and move on to next element in nums
             else:
                 seen[num] = i
@@ -71,7 +71,7 @@ if __name__ == '__main__':
         ['Example 1', [[2, 7, 11, 15], 9], [0, 1]],
         ['Example 2', [[3, 2, 4], 6], [1, 2]],
         ['Example 3', [[3, 3], 6], [0, 1]],
-        ['Large Input',[list(range(10_001)), 19_999],[9_999, 10_000]],
+        ['Large Input', [list(range(10_001)), 19_999], [9_999, 10_000]],
         ['No Solution', [[1, 2, 3, 4, 5], 10], False],
     ]
 
