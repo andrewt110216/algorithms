@@ -8,7 +8,7 @@ class Solution:
 
     def longest_substring(self, s: str) -> int:
         """
-        Use a sliding window with two pointers, optimized by saving the higest
+        Use a sliding window with two pointers, optimized by saving the highest
         index where each character is found in a dictionary so that the left
         pointer can jump ahead when repeat characters are encountered
 
