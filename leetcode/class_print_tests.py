@@ -29,6 +29,7 @@ class PrintTests():
             self.tests += 1
             start = datetime.now()
             result = func(*args)
+            end = datetime.now()
 
             # if output is list, sort result and expected result for comparison
             for var in [result, expected]:
@@ -39,7 +40,7 @@ class PrintTests():
 
             # print and evaluate results
             print('    Output:', str(result)[:self.max_io_print_len])
-            print('    Time:', datetime.now() - start)
+            print('    Time:', end - start)
             if result == expected:
                 print("\n  > Result: **PASS!**\n")
             else:
