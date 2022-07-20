@@ -1,8 +1,11 @@
 # Algorithms & Data Structures
 
-This is a collection of files I created while learning data structures and algorithms, including my solutions to some leetcode and hackerrank problems.
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests.yml/badge.svg) ![GitHub top language](https://img.shields.io/github/languages/top/andrewt110216/algorithms-and-data-structures)
 
-## Leetcode Problem Solutions
+A collection of files created while learning algorithms & data structures and solving Leetcode problems.
+
+
+## Leetcode Problem Solutions - Contents
 
 |  #  | Description | Difficulty |
 | --- | --- | --- |

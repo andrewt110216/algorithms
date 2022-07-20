@@ -1,9 +1,11 @@
 # For Mac
 .DS_Store
 
-# Files in progress
+# Files not to be posted
 incomplete/
 temp.py
+data_structures/
+hackerrank/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

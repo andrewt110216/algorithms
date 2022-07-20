@@ -1,4 +1,4 @@
-name: Run Tests
+name: Leetcode Test Cases & Flake8
 
 on: [push]
 
