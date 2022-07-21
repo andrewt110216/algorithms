@@ -44,3 +44,18 @@ class TestClass:
         args = [[[1, 3], [2, 4], [3, 5]]]
         expected = [[1, 5]]
         self.run_funcs(args, expected)
+
+    def test6_decrease_start_interval(self):
+        args = [[[1, 4], [0, 4]]]
+        expected = [[0, 4]]
+        self.run_funcs(args, expected)
+
+    def test6_two_overlaps(self):
+        args = [[[1, 3], [2, 6], [8, 10], [15, 18]]]
+        expected = [[1, 6], [8, 10], [15, 18]]
+        self.run_funcs(args, expected)
+
+    def test7_no_overlap_not_sorted(self):
+        args = [[[1, 4], [0, 0]]]
+        expected = [[0, 0], [1, 4]]
+        self.run_funcs(args, expected)
