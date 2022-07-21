@@ -66,8 +66,8 @@ class PrintTests():
 
         print("\t===========")
         print(f"\t|| {final_result} ||")
-        print("\t===========")
-        print("".center(self.print_width, '*'))
+        print("\t===========\n")
+        print("".center(self.print_width, '*'), "\n")
 
     def run(self):
 
@@ -89,7 +89,7 @@ class PrintTests():
                     display = arg
                 args_display.append(display)
 
-            print('Input:', args_display, '\n')
+            print('\nInput:', args_display, '\n')
 
             # execute test case for each implementation
             for func_str in self.solution.implementations:
