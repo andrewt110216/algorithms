@@ -10,8 +10,8 @@ class Solution:
         """
         Describe the implementation
 
-        Time: O(n)
-        Space: O(n)
+        Time: O()
+        Space: O()
         """
 
         return not my_boolean
