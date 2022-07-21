@@ -1,5 +1,5 @@
-
 from datetime import datetime
+
 
 class PrintTests():
     """Use to print detail and summary of test case results"""
@@ -10,13 +10,13 @@ class PrintTests():
 
         # make sure solution has an attribute called 'implementations'
         try:
-            getattr(self.solution, 'implementations')
+            getattr(self.solution, "implementations")
         except AttributeError:
             raise AttributeError(
-                "Solution must have an attribute 'implementations', which is" \
+                "Solution must have an attribute 'implementations', which is"
                 "a list of the names of the solution methods in Solution."
                 )
-        
+
         self.tests = 0
         self.failed_tests = 0
         self.print_width = 78
@@ -39,8 +39,8 @@ class PrintTests():
                         [x.sort() for x in var]
 
             # print and evaluate results
-            print('    Output:', str(result)[:self.max_io_print_len])
-            print('    Time:', end - start)
+            print("    Output:", str(result)[:self.max_io_print_len])
+            print("    Time:", end - start)
             if result == expected:
                 print("\n  > Result: **PASS!**\n")
             else:
@@ -53,16 +53,16 @@ class PrintTests():
     def summarize(self):
 
         # print number of tests run and failed, and overall results (pass/fail)
-        print(f" SUMMARY OF RESULTS ".center(self.print_width, "="))
+        print(" SUMMARY OF RESULTS ".center(self.print_width, "="))
         print(f"\nTOTAL TESTS RUN: {self.tests}")
         print("\nOVERALL RESULT:\n")
 
         if self.failed_tests:
-            final_result = 'FAIL.'
+            final_result = "FAIL."
             print(f"\t{self.failed_tests} test(s) failed.\n")
         else:
-            final_result = 'PASS!' 
-            print(f"\tAll tests passed! Niceee.\n")
+            final_result = "PASS!"
+            print("\tAll tests passed! Niceee.\n")
 
         print("\t===========")
         print(f"\t|| {final_result} ||")
@@ -93,7 +93,7 @@ class PrintTests():
 
             # execute test case for each implementation
             for func_str in self.solution.implementations:
-                print(f" - Implementation:", func_str)
+                print(" - Implementation:", func_str)
                 func = self.decorator(getattr(self.solution, func_str))
                 func(self, expected, *args)
 
