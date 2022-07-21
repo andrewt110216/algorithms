@@ -20,7 +20,41 @@ class PrintTests():
         self.tests = 0
         self.failed_tests = 0
         self.print_width = 78
-        self.max_io_print_len = 50
+        self.max_io_len = 50
+
+    def truncate_display(self, var):
+        """Truncate the display of a long variable for printing to console"""
+        if len(str(var)) > self.max_io_len:
+            display = str(var)[:self.max_io_len // 2] + '... ' \
+                        + str(var)[-self.max_io_len // 2:]
+            return display
+        else:
+            return var
+
+    def tuples_to_lists(self, var):
+        """Check the input for any tuples, and convert them to lists"""
+
+        # if var is not subscriptable, it has no tuples, so return it as is
+        if hasattr(var, "__getitem__") is False:
+            return var
+
+        # var must be a tuple, list, or dictionary
+        # handle each type, looking for one layer of nested tuples, as well
+        if type(var) is tuple:
+            if type(var[0]) is not tuple:
+                return list(var)
+            else:
+                return [list(x) for x in var]
+        elif type(var) is list:
+            if type(var[0]) is not tuple:
+                return var
+            else:
+                return [list(x) for x in var]
+        elif type(var) is dict:
+            for key, value in var.items():
+                if type(value) is tuple:
+                    var[key] = list(value)
+            return var
 
     def decorator(self, func):
 
@@ -31,22 +65,30 @@ class PrintTests():
             result = func(*args)
             end = datetime.now()
 
-            # if output is list, sort result and expected result for comparison
+            # check input/out for any tuples and convert them to lists
+            result = self.tuples_to_lists(result)
+            expected = self.tuples_to_lists(expected)
+
+            # if input/output is list, sort both for comparison
             for var in [result, expected]:
                 if type(var) is list:
                     var.sort()
                     if type(var[0]) is list:
                         [x.sort() for x in var]
 
+            # truncate display of output/expected for printing to console
+            result_display = self.truncate_display(result)
+            expected_display = self.truncate_display(expected)
+
             # print and evaluate results
-            print("    Output:", str(result)[:self.max_io_print_len])
+            print("    Output:", result_display)
             print("    Time:", end - start)
             if result == expected:
                 print("\n  > Result: **PASS!**\n")
             else:
                 self.failed_tests += 1
                 print("\n  > Result: **FAIL.**\n")
-                print(f"\t > Expected Result: {expected}\n")
+                print(f"\t > Expected Result: {expected_display}\n")
 
         return wrapper
 
@@ -79,16 +121,8 @@ class PrintTests():
         for description, args, expected in self.cases:
             print(f" CASE: {description} ".center(self.print_width, "-"))
 
-            # truncate printing of very large input
-            args_display = []
-            for arg in args:
-                if len(str(arg)) > self.max_io_print_len:
-                    display = str(arg)[:self.max_io_print_len // 2]
-                    display += '... ' + str(arg)[-self.max_io_print_len // 2:]
-                else:
-                    display = arg
-                args_display.append(display)
-
+            # truncate display of input for printing to console
+            args_display = [self.truncate_display(arg) for arg in args]
             print('\nInput:', args_display, '\n')
 
             # execute test case for each implementation
