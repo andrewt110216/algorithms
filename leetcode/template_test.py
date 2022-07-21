@@ -4,9 +4,9 @@ from template_solution import Solution
 
 class TestClass:
 
-    # run test case for each implementation in Solution
     s = Solution()
 
+    # run test case for each implementation in Solution
     def run_funcs(self, args, expected):
         for implementation in self.s.implementations:
             func = getattr(self.s, implementation)
