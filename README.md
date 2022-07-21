@@ -14,6 +14,7 @@
 | 021 | [Merge Two Sorted Linked Lists](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p021_solution.py) | Easy |
 | 034 | [Find First and Last Position of Element in Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p034_solution.py) | Medium |
 | 053 | [Maximum Subarray](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p053_solution.py) | Medium |
+| 056 | [Merge Intervals](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p056_solution.py) | Medium |
 | 077 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
 | 141 | Linked List Cycle | Easy |
 | 148 | Sort List | Medium |
