@@ -6,8 +6,8 @@ class TestClass:
 
     s = Solution()
 
-    # run test case for each implementation in Solution
     def run_funcs(self, args, expected):
+        """Run test case for each implementation in Solution"""
         for implementation in self.s.implementations:
             func = getattr(self.s, implementation)
             assert func(*args) == expected
