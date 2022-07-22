@@ -25,7 +25,7 @@ I am currently in the process of adding automated tests (using pytest) and linti
 | 215 | [Kth Largest Element in an Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p215_solution.py) | Medium |
 | 283 | [Move Zeroes](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p283_solution.py) | Easy |
 | 286 | [Walls and Gates](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p286_solution.py) | Medium |
-| 344 | Reverse String | Easy |
+| 344 | [Reverse String](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p344_solution.py) | Easy |
 | 542 | 01 Matrix | Medium |
 | 617 | Merge Two Binary Trees | Easy |
 | 695 | Max Area of Island | Medium |

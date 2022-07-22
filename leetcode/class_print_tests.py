@@ -70,6 +70,9 @@ class PrintTests():
             result = self.tuples_to_lists(result)
             expected = self.tuples_to_lists(expected)
 
+            # TODO: I need to pass a variable to determine if sorting should
+            # be completed. Otherwise, I am forcing equality cases where the 
+            # list order matters (like sorting!)
             # if input/output is list, sort both for comparison
             for var in [result, expected]:
                 if type(var) is list:
