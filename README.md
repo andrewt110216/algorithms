@@ -21,7 +21,7 @@
 | 200 | [Number of Islands](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p200_solution.py) | Medium |
 | 203 | [Remove Linked List Elements](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p203_solution.py) | Easy |
 | 215 | [Kth Largest Element in an Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p215_solution.py) | Medium |
-| 283 | Move Zeroes | Easy |
+| 283 | [Move Zeroes](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p283_solution.py) | Easy |
 | 286 | Walls and Gates | Medium |
 | 344 | Reverse String | Easy |
 | 542 | 01 Matrix | Medium |
