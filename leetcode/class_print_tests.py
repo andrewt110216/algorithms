@@ -35,7 +35,7 @@ class PrintTests():
         """Check the input for any tuples, and convert them to lists"""
 
         # if var is not subscriptable, it has no tuples, so return it as is
-        if hasattr(var, "__getitem__") is False:
+        if not var or hasattr(var, "__getitem__") is False:
             return var
 
         # var must be a tuple, list, or dictionary
@@ -73,7 +73,7 @@ class PrintTests():
             for var in [result, expected]:
                 if type(var) is list:
                     var.sort()
-                    if type(var[0]) is list:
+                    if var and type(var[0]) is list:
                         [x.sort() for x in var]
 
             # truncate display of output/expected for printing to console
