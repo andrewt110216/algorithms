@@ -15,7 +15,7 @@
 | 034 | [Find First and Last Position of Element in Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p034_solution.py) | Medium |
 | 053 | [Maximum Subarray](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p053_solution.py) | Medium |
 | 077 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
-| 141 | Linked List Cycle | Easy |
+| 141 | [Linked List Cycle](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p141_solution.py) | Easy |
 | 148 | Sort List | Medium |
 | 189 | Rotate Array | Medium |
 | 200 | Number of Islands | Medium |

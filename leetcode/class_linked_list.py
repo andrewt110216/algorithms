@@ -1,27 +1,25 @@
 class ListNode:
     """Represent a node of a linked list"""
 
-    def __init__(self, val=0, next=None):
+    def __init__(self, val=0, next=None, has_cycle=False):
         """Initialize the node value and next pointer"""
         self.val = val
         self.next = next
 
+        # nodes with a cycle cannot be compared since they are infinitely long
+        # use this attribute to work with a linked list with a cycle
+        self.has_cycle = has_cycle
+
     def __repr__(self):
         """Represent the ListNode with a list of each node value"""
+        if self.has_cycle:
+            return "<ListNode (" + str(self.val) + ") (has_cycle) >"
         return "<ListNode " + str(ll_to_list(self)) + ">"
 
     def __eq__(self, other):
-        """
-        Two ListNodes are equal if their list representations are equal
-
-        Examples:
-        <ListNode [1, 2, 3]> == <ListNode [1, 2, 3]>
-        <ListNode [1, 2]> != <ListNode [1, 2, 3]>
-        <ListNode [1, 2]> != <ListNode [1, 3]>
-        """
+        """Two ListNodes are equal if their list representations are equal"""
         if not isinstance(other, ListNode):
             return NotImplemented
-
         return ll_to_list(self) == ll_to_list(other)
 
 
