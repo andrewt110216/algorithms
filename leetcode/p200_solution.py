@@ -67,8 +67,8 @@ class Solution:
         label them as `conquered` by changing their value to 0. This will
         prevent us from rediscovering the same island again
 
-        Time: O(m * n) (if grid is all land)
-        Space: O(min(m, n)) (max size of stack where all cells are land)
+        Time: O(m * n) (iterate over all cells of the grid)
+        Space: O(m * n) (length of first DFS if grid is all land)
         """
 
         # initialize dimensions and number of islands
