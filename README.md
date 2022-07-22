@@ -1,8 +1,10 @@
 # Algorithms & Data Structures
 
-![LC Problems](https://img.shields.io/badge/LC%20Problems-22-blue) ![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-22-blue)
 
-<em>A collection of files created while learning algorithms & data structures and solving Leetcode problems.</em>
+<em>A collection of files created while learning algorithms & data structures and solving Leetcode problems</em>
+
+I am currently in the process of adding automated tests (using pytest) and linting (using flake8) to all leetcode solution files. In the TOC below, the files that include a hyperlink are ones that are set up for automated testing and linting. Next, I will convert the algorithm files and add a TOC for those.
 
 ## LC Problem Solutions
 
