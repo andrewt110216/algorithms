@@ -16,7 +16,7 @@
 | 053 | [Maximum Subarray](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p053_solution.py) | Medium |
 | 077 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
 | 141 | [Linked List Cycle](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p141_solution.py) | Easy |
-| 148 | Sort List | Medium |
+| 148 | [Sort List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p148_solution.py) | Medium |
 | 189 | Rotate Array | Medium |
 | 200 | Number of Islands | Medium |
 | 203 | Remove Linked List Elements | Easy |
