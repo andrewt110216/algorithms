@@ -1,6 +1,9 @@
 # For Mac
 .DS_Store
 
+# VS Code
+.vscode/
+
 # Files not to be posted
 incomplete/
 temp.py
