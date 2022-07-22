@@ -20,7 +20,7 @@
 | 189 | [Rotate Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p189_solution.py) | Medium |
 | 200 | [Number of Islands](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p200_solution.py) | Medium |
 | 203 | [Remove Linked List Elements](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p203_solution.py) | Easy |
-| 215 | Kth Largest Element in an Array | Medium |
+| 215 | [Kth Largest Element in an Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p215_solution.py) | Medium |
 | 283 | Move Zeroes | Easy |
 | 286 | Walls and Gates | Medium |
 | 344 | Reverse String | Easy |
