@@ -1,5 +1,6 @@
 # **UPDATE 'template' FILENAME FOR IMPORT AND REMOVE THIS COMMENT**
 from template_solution import Solution
+import copy
 
 
 class TestClass:
@@ -10,7 +11,11 @@ class TestClass:
         """Run test case for each implementation in Solution"""
         for implementation in self.s.implementations:
             func = getattr(self.s, implementation)
-            result = func(*args)
+
+            # use a deep copy of args so side effects on pass-by-reference
+            # variables do not persist for subsequent implementations
+            args_copy = copy.deepcopy(args)
+            result = func(*args_copy)
 
             # if result is list, sort it and expected result for comparison
             for var in [result, expected]:

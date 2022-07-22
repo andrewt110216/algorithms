@@ -1,4 +1,5 @@
 from datetime import datetime
+import copy
 
 
 class PrintTests():
@@ -129,6 +130,10 @@ class PrintTests():
             for func_str in self.solution.implementations:
                 print(" - Implementation:", func_str)
                 func = self.decorator(getattr(self.solution, func_str))
-                func(self, expected, *args)
+
+                # use a deep copy of args so side effects on pass-by-reference
+                # variables do not persist for subsequent implementations
+                args_copy = copy.deepcopy(args)
+                func(self, expected, *args_copy)
 
         self.summarize()
