@@ -57,13 +57,13 @@ class Solution:
             cur.next = list2
         return pre_head.next
 
+
 # =============================== DRIVER CODE ================================
 
 if __name__ == '__main__':
 
     from class_print_tests import PrintTests as PT
-    
-    
+
     # enter test cases: ['description', [inputs], expected_result]
     case1 = ['Example 1', [None], None]
 

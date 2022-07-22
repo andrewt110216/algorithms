@@ -1,5 +1,6 @@
 from p148_solution import Solution
-from class_linked_list import ListNode, list_to_ll
+from class_linked_list import list_to_ll
+
 
 class TestClass:
 
@@ -32,5 +33,5 @@ class TestClass:
 
     def test3_longer_list(self):
         args = [list_to_ll([10, -2, 9, 7, 5, 4, 0, -2, -5, 8])]
-        expected = list_to_ll([-5, -2, -2, 0, 4, 5, 7,8, 9, 10])
+        expected = list_to_ll([-5, -2, -2, 0, 4, 5, 7, 8, 9, 10])
         self.run_funcs(args, expected)
