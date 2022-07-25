@@ -16,8 +16,8 @@ class Solution:
         First, iterate over the matrix from top-left to bottom-right, updating
         the distance for each cell to the minimum of the distance for the cells
         above or to the left of it, plus 1. In this way, we are only relying
-        on distances already calculated since the first cell (top-left) does not
-        have adjancent cells above or to its left.
+        on distances already calculated since the first cell (top-left) does
+        not have adjancent cells above or to its left.
 
         Second, reverse iterate over the matrix from bottom-right to top-left,
         this time updating the distance for each cell to the minimum of a) the
@@ -27,7 +27,7 @@ class Solution:
         Time: O()
         Space: O()
         """
-        
+
         # build the output matrix (problem asked for it in a separate list)
         ROWS = len(mat)
         COLS = len(mat[0])
@@ -46,7 +46,7 @@ class Solution:
                         left = dist[i][j-1]
                     # take minimum of top, left, and add 1
                     dist[i][j] = min(top, left) + 1
-        
+
         # second loop, from bottom-right to top-left, moving row-wise
         for i in range(ROWS-1, -1, -1):
             for j in range(COLS-1, -1, -1):
@@ -72,25 +72,25 @@ if __name__ == '__main__':
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [[[0, 0, 0],[0, 1, 0],[0, 0, 0]]],
-            [[0, 0, 0],[0, 1, 0],[0, 0, 0]]],
-        ['Example 2', [[[0, 0, 0],[0, 1, 0],[1, 1, 1]]],
-            [[0, 0, 0],[0, 1, 0],[1, 2, 1]]],
+        ['Example 1', [[[0, 0, 0], [0, 1, 0], [0, 0, 0]]],
+            [[0, 0, 0], [0, 1, 0], [0, 0, 0]]],
+        ['Example 2', [[[0, 0, 0], [0, 1, 0], [1, 1, 1]]],
+            [[0, 0, 0], [0, 1, 0], [1, 2, 1]]],
         ['Large Input', [
             [
-            [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
-            [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
-            [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1 ,1, 1],
-            [1, 1, 1], [0, 0, 0]
+                [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+                [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+                [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
+                [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [0, 0, 0]
             ]
         ],
-        [
-            [19, 19, 19], [18 ,18, 18], [17, 17, 17], [16, 16, 16],
-            [15, 15, 15], [14 ,14, 14], [13, 13, 13], [12, 12, 12],
-            [11, 11, 11], [10, 10, 10], [9, 9, 9], [8, 8, 8], [7, 7, 7],
-            [6, 6, 6], [5, 5, 5], [4, 4, 4], [3, 3, 3], [2, 2, 2], [1, 1, 1],
-            [0, 0, 0]
-        ]
+            [
+                [19, 19, 19], [18, 18, 18], [17, 17, 17], [16, 16, 16],
+                [15, 15, 15], [14, 14, 14], [13, 13, 13], [12, 12, 12],
+                [11, 11, 11], [10, 10, 10], [9, 9, 9], [8, 8, 8], [7, 7, 7],
+                [6, 6, 6], [5, 5, 5], [4, 4, 4], [3, 3, 3], [2, 2, 2],
+                [1, 1, 1], [0, 0, 0]
+            ]
         ]
     ]
 

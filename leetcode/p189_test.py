@@ -1,6 +1,7 @@
 from p189_solution import Solution
 import copy
 
+
 class TestClass:
 
     s = Solution()

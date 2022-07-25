@@ -57,7 +57,7 @@ class PrintTests():
                 if type(value) is tuple:
                     var[key] = list(value)
             return var
-    
+
     def sort_list(self, var):
         if var and type(var) is list:
             var.sort()
