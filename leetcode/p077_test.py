@@ -12,6 +12,7 @@ class TestClass:
             func = getattr(self.s, implementation)
             result = func(*args)
 
+            # order does not matter for this output
             # if result is list, sort it and expected result for comparison
             for var in [result, expected]:
                 if type(var) in [list, tuple]:
