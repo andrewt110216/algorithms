@@ -5,9 +5,10 @@ import copy
 class PrintTests():
     """Use to print detail and summary of test case results"""
 
-    def __init__(self, solution, cases):
+    def __init__(self, solution, cases, order_matters=True):
         self.cases = cases
         self.solution = solution
+        self.order_matters = order_matters
 
         # make sure solution has an attribute called 'implementations'
         try:
@@ -56,6 +57,13 @@ class PrintTests():
                 if type(value) is tuple:
                     var[key] = list(value)
             return var
+    
+    def sort_list(self, var):
+        if var and type(var) is list:
+            var.sort()
+            if type(var[0]) is list:
+                [x.sort() for x in var]
+        return var
 
     def decorator(self, func):
 
@@ -70,15 +78,10 @@ class PrintTests():
             result = self.tuples_to_lists(result)
             expected = self.tuples_to_lists(expected)
 
-            # TODO: I need to pass a variable to determine if sorting should
-            # be completed. Otherwise, I am forcing equality cases where the
-            # list order matters (like sorting!)
-            # if input/output is list, sort both for comparison
-            for var in [result, expected]:
-                if type(var) is list:
-                    var.sort()
-                    if var and type(var[0]) is list:
-                        [x.sort() for x in var]
+            # sort input/output if the order does not matter
+            if not self.order_matters:
+                result = self.sort_list(result)
+                expected = self.sort_list(expected)
 
             # truncate display of output/expected for printing to console
             result_display = self.truncate_display(result)
