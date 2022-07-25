@@ -31,7 +31,7 @@ class Solution:
         for i, num in enumerate(nums):
 
             # we don't need to swap if i equals next_non_zero
-            if num != 0 and i != next_non_zero:
+            if num != 0:
 
                 # swap elements at indexes i and next_non_zero
                 nums[next_non_zero], nums[i] = nums[i], nums[next_non_zero]
