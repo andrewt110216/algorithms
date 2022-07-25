@@ -17,6 +17,7 @@ class TestClass:
             args_copy = copy.deepcopy(args)
             result = func(*args_copy)
 
+            # TODO - OPTIONAL - DELETE THIS IF THE ORDER MATTERS ************
             # if result is list, sort it and expected result for comparison
             for var in [result, expected]:
                 if type(var) is list:
