@@ -45,12 +45,7 @@ class TreeNode:
         return
 
     def __repr__(self):
-        left = right = None
-        if self.left:
-            left = self.left.val
-        if self.right:
-            right = self.right.val
-        return f"<TreeNode ({self.val}) (l:{str(left)}) (r: {str(right)})>"
+        return f"<TreeNode {str(tree_to_array(self))}>"
 
     def __eq__(self, root2):
         """Compare two binary trees"""
@@ -156,7 +151,7 @@ if __name__ == "__main__":
 
     # print the head node to see the entire linked list
     print('> My binary tree:', root)
-    assert root.__repr__() == "<TreeNode (1) (l:2) (r: 3)>"
+    assert root.__repr__() == "<TreeNode [1, 2, 3, 4, 5, 6, 7]>"
     print('\n> Visual representation of my binary tree:')
     root.print()
     print()
