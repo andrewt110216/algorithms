@@ -15,6 +15,7 @@ I am currently in the process of adding automated tests (using pytest) and linti
 | 020 | [Valid Parentheses](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p020_solution.py) | Easy |
 | 021 | [Merge Two Sorted Linked Lists](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p021_solution.py) | Easy |
 | 034 | [Find First and Last Position of Element in Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p034_solution.py) | Medium |
+| 046 | [Permutations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p046_solution.py) | Medium |
 | 053 | [Maximum Subarray](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p053_solution.py) | Medium |
 | 077 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
 | 141 | [Linked List Cycle](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p141_solution.py) | Easy |
