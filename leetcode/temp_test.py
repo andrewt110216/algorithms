@@ -1,5 +1,5 @@
-# **UPDATE 'template' FILENAME FOR IMPORT AND REMOVE THIS COMMENT**
-from template_solution import Solution
+# **UPDATE 'temp' FILENAME FOR IMPORT AND REMOVE THIS COMMENT**
+from temp_solution import Solution
 import copy
 
 
