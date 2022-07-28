@@ -2,13 +2,27 @@ from datetime import datetime
 import copy
 
 
-class PrintTests():
+class PrintTests:
     """Use to print detail and summary of test case results"""
 
-    def __init__(self, solution, cases, order_matters=True):
+    def __init__(self, solution, cases, ordered_d1=True, ordered_d2=True):
+        """
+        :param list cases: the test cases to be run, in the format:
+            [str description, list args, expected result]
+        :param Solution solution: a class with methods representing solutions
+            to the problem and an attribute 'implementations' listing the names
+            of the methods to be evaluated
+        :param bool ordered_d1: indicates if the order of the first dimension
+            of the results (if it is a list or tuple) matters.
+            If set to 'false', the result and expected result will be sorted
+        :param bool ordered_d2: indicates if the order of the second dimension
+            of the results (if it is a list or tuple) matters.
+            If set to 'false', the result and expected result will be sorted
+        """
         self.cases = cases
         self.solution = solution
-        self.order_matters = order_matters
+        self.ordered_d1 = ordered_d1
+        self.ordered_d2 = ordered_d2
 
         # make sure solution has an attribute called 'implementations'
         try:
@@ -17,7 +31,7 @@ class PrintTests():
             raise AttributeError(
                 "Solution must have an attribute 'implementations', which is"
                 "a list of the names of the solution methods in Solution."
-                )
+            )
 
         self.tests = 0
         self.failed_tests = 0
@@ -27,8 +41,11 @@ class PrintTests():
     def truncate_display(self, var):
         """Truncate the display of a long variable for printing to console"""
         if len(str(var)) > self.max_io_len:
-            display = str(var)[:self.max_io_len // 2] + '... ' \
-                        + str(var)[-self.max_io_len // 2:]
+            display = (
+                str(var)[: self.max_io_len // 2]
+                + "... "
+                + str(var)[-self.max_io_len // 2 :]
+            )
             return display
         else:
             return var
@@ -60,13 +77,14 @@ class PrintTests():
 
     def sort_list(self, var):
         if var and type(var) is list:
-            var.sort()
+            if not self.ordered_d1:
+                var.sort()
             if type(var[0]) is list:
-                [x.sort() for x in var]
+                if not self.ordered_d2:
+                    [x.sort() for x in var]
         return var
 
     def decorator(self, func):
-
         def wrapper(self, expected, *args):
 
             self.tests += 1
@@ -79,7 +97,7 @@ class PrintTests():
             expected = self.tuples_to_lists(expected)
 
             # sort input/output if the order does not matter
-            if not self.order_matters:
+            if not self.ordered_d1 or not self.ordered_d2:
                 result = self.sort_list(result)
                 expected = self.sort_list(expected)
 
@@ -116,12 +134,12 @@ class PrintTests():
         print("\t===========")
         print(f"\t|| {final_result} ||")
         print("\t===========\n")
-        print("".center(self.print_width, '*'), "\n")
+        print("".center(self.print_width, "*"), "\n")
 
     def run(self):
 
         print()
-        print(" RUNNING TEST CASES ".center(self.print_width, '*'))
+        print(" RUNNING TEST CASES ".center(self.print_width, "*"))
         print()
 
         # run all test cases
@@ -130,7 +148,7 @@ class PrintTests():
 
             # truncate display of input for printing to console
             args_display = [self.truncate_display(arg) for arg in args]
-            print('\nInput:', args_display, '\n')
+            print("\nInput:", args_display, "\n")
 
             # execute test case for each implementation
             for func_str in self.solution.implementations:

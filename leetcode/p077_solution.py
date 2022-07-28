@@ -57,5 +57,5 @@ if __name__ == '__main__':
     ]
 
     # run test cases and print results using PrintTests class
-    pt = PT(Solution(), test_cases)
+    pt = PT(Solution(), test_cases, ordered_d1=False, ordered_d2=False)
     pt.run()
