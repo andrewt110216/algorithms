@@ -68,7 +68,7 @@ class Solution:
         def dfs(r, c):
             # initiate DFS from (r, c) if it matches the starting color
             if image[r][c] == start_color:
-    
+
                 # update pixel color
                 image[r][c] = new_color
 
