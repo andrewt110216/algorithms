@@ -5,10 +5,14 @@
 class Solution:
 
     # list the methods to be run against the test cases
-    # climb_stairs_recursive is too slow for n > 30
-    implementations = ["climb_stairs_iterative"]
+    implementations = [
+        "climb_stairs_fib_iterative",
+        "climb_stairs_fib_recursive",
+        "climb_stairs_memoization",
+        "climb_stairs_brute_force",
+    ]
 
-    def climb_stairs_recursive(self, n: int) -> int:
+    def climb_stairs_fib_recursive(self, n: int) -> int:
         """
         Observe the pattern as n increases:
 
@@ -34,11 +38,11 @@ class Solution:
         if n == 2:
             return 2
 
-        a = self.climb_stairs_recursive(n - 1)
-        b = self.climb_stairs_recursive(n - 2)
+        a = self.climb_stairs_fib_recursive(n - 1)
+        b = self.climb_stairs_fib_recursive(n - 2)
         return a + b
 
-    def climb_stairs_iterative(self, n: int) -> int:
+    def climb_stairs_fib_iterative(self, n: int) -> int:
         """
         The solution represents the (n-1)th Fibonacci number.
         Use an iterative solution.
@@ -62,6 +66,59 @@ class Solution:
 
         return cur
 
+    def climb_stairs_memoization(self, n: int) -> int:
+        """
+        Use memoization to reduce the number of recursive calls, so that only
+        one recursive call is made per step
+
+        Time: O(n) (depth of the call stack)
+        Space: O(n) (depth of the call stack)
+        """
+
+        def take_a_step(i, n, memo):
+            if i == n:
+                # if we reach the nth step, the path was successful
+                return 1
+            elif i > n:
+                # if we past the nth step, the path was unsuccessful
+                return 0
+            elif memo[i] > 0:
+                return memo[i]
+            # we aren't to n yet. Try taking 1 step and try 2 steps
+            memo[i] = take_a_step(i + 1, n, memo) + take_a_step(i + 2, n, memo)
+            return memo[i]
+
+        # store count of completed paths in list so recursive calls can access
+        memo = [0] * n
+        return take_a_step(0, n, memo)
+
+    def climb_stairs_brute_force(self, n: int) -> int:
+        """
+        At each step, initate a recursive call that takes 1 step and another
+        call that takes 2 steps. If we reach n, then add 1 to the count of
+        possible ways. Otherwise, add 0 as the path was invalid.
+
+        Time: O(2^n) (we take 2 steps at each integer from 1 to n)
+        Space: O(n) (depth of the call stack)
+        """
+
+        def take_a_step(steps=0):
+            if steps == n:
+                # if we reach the nth step, the path was successful
+                result[0] += 1
+            elif steps > n:
+                # if we past the nth step, the path was unsuccessful
+                return
+            else:
+                # we aren't to n yet. Try taking 1 step and try 2 steps
+                take_a_step(steps + 1)
+                take_a_step(steps + 2)
+
+        # store count of completed paths in list so recursive calls can access
+        result = [0]
+        take_a_step(0)
+        return result[0]
+
 
 # =============================== DRIVER CODE ================================
 
@@ -76,8 +133,9 @@ if __name__ == "__main__":
         ["Smallest Input", [1], 1],
         ["Medium Input", [5], 8],
         ["Large Input", [30], 1_346_269],
-        ["Larger Input", [40], 165_580_141],
-        ["Largest Input", [45], 1_836_311_903],
+        # recursive and brute force solutions are too slow for n > 30
+        # ["Larger Input", [40], 165_580_141],
+        # ["Largest Input", [45], 1_836_311_903],
     ]
 
     # run test cases and print results using PrintTests class

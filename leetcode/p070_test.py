@@ -37,12 +37,14 @@ class TestClass:
         expected = 1_346_269
         self.run_funcs(args, expected)
 
-    def test6_larger_input(self):
-        args = [40]
-        expected = 165_580_141
-        self.run_funcs(args, expected)
+    # n > 30 is too slow for iterative & brute force solutions
 
-    def test7_largest_input(self):
-        args = [45]
-        expected = 1_836_311_903
-        self.run_funcs(args, expected)
+    # def test6_larger_input(self):
+    #     args = [40]
+    #     expected = 165_580_141
+    #     self.run_funcs(args, expected)
+
+    # def test7_largest_input(self):
+    #     args = [45]
+    #     expected = 1_836_311_903
+    #     self.run_funcs(args, expected)
