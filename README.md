@@ -10,19 +10,19 @@ All Leetcode problems include tests that can be run from within the solution fil
 
 Next, I plan to add similar automated tests for the algorithm files and create a TOC of them.
 
-## LC Problem Solutions
+## Leetcode Problem Solutions
 
-| Count | # | Description | Difficulty |
+| Count | LC # | Description | Difficulty |
 | --- | --- | --- | --- |
-| 01 | 001 | [Two Sum](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p001_solution.py) | Easy |
-| 02 | 003 | [Longest Substring Without Repeating Characters](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p003_solution.py) | Medium |
-| 03 | 020 | [Valid Parentheses](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p020_solution.py) | Easy |
-| 04 | 021 | [Merge Two Sorted Linked Lists](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p021_solution.py) | Easy |
-| 05 | 034 | [Find First and Last Position of Element in Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p034_solution.py) | Medium |
-| 06 | 046 | [Permutations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p046_solution.py) | Medium |
-| 07 | 053 | [Maximum Subarray](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p053_solution.py) | Medium |
-| 08 | 077 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
-| 09 | 141 | [Linked List Cycle](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p141_solution.py) | Easy |
+| 1 | 1 | [Two Sum](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p001_solution.py) | Easy |
+| 2 | 3 | [Longest Substring Without Repeating Characters](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p003_solution.py) | Medium |
+| 3 | 20 | [Valid Parentheses](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p020_solution.py) | Easy |
+| 4 | 21 | [Merge Two Sorted Linked Lists](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p021_solution.py) | Easy |
+| 5 | 34 | [Find First and Last Position of Element in Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p034_solution.py) | Medium |
+| 6 | 46 | [Permutations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p046_solution.py) | Medium |
+| 7 | 53 | [Maximum Subarray](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p053_solution.py) | Medium |
+| 8 | 77 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
+| 9 | 141 | [Linked List Cycle](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p141_solution.py) | Easy |
 | 10 | 148 | [Sort List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p148_solution.py) | Medium |
 | 11 | 189 | [Rotate Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p189_solution.py) | Medium |
 | 12 | 200 | [Number of Islands](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p200_solution.py) | Medium |
