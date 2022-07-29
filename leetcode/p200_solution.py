@@ -7,7 +7,7 @@ from collections import deque
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['count_islands_bfs', 'count_islands_dfs']
+    implementations = ["count_islands_bfs", "count_islands_dfs"]
 
     def count_islands_bfs(self, grid: list[list[int]]) -> int:
         """
@@ -105,61 +105,61 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
         [
-            'Example 1',
+            "Example 1",
             [
                 [
                     ["1", "1", "1", "1", "0"],
                     ["1", "1", "0", "1", "0"],
                     ["1", "1", "0", "0", "0"],
-                    ["0", "0", "0", "0", "0"]
+                    ["0", "0", "0", "0", "0"],
                 ]
             ],
-            1
+            1,
         ],
         [
-            'Example 2',
+            "Example 2",
             [
                 [
                     ["1", "1", "0", "0", "0"],
                     ["1", "1", "0", "0", "0"],
                     ["0", "0", "1", "0", "0"],
-                    ["0", "0", "0", "1", "1"]
+                    ["0", "0", "0", "1", "1"],
                 ]
             ],
-            3
+            3,
         ],
-        ['Small Island', [[["1"]]], 1],
-        ['Small Water', [[["0"]]], 0],
+        ["Small Island", [[["1"]]], 1],
+        ["Small Water", [[["0"]]], 0],
         [
-            'All Land',
+            "All Land",
             [
                 [
                     ["1", "1", "1", "1", "1"],
                     ["1", "1", "1", "1", "1"],
                     ["1", "1", "1", "1", "1"],
-                    ["1", "1", "1", "1", "1"]
+                    ["1", "1", "1", "1", "1"],
                 ]
             ],
-            1
+            1,
         ],
         [
-            'All Water',
+            "All Water",
             [
                 [
                     ["0", "0", "0", "0", "0"],
                     ["0", "0", "0", "0", "0"],
                     ["0", "0", "0", "0", "0"],
-                    ["0", "0", "0", "0", "0"]
+                    ["0", "0", "0", "0", "0"],
                 ]
             ],
-            0
+            0,
         ],
     ]
 

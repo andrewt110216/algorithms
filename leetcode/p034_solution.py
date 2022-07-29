@@ -1,10 +1,11 @@
 # 034 - Find First and Last Position of Element in Sorted Array
 # leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array
 
+
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['find_first_and_last']
+    implementations = ["find_first_and_last"]
 
     def find_first_and_last(self, nums: list, target: int) -> list[int]:
         """
@@ -90,21 +91,21 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [[5, 7, 7, 8, 8, 10], 8], [3, 4]],
-        ['Example 2', [[5, 7, 7, 8, 8, 10], 6], [-1, -1]],
-        ['Example 3', [[], 0], [-1, -1]],
-        ['Many Targets - Start', [[-5, -5, -5, -1, 0, 0, 6, 100], -5], [0, 2]],
-        ['Many Targets - End', [[0, 6, 100, 112, 112, 112, 112], 112], [3, 6]],
-        ['Only Target - Length 2', [[2, 2], 2], [0, 1]],
-        ['Only Target - Length 5', [[5, 5, 5, 5, 5], 5], [0, 4]],
-        ['No Target - Length 2', [[2, 2], 3], [-1, -1]],
-        ['Input Size 1', [[1], 1], [0, 0]],
+        ["Example 1", [[5, 7, 7, 8, 8, 10], 8], [3, 4]],
+        ["Example 2", [[5, 7, 7, 8, 8, 10], 6], [-1, -1]],
+        ["Example 3", [[], 0], [-1, -1]],
+        ["Many Targets - Start", [[-5, -5, -5, -1, 0, 0, 6, 100], -5], [0, 2]],
+        ["Many Targets - End", [[0, 6, 100, 112, 112, 112, 112], 112], [3, 6]],
+        ["Only Target - Length 2", [[2, 2], 2], [0, 1]],
+        ["Only Target - Length 5", [[5, 5, 5, 5, 5], 5], [0, 4]],
+        ["No Target - Length 2", [[2, 2], 3], [-1, -1]],
+        ["Input Size 1", [[1], 1], [0, 0]],
     ]
 
     # run test cases and print results using PrintTests class

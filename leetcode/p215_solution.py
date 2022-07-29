@@ -7,7 +7,7 @@ from random import randint
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['find_kth_largest']
+    implementations = ["find_kth_largest"]
 
     def find_kth_largest(self, nums: list[int], k: int) -> int:
         """
@@ -103,18 +103,21 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [[3, 2, 1, 5, 6, 4], 2], 5],
-        ['Example 2', [[3, 2, 3, 1, 2, 4, 5, 5, 6], 4], 4],
-        ['Length 1', [[5], 1], 5],
-        ['Length 2', [[5, 4], 2], 4],
-        ['Add Negatives, Zeroes, Duplicates',
-            [[-7, 9, -5, 0, 3, 9, -5, -1, 10, 8, 6, -1], 9], -1],
+        ["Example 1", [[3, 2, 1, 5, 6, 4], 2], 5],
+        ["Example 2", [[3, 2, 3, 1, 2, 4, 5, 5, 6], 4], 4],
+        ["Length 1", [[5], 1], 5],
+        ["Length 2", [[5, 4], 2], 4],
+        [
+            "Add Negatives, Zeroes, Duplicates",
+            [[-7, 9, -5, 0, 3, 9, -5, -1, 10, 8, 6, -1], 9],
+            -1,
+        ],
     ]
 
     # run test cases and print results using PrintTests class

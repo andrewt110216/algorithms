@@ -15,8 +15,7 @@ class TestClass:
             assert result == expected
 
     def test1_example1(self):
-        args = [array_to_tree([1, 3, 2, 5]),
-                array_to_tree([2, 1, 3, None, 4, None, 7])]
+        args = [array_to_tree([1, 3, 2, 5]), array_to_tree([2, 1, 3, None, 4, None, 7])]
         expected = array_to_tree([3, 4, 5, 5, 4, None, 7])
         self.run_funcs(args, expected)
 
@@ -31,13 +30,14 @@ class TestClass:
         self.run_funcs(args, expected)
 
     def test4_all_overlap(self):
-        args = [array_to_tree([10, 20, 30, 40, 50]),
-                array_to_tree([1, 2, 3, 4, 5])]
+        args = [array_to_tree([10, 20, 30, 40, 50]), array_to_tree([1, 2, 3, 4, 5])]
         expected = array_to_tree([11, 22, 33, 44, 55])
         self.run_funcs(args, expected)
 
     def test5_no_overlap(self):
-        args = [array_to_tree([0, 1, None, 3, 4]),
-                array_to_tree([0, None, 2, None, None, 5, 6])]
+        args = [
+            array_to_tree([0, 1, None, 3, 4]),
+            array_to_tree([0, None, 2, None, None, 5, 6]),
+        ]
         expected = array_to_tree([0, 1, 2, 3, 4, 5, 6])
         self.run_funcs(args, expected)

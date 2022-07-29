@@ -55,11 +55,11 @@ if __name__ == "__main__":
 
     # Display a few demonstrations of the ListNode class and related functions
     print()
-    print(' Demonstrations of ListNode and Related Functions '.center(78, '='))
+    print(" Demonstrations of ListNode and Related Functions ".center(78, "="))
     print()
 
     # Demonstrate how to create a linked list from the ListNode class
-    print(' Create a linked list from ListNodes '.center(78, '-'))
+    print(" Create a linked list from ListNodes ".center(78, "-"))
     print()
 
     # create nodes
@@ -76,47 +76,47 @@ if __name__ == "__main__":
     node3.next = node4
 
     # print the head node to see the entire linked list
-    print('> My linked list:', head)
-    assert head.__repr__() == '<ListNode [0, 1, 2, 3, 4]>'
+    print("> My linked list:", head)
+    assert head.__repr__() == "<ListNode [0, 1, 2, 3, 4]>"
     print()
 
     # Demonstrate how to convert a linked list to a traditional list
-    print(' Convert a linked list to a traditional list '.center(78, '-'))
+    print(" Convert a linked list to a traditional list ".center(78, "-"))
     print()
 
     my_list = ll_to_list(head)
-    print('> My linked list converted to a traditional list:', my_list)
+    print("> My linked list converted to a traditional list:", my_list)
     assert my_list == [0, 1, 2, 3, 4]
     print()
 
     # Demonstrate how to convert traditional list to a linked list
-    print(' Convert a traditional list to a linked list '.center(78, '-'))
+    print(" Convert a traditional list to a linked list ".center(78, "-"))
     print()
 
     my_list = [10, 9, 8, 7, 6]
-    print('> My traditonal list is:', my_list)
+    print("> My traditonal list is:", my_list)
     my_linked_list = list_to_ll(my_list)
-    print('> My traditional list converted to a linked list:', my_linked_list)
+    print("> My traditional list converted to a linked list:", my_linked_list)
     assert my_linked_list == list_to_ll([10, 9, 8, 7, 6])
     print()
 
     # Demonstrate comparison of linked lists
-    print(' Compare two ListNodes '.center(78, '-'))
+    print(" Compare two ListNodes ".center(78, "-"))
     print()
 
     linked_list_1 = list_to_ll([1, 2])
     linked_list_2 = list_to_ll([1, 2, 3])
-    print('> linked_list_1:', linked_list_1)
-    print('> linked_list_2:', linked_list_2)
-    print('> Run Comparison: `linked_list_1 == linked_list_2`')
-    print('  > Return:', linked_list_1 == linked_list_2)
+    print("> linked_list_1:", linked_list_1)
+    print("> linked_list_2:", linked_list_2)
+    print("> Run Comparison: `linked_list_1 == linked_list_2`")
+    print("  > Return:", linked_list_1 == linked_list_2)
     print()
 
     linked_list_1 = list_to_ll([1, 2, 3])
-    print('> linked_list_1:', linked_list_1)
-    print('> linked_list_2:', linked_list_2)
-    print('> Run Comparison: `linked_list_1 == linked_list_2`')
-    print('  > Return:', linked_list_1 == linked_list_2)
+    print("> linked_list_1:", linked_list_1)
+    print("> linked_list_2:", linked_list_2)
+    print("> Run Comparison: `linked_list_1 == linked_list_2`")
+    print("  > Return:", linked_list_1 == linked_list_2)
     print()
 
     print("".center(78, "="))

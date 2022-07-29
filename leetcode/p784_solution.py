@@ -8,8 +8,8 @@ class Solution:
     implementations = [
         "get_permutations_iterative",
         "get_permutations_recursive",
-        "get_permutations_backtrack"
-        ]
+        "get_permutations_backtrack",
+    ]
 
     def get_permutations_iterative(self, s: str) -> list[str]:
         """
@@ -83,7 +83,7 @@ class Solution:
 
             # base case: current represents a full permutation
             if i == n:
-                permutations.append(''.join(current))
+                permutations.append("".join(current))
 
             # add s[i] to current (in lower and upper case form) and recurse
             # to build a complete permutation, then backtrack (remove s[i])

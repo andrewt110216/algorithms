@@ -7,7 +7,7 @@ from itertools import combinations
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['get_combinations']
+    implementations = ["get_combinations"]
 
     def get_combinations(self, n: int, k: int) -> list[list[int]]:
         """
@@ -44,16 +44,15 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [4, 2],
-            [[2, 4], [3, 4], [2, 3], [1, 2], [1, 3], [1, 4]]],
-        ['Example 2', [1, 1], [[1]]],
-        ['Large Output', [10, 3], list(combinations(range(1, 11), 3))],
+        ["Example 1", [4, 2], [[2, 4], [3, 4], [2, 3], [1, 2], [1, 3], [1, 4]]],
+        ["Example 2", [1, 1], [[1]]],
+        ["Large Output", [10, 3], list(combinations(range(1, 11), 3))],
     ]
 
     # run test cases and print results using PrintTests class

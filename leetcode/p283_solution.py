@@ -1,10 +1,11 @@
 # 283 - Move Zeroes
 # https://leetcode.com/problems/move-zeroes/
 
+
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['move_zeroes_swaps', 'move_zeroes_shifts']
+    implementations = ["move_zeroes_swaps", "move_zeroes_shifts"]
 
     def move_zeroes_swaps(self, nums: list[int]) -> list[int]:
         """
@@ -78,19 +79,22 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [[0, 1, 0, 3, 12]], [1, 3, 12, 0, 0]],
-        ['Example 2', [[0]], [0]],
-        ['No Zeroes', [[1, 2, 3, 4]], [1, 2, 3, 4]],
-        ['All Zeroes', [[0, 0, 0, 0, 0]], [0, 0, 0, 0, 0]],
-        ['Many Zeroes', [[0, 0, 0, 0, 1]], [1, 0, 0, 0, 0]],
-        ['Longer, Complicated', [[0, 1, 2, 0, 4, 0, 5, 6, 7, 8, 9, 0, 10]],
-            [1, 2, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0]],
+        ["Example 1", [[0, 1, 0, 3, 12]], [1, 3, 12, 0, 0]],
+        ["Example 2", [[0]], [0]],
+        ["No Zeroes", [[1, 2, 3, 4]], [1, 2, 3, 4]],
+        ["All Zeroes", [[0, 0, 0, 0, 0]], [0, 0, 0, 0, 0]],
+        ["Many Zeroes", [[0, 0, 0, 0, 1]], [1, 0, 0, 0, 0]],
+        [
+            "Longer, Complicated",
+            [[0, 1, 2, 0, 4, 0, 5, 6, 7, 8, 9, 0, 10]],
+            [1, 2, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0, 0],
+        ],
     ]
 
     # run test cases and print results using PrintTests class

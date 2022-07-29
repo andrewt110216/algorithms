@@ -1,10 +1,11 @@
 # 189 - Rotate Array
 # https://leetcode.com/problems/rotate-array/
 
+
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['rotate_cyclical', 'rotate_new']
+    implementations = ["rotate_cyclical", "rotate_new"]
 
     def rotate_cyclical(self, nums: list[int], k: int) -> list[int]:
         """
@@ -78,18 +79,18 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [[1, 2, 3, 4, 5, 6, 7], 3], [5, 6, 7, 1, 2, 3, 4]],
-        ['Example 2', [[-1, -100, 3, 99], 2], [3, 99, -1, -100]],
-        ['No Rotations', [[1, 2, 3, 4], 0], [1, 2, 3, 4]],
-        ['Single Element', [[1], 3], [1]],
-        ['K Larger Than N', [[1, 2, 3, 4, 5], 12], [4, 5, 1, 2, 3]],
-        ['Additional Test', [[1, 2, 3, 4, 5, 6], 4], [3, 4, 5, 6, 1, 2]],
+        ["Example 1", [[1, 2, 3, 4, 5, 6, 7], 3], [5, 6, 7, 1, 2, 3, 4]],
+        ["Example 2", [[-1, -100, 3, 99], 2], [3, 99, -1, -100]],
+        ["No Rotations", [[1, 2, 3, 4], 0], [1, 2, 3, 4]],
+        ["Single Element", [[1], 3], [1]],
+        ["K Larger Than N", [[1, 2, 3, 4, 5], 12], [4, 5, 1, 2, 3]],
+        ["Additional Test", [[1, 2, 3, 4, 5, 6], 4], [3, 4, 5, 6, 1, 2]],
     ]
 
     # run test cases and print results using PrintTests class

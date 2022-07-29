@@ -1,10 +1,11 @@
 # 003 - Longest Substring Without Repeating Characters
 # https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
+
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['longest_substring', 'longest_substring_check_all']
+    implementations = ["longest_substring", "longest_substring_check_all"]
 
     def longest_substring(self, s: str) -> int:
         """
@@ -85,19 +86,19 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', ["abcabcbb"], 3],
-        ['Example 2', ["bbbbb"], 1],
-        ['Example 3', ["pwwkew"], 3],
-        ['Empty String', [""], 0],
-        ['Repeats Only at Start', ["aabcdef"], 6],
-        ['Repeats Only at End', ["abcdeff"], 6],
-        ['Multiple Repeats', ["aabcdaebefga"], 5],  # 'bcdae', 'cdaeb', 'befga'
+        ["Example 1", ["abcabcbb"], 3],
+        ["Example 2", ["bbbbb"], 1],
+        ["Example 3", ["pwwkew"], 3],
+        ["Empty String", [""], 0],
+        ["Repeats Only at Start", ["aabcdef"], 6],
+        ["Repeats Only at End", ["abcdeff"], 6],
+        ["Multiple Repeats", ["aabcdaebefga"], 5],  # 'bcdae', 'cdaeb', 'befga'
     ]
 
     # run test cases and print results using PrintTests class

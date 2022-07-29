@@ -7,7 +7,7 @@ from collections import deque
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['valid_parentheses', 'valid_parentheses_first']
+    implementations = ["valid_parentheses", "valid_parentheses_first"]
 
     def valid_parentheses(self, s: str) -> bool:
         """
@@ -110,18 +110,18 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', ["()"], True],
-        ['Example 2', ["()[]{}"], True],
-        ['Example 3', ["(]"], False],
-        ['Single Bracket', ["]"], False],
-        ['Nested Example - Valid', ["([{()}])"], True],
-        ['Nested Example - Invalid', ["([{()}[])"], False],
+        ["Example 1", ["()"], True],
+        ["Example 2", ["()[]{}"], True],
+        ["Example 3", ["(]"], False],
+        ["Single Bracket", ["]"], False],
+        ["Nested Example - Valid", ["([{()}])"], True],
+        ["Nested Example - Invalid", ["([{()}[])"], False],
     ]
 
     # run test cases and print results using PrintTests class

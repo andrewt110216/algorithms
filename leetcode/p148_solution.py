@@ -7,7 +7,7 @@ from class_linked_list import ListNode, list_to_ll
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['sort_list']
+    implementations = ["sort_list"]
 
     def sort_list(self, head: ListNode) -> ListNode:
         """
@@ -60,20 +60,20 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
-    case1 = ['Example 1', [None], None]
+    case1 = ["Example 1", [None], None]
 
     linked_list2 = list_to_ll([-1, 5, 3, 4, 0])
     expected_result2 = list_to_ll([-1, 0, 3, 4, 5])
-    case2 = ['Example 2', [linked_list2], expected_result2]
+    case2 = ["Example 2", [linked_list2], expected_result2]
 
     linked_list3 = list_to_ll([10, -2, 9, 7, 5, 4, 0, -2, -5, 8])
     expected_result3 = list_to_ll([-5, -2, -2, 0, 4, 5, 7, 8, 9, 10])
-    case3 = ['Longer List', [linked_list3], expected_result3]
+    case3 = ["Longer List", [linked_list3], expected_result3]
 
     test_cases = [case1, case2, case3]
 

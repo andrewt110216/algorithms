@@ -7,7 +7,7 @@ from class_linked_list import ListNode, list_to_ll
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['has_cycle_floyds', 'has_cycle_dict']
+    implementations = ["has_cycle_floyds", "has_cycle_dict"]
 
     def has_cycle_floyds(self, head: ListNode) -> bool:
         """
@@ -72,7 +72,7 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
@@ -87,12 +87,12 @@ if __name__ == '__main__':
     head2.next.next = head2
     head2.has_cycle = True  # prevent infinite recursion in __repr__
 
-    case1 = ['Example 1', [head1], True]
-    case2 = ['Example 2', [head2], True]
-    case3 = ['Example 3', [ListNode(1)], False]
-    case4 = ['Empty Input', [None], False]
-    case5 = ['Two Nodes, No Cycle', [list_to_ll([1, 2])], False]
-    case6 = ['Longer List, No Cylce', [list_to_ll([1, 2, 0, 4, 5, 8])], False]
+    case1 = ["Example 1", [head1], True]
+    case2 = ["Example 2", [head2], True]
+    case3 = ["Example 3", [ListNode(1)], False]
+    case4 = ["Empty Input", [None], False]
+    case5 = ["Two Nodes, No Cycle", [list_to_ll([1, 2])], False]
+    case6 = ["Longer List, No Cylce", [list_to_ll([1, 2, 0, 4, 5, 8])], False]
     test_cases = [case1, case2, case3, case4, case5, case6]
 
     # run test cases and print results using PrintTests class

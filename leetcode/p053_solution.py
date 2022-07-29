@@ -1,10 +1,11 @@
 # 053 - Maximum Subbary
 # https://leetcode.com/problems/maximum-subarray/
 
+
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['max_subarray_sum']
+    implementations = ["max_subarray_sum"]
 
     def max_subarray_sum(self, nums: list[int]) -> int:
         """
@@ -44,17 +45,17 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [[-2, 1, -3, 4, -1, 2, 1, -5, 4]], 6],
-        ['Example 2', [[1]], 1],
-        ['Example 3', [[5, 4, -1, 7, 8]], 23],
-        ['Empty Input', [[]], 0],
-        ['Large Input', [list(range(100_000))], sum(range(100_000))],
+        ["Example 1", [[-2, 1, -3, 4, -1, 2, 1, -5, 4]], 6],
+        ["Example 2", [[1]], 1],
+        ["Example 3", [[5, 4, -1, 7, 8]], 23],
+        ["Empty Input", [[]], 0],
+        ["Large Input", [list(range(100_000))], sum(range(100_000))],
     ]
 
     # run test cases and print results using PrintTests class

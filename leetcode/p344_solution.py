@@ -1,10 +1,11 @@
 # 344 - Reverse String
 # https://leetcode.com/problems/reverse-string/
 
+
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['reverse_string']
+    implementations = ["reverse_string"]
 
     def reverse_string(self, s: list[str]) -> list[str]:
         """
@@ -30,17 +31,16 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [["h", "e", "l", "l", "o"]], ["o", "l", "l", "e", "h"]],
-        ['Example 2', [["H", "a", "n", "n", "a", "h"]],
-            ["h", "a", "n", "n", "a", "H"]],
-        ['Single Element', [["a"]], ["a"]],
-        ['Two Elements', [["a", "b"]], ["b", "a"]],
+        ["Example 1", [["h", "e", "l", "l", "o"]], ["o", "l", "l", "e", "h"]],
+        ["Example 2", [["H", "a", "n", "n", "a", "h"]], ["h", "a", "n", "n", "a", "H"]],
+        ["Single Element", [["a"]], ["a"]],
+        ["Two Elements", [["a", "b"]], ["b", "a"]],
     ]
 
     # run test cases and print results using PrintTests class

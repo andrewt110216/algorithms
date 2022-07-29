@@ -7,7 +7,7 @@ import math
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['get_nearest_zeroes']
+    implementations = ["get_nearest_zeroes"]
 
     def get_nearest_zeroes(self, mat: list[list[int]]) -> list[list[int]]:
         """
@@ -40,24 +40,24 @@ class Solution:
                     top = left = math.inf
                     # get top
                     if i > 0:
-                        top = dist[i-1][j]
+                        top = dist[i - 1][j]
                     # get left
                     if j > 0:
-                        left = dist[i][j-1]
+                        left = dist[i][j - 1]
                     # take minimum of top, left, and add 1
                     dist[i][j] = min(top, left) + 1
 
         # second loop, from bottom-right to top-left, moving row-wise
-        for i in range(ROWS-1, -1, -1):
-            for j in range(COLS-1, -1, -1):
+        for i in range(ROWS - 1, -1, -1):
+            for j in range(COLS - 1, -1, -1):
                 if mat[i][j]:  # again, skip 0's. No work to do.
                     below = right = math.inf
                     # get below
                     if i + 1 < ROWS:
-                        below = dist[i+1][j]
+                        below = dist[i + 1][j]
                     # get right
                     if j + 1 < COLS:
-                        right = dist[i][j+1]
+                        right = dist[i][j + 1]
                     # take minimum of current val, below + 1, right + 1
                     dist[i][j] = min(dist[i][j], below + 1, right + 1)
 
@@ -66,32 +66,71 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [[[0, 0, 0], [0, 1, 0], [0, 0, 0]]],
-            [[0, 0, 0], [0, 1, 0], [0, 0, 0]]],
-        ['Example 2', [[[0, 0, 0], [0, 1, 0], [1, 1, 1]]],
-            [[0, 0, 0], [0, 1, 0], [1, 2, 1]]],
-        ['Large Input', [
-            [
-                [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
-                [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
-                [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1],
-                [1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1], [0, 0, 0]
-            ]
+        [
+            "Example 1",
+            [[[0, 0, 0], [0, 1, 0], [0, 0, 0]]],
+            [[0, 0, 0], [0, 1, 0], [0, 0, 0]],
         ],
+        [
+            "Example 2",
+            [[[0, 0, 0], [0, 1, 0], [1, 1, 1]]],
+            [[0, 0, 0], [0, 1, 0], [1, 2, 1]],
+        ],
+        [
+            "Large Input",
             [
-                [19, 19, 19], [18, 18, 18], [17, 17, 17], [16, 16, 16],
-                [15, 15, 15], [14, 14, 14], [13, 13, 13], [12, 12, 12],
-                [11, 11, 11], [10, 10, 10], [9, 9, 9], [8, 8, 8], [7, 7, 7],
-                [6, 6, 6], [5, 5, 5], [4, 4, 4], [3, 3, 3], [2, 2, 2],
-                [1, 1, 1], [0, 0, 0]
-            ]
-        ]
+                [
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [1, 1, 1],
+                    [0, 0, 0],
+                ]
+            ],
+            [
+                [19, 19, 19],
+                [18, 18, 18],
+                [17, 17, 17],
+                [16, 16, 16],
+                [15, 15, 15],
+                [14, 14, 14],
+                [13, 13, 13],
+                [12, 12, 12],
+                [11, 11, 11],
+                [10, 10, 10],
+                [9, 9, 9],
+                [8, 8, 8],
+                [7, 7, 7],
+                [6, 6, 6],
+                [5, 5, 5],
+                [4, 4, 4],
+                [3, 3, 3],
+                [2, 2, 2],
+                [1, 1, 1],
+                [0, 0, 0],
+            ],
+        ],
     ]
 
     # run test cases and print results using PrintTests class

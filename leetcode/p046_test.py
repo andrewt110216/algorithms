@@ -29,8 +29,7 @@ class TestClass:
 
     def test1_example1(self):
         args = [[1, 2, 3]]
-        expected = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2],
-                    [3, 2, 1]]
+        expected = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
         self.run_funcs(args, expected)
 
     def test2_example2(self):

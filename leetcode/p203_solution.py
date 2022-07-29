@@ -7,7 +7,7 @@ from class_linked_list import ListNode, list_to_ll
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['remove_elements']
+    implementations = ["remove_elements"]
 
     def remove_elements(self, head: ListNode, val: int) -> ListNode:
         """
@@ -48,18 +48,24 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [list_to_ll([1, 2, 6, 3, 4, 5, 6]), 6],
-            list_to_ll([1, 2, 3, 4, 5])],
-        ['Example 2', [list_to_ll([]), 1], None],
-        ['Example 3', [list_to_ll([7, 7, 7, 7]), 7], None],
-        ['Every Other Val', [list_to_ll([5, 2, 5, 7, 5, 4, 5]), 5],
-            list_to_ll([2, 7, 4])],
+        [
+            "Example 1",
+            [list_to_ll([1, 2, 6, 3, 4, 5, 6]), 6],
+            list_to_ll([1, 2, 3, 4, 5]),
+        ],
+        ["Example 2", [list_to_ll([]), 1], None],
+        ["Example 3", [list_to_ll([7, 7, 7, 7]), 7], None],
+        [
+            "Every Other Val",
+            [list_to_ll([5, 2, 5, 7, 5, 4, 5]), 5],
+            list_to_ll([2, 7, 4]),
+        ],
     ]
 
     # run test cases and print results using PrintTests class

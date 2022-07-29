@@ -7,7 +7,7 @@ from collections import deque
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['walls_and_gates']
+    implementations = ["walls_and_gates"]
 
     def walls_and_gates(self, rooms: list[list[int]]) -> list[list[int]]:
         """
@@ -65,7 +65,7 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
@@ -73,13 +73,13 @@ if __name__ == '__main__':
     inf = 2147483647
     test_cases = [
         [
-            'Example 1',
+            "Example 1",
             [
                 [
                     [inf, -1, 0, inf],
                     [inf, inf, inf, -1],
                     [inf, -1, inf, -1],
-                    [0, -1, inf, inf]
+                    [0, -1, inf, inf],
                 ]
             ],
             [
@@ -87,10 +87,10 @@ if __name__ == '__main__':
                 [2, 2, 1, -1],
                 [1, -1, 2, -1],
                 [0, -1, 3, 4],
-            ]
+            ],
         ],
         [
-            'Example 2',
+            "Example 2",
             [
                 [
                     [-1],
@@ -98,10 +98,10 @@ if __name__ == '__main__':
             ],
             [
                 [-1],
-            ]
+            ],
         ],
         [
-            'Larger Grid',
+            "Larger Grid",
             [
                 [
                     [0, inf, inf, -1, inf, inf],
@@ -119,7 +119,7 @@ if __name__ == '__main__':
                 [0, 1, 2, 3, 3, 2],
                 [1, 2, 3, -1, 4, 3],
                 [2, -1, 4, -1, 5, 4],
-            ]
+            ],
         ],
     ]
 

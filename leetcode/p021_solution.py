@@ -7,7 +7,7 @@ from class_linked_list import ListNode, list_to_ll
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['merge_lists_recursive', 'merge_lists_iterative']
+    implementations = ["merge_lists_recursive", "merge_lists_iterative"]
 
     def merge_lists_recursive(self, l1: ListNode, l2: ListNode) -> ListNode:
         """
@@ -108,30 +108,22 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     case1 = [
-        'Example 1',
+        "Example 1",
         list(map(list_to_ll, [[1, 2, 4], [1, 3, 4]])),
-        list_to_ll([1, 1, 2, 3, 4, 4])
+        list_to_ll([1, 1, 2, 3, 4, 4]),
     ]
-    case2 = [
-        'Example 2',
-        list(map(list_to_ll, [[], []])),
-        list_to_ll([])
-    ]
-    case3 = [
-        'Example 3',
-        list(map(list_to_ll, [[], [0]])),
-        list_to_ll([0])
-    ]
+    case2 = ["Example 2", list(map(list_to_ll, [[], []])), list_to_ll([])]
+    case3 = ["Example 3", list(map(list_to_ll, [[], [0]])), list_to_ll([0])]
     case4 = [
-        'Add Duplicates and Negatives',
+        "Add Duplicates and Negatives",
         list(map(list_to_ll, [[-2, 0, 1, 4, 4], [-8, -2, -1, 0, 3]])),
-        list_to_ll([-8, -2, -2, -1, 0, 0, 1, 3, 4, 4])
+        list_to_ll([-8, -2, -2, -1, 0, 0, 1, 3, 4, 4]),
     ]
     test_cases = [case1, case2, case3, case4]
 

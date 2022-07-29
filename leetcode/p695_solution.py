@@ -1,10 +1,11 @@
 # 695 - Max Area of Island
 # https://leetcode.com/problems/max-area-of-island/
 
+
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ['solution']  # **UPDATE LIST AND DELETE THIS COMMENT**
+    implementations = ["solution"]  # **UPDATE LIST AND DELETE THIS COMMENT**
 
     def solution(self, grid: list[list[int]]) -> int:
         """
@@ -35,11 +36,13 @@ class Solution:
                     while stack:
                         r, c = stack.pop()
                         cur_area += 1
-                        neighbors = [(r-1, c), (r+1, c), (r, c-1), (r, c+1)]
+                        neighbors = [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]
                         for r_adj, c_adj in neighbors:
-                            if (0 <= r_adj < R and 0 <= c_adj < C) \
-                                    and grid[r_adj][c_adj] == 1 \
-                                    and (r_adj, c_adj) not in visited:
+                            if (
+                                (0 <= r_adj < R and 0 <= c_adj < C)
+                                and grid[r_adj][c_adj] == 1
+                                and (r_adj, c_adj) not in visited
+                            ):
                                 stack.append((r_adj, c_adj))
                                 visited.add((r_adj, c_adj))
                     max_area = max(max_area, cur_area)
@@ -49,35 +52,47 @@ class Solution:
 
 # =============================== DRIVER CODE ================================
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     from class_print_tests import PrintTests as PT
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ['Example 1', [[
-            [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-            [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
-            [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
-            ]], 6],
-        ['Example 2', [[[0, 0, 0, 0, 0, 0, 0, 0]]], 0],
-        ['Example 2 - With Island', [[[0, 0, 0, 1, 1, 0, 0, 0]]], 2],
-        ['Larger Example', [[
-            [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
-            [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
-            [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0],
-            [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
-            ]], 22],
+        [
+            "Example 1",
+            [
+                [
+                    [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+                    [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+                    [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+                ]
+            ],
+            6,
+        ],
+        ["Example 2", [[[0, 0, 0, 0, 0, 0, 0, 0]]], 0],
+        ["Example 2 - With Island", [[[0, 0, 0, 1, 1, 0, 0, 0]]], 2],
+        [
+            "Larger Example",
+            [
+                [
+                    [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                    [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                    [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
+                    [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
+                    [0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0],
+                    [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+                ]
+            ],
+            22,
+        ],
     ]
 
     # run test cases and print results using PrintTests class

@@ -25,6 +25,7 @@ from collections import deque
 
 class TreeNode:
     """Represent the node of a binary tree"""
+
     def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
@@ -41,6 +42,7 @@ class TreeNode:
                 print(end=" ")
             print(self.val)
             recurse(self.left, space)
+
         recurse(self, 0)
         return
 
@@ -92,6 +94,7 @@ def array_to_tree(array: list) -> TreeNode:
         node.left = recurse(2 * i + 1)
         node.right = recurse(2 * i + 2)
         return node
+
     return recurse()
 
 
@@ -119,11 +122,11 @@ if __name__ == "__main__":
 
     # Display a few demonstrations of the TreeNode class and related functions
     print()
-    print(' Demonstrations of TreeNode and Related Functions '.center(78, '='))
+    print(" Demonstrations of TreeNode and Related Functions ".center(78, "="))
     print()
 
     # Demonstrate how to create a binary tree from the TreeNode class
-    print(' Create a binary tree from TreeNodes '.center(78, '-'))
+    print(" Create a binary tree from TreeNodes ".center(78, "-"))
     print()
 
     #      1
@@ -150,61 +153,61 @@ if __name__ == "__main__":
     node3.right = node7
 
     # print the head node to see the entire linked list
-    print('> My binary tree:', root)
+    print("> My binary tree:", root)
     assert root.__repr__() == "<TreeNode [1, 2, 3, 4, 5, 6, 7]>"
-    print('\n> Visual representation of my binary tree:')
+    print("\n> Visual representation of my binary tree:")
     root.print()
     print()
 
     # Demonstrate how to convert a binary tree to a traditional list
-    print(' Convert a binary tree to a traditional list '.center(78, '-'))
+    print(" Convert a binary tree to a traditional list ".center(78, "-"))
     print()
 
     my_list = tree_to_array(root)
-    print('> My binary tree converted to a traditional list:', my_list)
+    print("> My binary tree converted to a traditional list:", my_list)
     assert my_list == [1, 2, 3, 4, 5, 6, 7]
     print()
 
     # Demonstrate how to convert traditional list to a binary tree
-    print(' Convert a traditional list to a binary tree '.center(78, '-'))
+    print(" Convert a traditional list to a binary tree ".center(78, "-"))
     print()
 
     my_list = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-    print('> My traditonal list is:', my_list)
+    print("> My traditonal list is:", my_list)
     my_binary_tree = array_to_tree(my_list)
-    print('> My traditional list converted to a binary tree:', my_binary_tree)
-    print('\n> Visual representation of my binary tree:')
+    print("> My traditional list converted to a binary tree:", my_binary_tree)
+    print("\n> Visual representation of my binary tree:")
     my_binary_tree.print()
     print()
 
     # Demonstrate comparison of tree nodes
-    print(' Compare two TreeNodes '.center(78, '-'))
+    print(" Compare two TreeNodes ".center(78, "-"))
     print()
 
     binary_tree_1 = array_to_tree([1, 2])
     binary_tree_2 = array_to_tree([1, 2, 3])
-    print('> binary_tree_1:', binary_tree_1)
-    print('> binary_tree_2:', binary_tree_2)
-    print('> Run Comparison: `binary_tree_1 == binary_tree_2`')
-    print('  > Return:', binary_tree_1 == binary_tree_2)
+    print("> binary_tree_1:", binary_tree_1)
+    print("> binary_tree_2:", binary_tree_2)
+    print("> Run Comparison: `binary_tree_1 == binary_tree_2`")
+    print("  > Return:", binary_tree_1 == binary_tree_2)
     assert binary_tree_1 != binary_tree_2
     print()
 
     binary_tree_1 = array_to_tree([1, 2, 3])
     binary_tree_2 = array_to_tree([1, 2, 3])
-    print('> binary_tree_1:', binary_tree_1)
-    print('> binary_tree_2:', binary_tree_2)
-    print('> Run Comparison: `binary_tree_1 == binary_tree_2`')
-    print('  > Return:', binary_tree_1 == binary_tree_2)
+    print("> binary_tree_1:", binary_tree_1)
+    print("> binary_tree_2:", binary_tree_2)
+    print("> Run Comparison: `binary_tree_1 == binary_tree_2`")
+    print("  > Return:", binary_tree_1 == binary_tree_2)
     assert binary_tree_1 == binary_tree_2
     print()
 
     binary_tree_1 = array_to_tree([])
     binary_tree_2 = array_to_tree([None])
-    print('> binary_tree_1:', binary_tree_1)
-    print('> binary_tree_2:', binary_tree_2)
-    print('> Run Comparison: `binary_tree_1 == binary_tree_2`')
-    print('  > Return:', binary_tree_1 == binary_tree_2)
+    print("> binary_tree_1:", binary_tree_1)
+    print("> binary_tree_2:", binary_tree_2)
+    print("> Run Comparison: `binary_tree_1 == binary_tree_2`")
+    print("  > Return:", binary_tree_1 == binary_tree_2)
     assert binary_tree_1 == binary_tree_2
     print()
 
