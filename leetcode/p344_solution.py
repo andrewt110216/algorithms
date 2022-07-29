@@ -38,7 +38,11 @@ if __name__ == "__main__":
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
         ["Example 1", [["h", "e", "l", "l", "o"]], ["o", "l", "l", "e", "h"]],
-        ["Example 2", [["H", "a", "n", "n", "a", "h"]], ["h", "a", "n", "n", "a", "H"]],
+        [
+            "Example 2",
+            [["H", "a", "n", "n", "a", "h"]],
+            ["h", "a", "n", "n", "a", "H"],
+        ],
         ["Single Element", [["a"]], ["a"]],
         ["Two Elements", [["a", "b"]], ["b", "a"]],
     ]

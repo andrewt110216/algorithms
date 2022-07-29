@@ -36,7 +36,12 @@ class Solution:
                     while stack:
                         r, c = stack.pop()
                         cur_area += 1
-                        neighbors = [(r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)]
+                        neighbors = [
+                            (r - 1, c),
+                            (r + 1, c),
+                            (r, c - 1),
+                            (r, c + 1),
+                        ]
                         for r_adj, c_adj in neighbors:
                             if (
                                 (0 <= r_adj < R and 0 <= c_adj < C)

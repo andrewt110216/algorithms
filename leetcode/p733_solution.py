@@ -38,7 +38,11 @@ class Solution:
                 neighbors = [(0, 1), (0, -1), (1, 0), (-1, 0)]
                 for neighbor in neighbors:
                     i, j = r + neighbor[0], c + neighbor[1]
-                    if 0 <= i < R and 0 <= j < C and image[i][j] == start_color:
+                    if (
+                        0 <= i < R
+                        and 0 <= j < C
+                        and image[i][j] == start_color
+                    ):
                         stack.append((i, j))
 
         return image
@@ -72,7 +76,11 @@ class Solution:
                 neighbors = [(0, 1), (0, -1), (1, 0), (-1, 0)]
                 for neighbor in neighbors:
                     i, j = r + neighbor[0], c + neighbor[1]
-                    if 0 <= i < R and 0 <= j < C and image[i][j] == start_color:
+                    if (
+                        0 <= i < R
+                        and 0 <= j < C
+                        and image[i][j] == start_color
+                    ):
                         dfs(i, j)
 
         dfs(sr, sc)

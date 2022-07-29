@@ -50,7 +50,11 @@ if __name__ == "__main__":
 
     # enter test cases: ['description', [inputs], expected_result]
     test_cases = [
-        ["Example 1", [4, 2], [[2, 4], [3, 4], [2, 3], [1, 2], [1, 3], [1, 4]]],
+        [
+            "Example 1",
+            [4, 2],
+            [[2, 4], [3, 4], [2, 3], [1, 2], [1, 3], [1, 4]],
+        ],
         ["Example 2", [1, 1], [[1]]],
         ["Large Output", [10, 3], list(combinations(range(1, 11), 3))],
     ]

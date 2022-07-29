@@ -40,7 +40,10 @@ if __name__ == "__main__":
     test_cases = [
         [
             "Example 1",
-            [array_to_tree([1, 3, 2, 5]), array_to_tree([2, 1, 3, None, 4, None, 7])],
+            [
+                array_to_tree([1, 3, 2, 5]),
+                array_to_tree([2, 1, 3, None, 4, None, 7]),
+            ],
             array_to_tree([3, 4, 5, 5, 4, None, 7]),
         ],
         [
@@ -48,10 +51,17 @@ if __name__ == "__main__":
             [array_to_tree([1]), array_to_tree([1, 2])],
             array_to_tree([2, 2]),
         ],
-        ["Empty Input", [array_to_tree([]), array_to_tree([])], array_to_tree([])],
+        [
+            "Empty Input",
+            [array_to_tree([]), array_to_tree([])],
+            array_to_tree([]),
+        ],
         [
             "All Overlap",
-            [array_to_tree([10, 20, 30, 40, 50]), array_to_tree([1, 2, 3, 4, 5])],
+            [
+                array_to_tree([10, 20, 30, 40, 50]),
+                array_to_tree([1, 2, 3, 4, 5]),
+            ],
             array_to_tree([11, 22, 33, 44, 55]),
         ],
         [
