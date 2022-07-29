@@ -21,7 +21,7 @@ Next, I plan to add similar automated tests for the algorithm files and create a
 | 5 | 34 | [Find First and Last Position of Element in Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p034_solution.py) | Medium |
 | 6 | 46 | [Permutations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p046_solution.py) | Medium |
 | 7 | 53 | [Maximum Subarray](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p053_solution.py) | Medium |
-| 8 | 70 | [Climbing Stairs](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p070_solution.py) | Medium |
+| 8 | 70 | [Climbing Stairs](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p070_solution.py) | Easy |
 | 9 | 77 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
 | 10 | 141 | [Linked List Cycle](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p141_solution.py) | Easy |
 | 11 | 148 | [Sort List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p148_solution.py) | Medium |
