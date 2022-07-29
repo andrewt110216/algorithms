@@ -1,6 +1,6 @@
 # Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-23-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-24-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
@@ -35,5 +35,6 @@ Next, I plan to add similar automated tests for the algorithm files and create a
 | 19 | 617 | [Merge Two Binary Trees](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p617_solution.py) | Easy |
 | 20 | 695 | [Max Area of Island](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p695_solution.py) | Medium |
 | 21 | 733 | [Flood Fill](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p733_solution.py) | Easy |
-| 22 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
-| 23 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
+| 22 | 784 | [Letter Case Permutation](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p784_solution.py) | Easy |
+| 23 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
+| 24 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
