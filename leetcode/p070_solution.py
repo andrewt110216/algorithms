@@ -25,8 +25,8 @@ class Solution:
 
         We will use recursion to calculate the solution.
 
-        Time: O()
-        Space: O()
+        Time: O( 2^n ) (at each i up to n, 2 recursive calls are made)
+        Space: O( 2^n ) (max size of call stack)
         """
 
         if n == 1:
@@ -43,8 +43,8 @@ class Solution:
         The solution represents the (n-1)th Fibonacci number.
         Use an iterative solution.
 
-        Time: O()
-        Space: O()
+        Time: O(n) (a calculation is made for each number from 1 to n)
+        Space: O(1) (constant space is used)
         """
 
         # handle base cases
