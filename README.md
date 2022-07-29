@@ -1,6 +1,6 @@
 # Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-25-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-26-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
@@ -21,21 +21,22 @@ Next, I plan to add similar automated tests for the algorithm files and create a
 | 5 | 34 | [Find First and Last Position of Element in Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p034_solution.py) | Medium |
 | 6 | 46 | [Permutations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p046_solution.py) | Medium |
 | 7 | 53 | [Maximum Subarray](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p053_solution.py) | Medium |
-| 8 | 77 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
-| 9 | 141 | [Linked List Cycle](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p141_solution.py) | Easy |
-| 10 | 148 | [Sort List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p148_solution.py) | Medium |
-| 11 | 189 | [Rotate Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p189_solution.py) | Medium |
-| 12 | 200 | [Number of Islands](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p200_solution.py) | Medium |
-| 13 | 203 | [Remove Linked List Elements](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p203_solution.py) | Easy |
-| 14 | 215 | [Kth Largest Element in an Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p215_solution.py) | Medium |
-| 15 | 283 | [Move Zeroes](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p283_solution.py) | Easy |
-| 16 | 286 | [Walls and Gates](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p286_solution.py) | Medium |
-| 17 | 344 | [Reverse String](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p344_solution.py) | Easy |
-| 18 | 542 | [01 Matrix](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p542_solution.py) | Medium |
-| 19 | 617 | [Merge Two Binary Trees](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p617_solution.py) | Easy |
-| 20 | 695 | [Max Area of Island](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p695_solution.py) | Medium |
-| 21 | 704 | [Binary Search](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p704_solution.py) | Easy |
-| 22 | 733 | [Flood Fill](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p733_solution.py) | Easy |
-| 23 | 784 | [Letter Case Permutation](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p784_solution.py) | Easy |
-| 24 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
-| 25 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
+| 8 | 70 | [Climbing Stairs](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p070_solution.py) | Medium |
+| 9 | 77 | [Combinations](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p077_solution.py) | Medium |
+| 10 | 141 | [Linked List Cycle](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p141_solution.py) | Easy |
+| 11 | 148 | [Sort List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p148_solution.py) | Medium |
+| 12 | 189 | [Rotate Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p189_solution.py) | Medium |
+| 13 | 200 | [Number of Islands](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p200_solution.py) | Medium |
+| 14 | 203 | [Remove Linked List Elements](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p203_solution.py) | Easy |
+| 15 | 215 | [Kth Largest Element in an Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p215_solution.py) | Medium |
+| 16 | 283 | [Move Zeroes](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p283_solution.py) | Easy |
+| 17 | 286 | [Walls and Gates](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p286_solution.py) | Medium |
+| 18 | 344 | [Reverse String](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p344_solution.py) | Easy |
+| 19 | 542 | [01 Matrix](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p542_solution.py) | Medium |
+| 20 | 617 | [Merge Two Binary Trees](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p617_solution.py) | Easy |
+| 21 | 695 | [Max Area of Island](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p695_solution.py) | Medium |
+| 22 | 704 | [Binary Search](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p704_solution.py) | Easy |
+| 23 | 733 | [Flood Fill](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p733_solution.py) | Easy |
+| 24 | 784 | [Letter Case Permutation](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p784_solution.py) | Easy |
+| 25 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
+| 26 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
