@@ -13,7 +13,7 @@ class Solution:
         """
         Iterate over each integer from n down to 1, updating the result as
         we go.
-        
+
         Order of operations require that when we encounter a * b / c, we
         compute that complete expression before adding (or subtracting) to the
         result, so we will save that in a temporary variable. The very first
