@@ -1,6 +1,6 @@
 # Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-28-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-29-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
@@ -42,3 +42,4 @@ Next, I plan to add similar automated tests for the algorithm files and create a
 | 26 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
 | 27 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
 | 28 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
+| 29 | 1029 | [Two City Scheduling](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1029_solution.py) | Medium |
