@@ -24,12 +24,10 @@ class Solution:
         """
 
         # if k == len(nums), then nums is already the output we need
-        # O(1)
         if k == len(nums):
             return nums
 
         # use Counter object to get frequencies of numbers in nums
-        # O(n)
         freqs = list(Counter(nums).items())
 
         # populate heap with the first k items
