@@ -2,16 +2,55 @@
 # https://leetcode.com/problems/top-k-frequent-elements/
 
 from collections import Counter
+import heapq
 
 
 class Solution:
 
     # list the methods to be run against the test cases
-    implementations = ["bucket_sort", "brute_force"]
+    implementations = ["heap_sort", "bucket_sort", "count_and_sort"]
+
+    def heap_sort(self, nums: list[int], k: int) -> list[int]:
+        """
+        Create a counter object of the frequencies of each number in nums.
+
+        Create a heap of size k, and push/pop to the heap as new frequencies
+        are greater than the current root of the heap.
+
+        When finished, the heap will contain the k-most frequent numbers.
+
+        Time: O(n * logk) (sorting of the heap)
+        Space: O(n) (counter and heap data structures)
+        """
+
+        # if k == len(nums), then nums is already the output we need
+        # O(1)
+        if k == len(nums):
+            return nums
+
+        # use Counter object to get frequencies of numbers in nums
+        # O(n)
+        freqs = list(Counter(nums).items())
+
+        # populate heap with the first k items
+        heap = [(freq, num) for num, freq in freqs[:k]]
+        heapq.heapify(heap)
+
+        # consider remaining items and add to heap if would be in k-largest
+        for num, freq in freqs[k:]:
+            if freq > heap[0][0]:
+                heapq.heappushpop(heap, (freq, num))
+
+        # the heap now continues the k most frequent numbers. extract numbers
+        out = []
+        for freq, num in heap:
+            out.append(num)
+
+        return out
 
     def bucket_sort(self, nums: list[int], k: int) -> list[int]:
         """
-        Iteratve over nums, counting the frequency of each number using a
+        Iterate over nums, counting the frequency of each number using a
         dictionary with nums -> frequency.
 
         Then create a list of empty lists, where each sublist represents all
@@ -45,7 +84,7 @@ class Solution:
                 if count == k:
                     return out
 
-    def brute_force(self, nums: list[int], k: int) -> list[int]:
+    def count_and_sort(self, nums: list[int], k: int) -> list[int]:
         """
         Iterate over nums, using a dictionary to store the frequencies of each
         number (O(n)).
@@ -80,8 +119,8 @@ if __name__ == "__main__":
         ["Example 2", [[1], 1], [1]],
         [
             "Larger Input",
-            [[1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6], 6],
-            [1, 2, 3, 4, 5, 6],
+            [[1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5], 5],
+            [1, 2, 3, 4, 5],
         ],
         [
             "Complex Input",

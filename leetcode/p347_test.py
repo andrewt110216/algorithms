@@ -34,8 +34,8 @@ class TestClass:
         self.run_funcs(args, expected)
 
     def test3_larger_input(self):
-        args = [[1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6], 6]
-        expected = [1, 2, 3, 4, 5, 6]
+        args = [[1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5], 5]
+        expected = [1, 2, 3, 4, 5]
         self.run_funcs(args, expected)
 
     def test4_complex_input(self):
