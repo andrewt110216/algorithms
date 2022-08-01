@@ -1,6 +1,6 @@
 # Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-27-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-28-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
@@ -32,12 +32,13 @@ Next, I plan to add similar automated tests for the algorithm files and create a
 | 16 | 283 | [Move Zeroes](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p283_solution.py) | Easy |
 | 17 | 286 | [Walls and Gates](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p286_solution.py) | Medium |
 | 18 | 344 | [Reverse String](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p344_solution.py) | Easy |
-| 19 | 542 | [01 Matrix](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p542_solution.py) | Medium |
-| 20 | 617 | [Merge Two Binary Trees](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p617_solution.py) | Easy |
-| 21 | 695 | [Max Area of Island](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p695_solution.py) | Medium |
-| 22 | 704 | [Binary Search](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p704_solution.py) | Easy |
-| 23 | 733 | [Flood Fill](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p733_solution.py) | Easy |
-| 24 | 784 | [Letter Case Permutation](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p784_solution.py) | Easy |
-| 25 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
-| 26 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
-| 27 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
+| 19 | 347 | [Top K Frequent Items](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p347_solution.py) | Medium |
+| 20 | 542 | [01 Matrix](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p542_solution.py) | Medium |
+| 21 | 617 | [Merge Two Binary Trees](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p617_solution.py) | Easy |
+| 22 | 695 | [Max Area of Island](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p695_solution.py) | Medium |
+| 23 | 704 | [Binary Search](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p704_solution.py) | Easy |
+| 24 | 733 | [Flood Fill](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p733_solution.py) | Easy |
+| 25 | 784 | [Letter Case Permutation](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p784_solution.py) | Easy |
+| 26 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
+| 27 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
+| 28 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
