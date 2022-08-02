@@ -1,6 +1,6 @@
 # Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-29-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-30-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
@@ -37,9 +37,10 @@ Next, I plan to add similar automated tests for the algorithm files and create a
 | 21 | 617 | [Merge Two Binary Trees](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p617_solution.py) | Easy |
 | 22 | 695 | [Max Area of Island](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p695_solution.py) | Medium |
 | 23 | 704 | [Binary Search](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p704_solution.py) | Easy |
-| 24 | 733 | [Flood Fill](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p733_solution.py) | Easy |
-| 25 | 784 | [Letter Case Permutation](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p784_solution.py) | Easy |
-| 26 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
-| 27 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
-| 28 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
-| 29 | 1029 | [Two City Scheduling](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1029_solution.py) | Medium |
+| 24 | 707 | [Design Linked List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p707_solution.py) | Medium |
+| 25 | 733 | [Flood Fill](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p733_solution.py) | Easy |
+| 26 | 784 | [Letter Case Permutation](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p784_solution.py) | Easy |
+| 27 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p977_solution.py) | Easy |
+| 28 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p994_solution.py) | Medium |
+| 29 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
+| 30 | 1029 | [Two City Scheduling](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1029_solution.py) | Medium |
