@@ -41,7 +41,7 @@ class Solution:
         non-repeating characters (storing seen characters in a set), and
         dynamically update the maximum length
 
-        Time: O(n) (one pass through s)
+        Time: O(n!) (at each i we do (n - i) operations for a total n!)
         Space: O(n) (max size of the set)
         """
 
