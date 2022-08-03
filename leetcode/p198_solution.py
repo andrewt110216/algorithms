@@ -19,7 +19,9 @@ class Solution:
 
         Iterate over each home, calculating the maximum amount of money that
         can be stolen up to and including that home, and update nums in place.
-        Save the maximum value as we go.
+
+        Since the max bounty is non-descending, the max bounty through the
+        final house is the desired result.
 
         Time: O(n) (one pass through nums)
         Space: O(1) (no additional data structures used)
@@ -35,15 +37,11 @@ class Solution:
         # of the bounty in the first two houses (since only 1 can be robbed)
         nums[1] = max(nums[0], nums[1])
 
-        # dynamically save the maximum bounty
-        max_bounty = nums[1]
-
         # iterate over remaining houses, calculating max bounty
         for i in range(2, n):
             nums[i] = max(nums[i - 1], nums[i - 2] + nums[i])
-            max_bounty = max(nums[i], max_bounty)
 
-        return max_bounty
+        return nums[-1]
 
 
 # =============================== DRIVER CODE ================================
