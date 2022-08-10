@@ -1,6 +1,6 @@
 # Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-31-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-32-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
@@ -41,7 +41,8 @@ Next, I plan to add similar automated tests for the algorithm files and create a
 | 25 | 707 | [Design Linked List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0707_solution.py) | Medium |
 | 26 | 733 | [Flood Fill](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0733_solution.py) | Easy |
 | 27 | 784 | [Letter Case Permutation](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0784_solution.py) | Easy |
-| 28 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0977_solution.py) | Easy |
-| 29 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0994_solution.py) | Medium |
-| 30 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
-| 31 | 1029 | [Two City Scheduling](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1029_solution.py) | Medium |
+| 28 | 931 | [Minimum Falling Path Sum](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0931_solution.py) | Medium |
+| 29 | 977 | [Squares of a Sorted Array](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0977_solution.py) | Easy |
+| 30 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0994_solution.py) | Medium |
+| 31 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
+| 32 | 1029 | [Two City Scheduling](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1029_solution.py) | Medium |
