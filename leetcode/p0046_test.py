@@ -1,4 +1,4 @@
-from p046_solution import Solution
+from p0046_solution import Solution
 import copy
 from itertools import permutations
 

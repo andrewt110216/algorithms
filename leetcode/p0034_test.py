@@ -1,4 +1,4 @@
-from p034_solution import Solution
+from p0034_solution import Solution
 
 
 class TestClass:

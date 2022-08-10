@@ -1,4 +1,4 @@
-from p286_solution import Solution
+from p0286_solution import Solution
 import copy
 
 
