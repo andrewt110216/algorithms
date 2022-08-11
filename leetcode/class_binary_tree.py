@@ -13,7 +13,7 @@ from collections import deque
 #      b. if 2i <= n, then the left child of node i is node 2i
 # 3. Right Child Node
 #      a. if 2i + 1 > n, then node i has no right child
-#      b. if 2i + 1 <= n, then the right child of node i is node 2i
+#      b. if 2i + 1 <= n, then the right child of node i is node 2i + 1
 # 4. Left Sibling
 #      a. if i > 1 is odd, then the left sibling of node i is node i - 1
 # 5. Right Sibling
