@@ -14,7 +14,7 @@ class Heap:
         """Compare two heaps for equality of both items and heap size"""
         if self.size != heap2.size:
             return False
-        if self.items[:self.size] != heap2.items[:heap2.size]:
+        if self.items[: self.size] != heap2.items[: heap2.size]:
             return False
         return True
 
@@ -58,7 +58,7 @@ class Heap:
         self.items.append(new_item)
         self.size += 1
         self.heapify_up()
-    
+
     def extract_min(self) -> object:
         min_val = self.items[0]
         self.items[0] = self.items[self.size - 1]
@@ -86,7 +86,7 @@ class Heap:
                 index = parent_index
             else:
                 return
-    
+
     def heapify_down(self) -> None:
         index = 0
         while self.has_left_child(index):
