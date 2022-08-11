@@ -1,14 +1,12 @@
 # Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-33-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) ![LC Problems](https://img.shields.io/badge/LC%20Problems-33-orange) ![Data Structures](https://img.shields.io/badge/Data%20Structures-3-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
 <em>A collection of files created while learning algorithms & data structures and solving Leetcode problems</em>
 
 All Leetcode problems include tests that can be run from within the solution file (using the PrintTests class from [class_print_tests.py](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_print_tests.py)) and automated tests using Pytest that are checked on each push to the repo. The files are also formatted using black with automated linting using flake8.
-
-Next, I plan to add similar automated tests for the algorithm files and create a TOC of them.
 
 ## Leetcode Problem Solutions
 
@@ -47,3 +45,29 @@ Next, I plan to add similar automated tests for the algorithm files and create a
 | 31 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0994_solution.py) | Medium |
 | 32 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
 | 33 | 1029 | [Two City Scheduling](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1029_solution.py) | Medium |
+
+
+## Data Structure Implementations
+
+I created my own implementations of a few data structures, either out of personal interest or convenience in testing Leetcode solutions.
+
+Each file contains:
+
+- Class representing my implementation of the data structure
+- Demonstrations of the class and its methods/related functions, meant to be run directly in the file
+
+| Count | Data Structure |
+| --- | --- |
+| 1 | [Linked List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_linked_list.py) |
+| 2 | [Binary Tree](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_binary_tree.py) |
+| 3 | [Heap](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_heap.py) |
+
+## Algorithms
+
+The 'algorithms' folder contains an assortment of files, such as:
+
+- implementations of traditional algorithms (e.g. sorting, searching, etc.)
+- solutions to specific assignments from my online classes or YouTube series
+- any other algorithm-adjacent topics that caught my interest at one time or another
+
+Next, I plan to add similar automated tests for the algorithm files, and organize them here with a TOC.
