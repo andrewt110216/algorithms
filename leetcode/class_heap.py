@@ -18,10 +18,8 @@ class Heap:
             return False
         return True
 
-    def is_empty(self):
-        if self.size == 0:
-            return True
-        return False
+    def is_empty(self) -> bool:
+        return self.size == 0
 
     def get_parent(self, child_index: int) -> int:
         """Return the index of the parent node of a given node index"""
@@ -31,15 +29,11 @@ class Heap:
 
     def has_left_child(self, parent_index: int) -> bool:
         """Check if a node index has a left child"""
-        if 2 * parent_index + 1 < self.size:
-            return True
-        return False
+        return 2 * parent_index + 1 < self.size
 
     def has_right_child(self, parent_index: int) -> bool:
         """Check if a node index has a right child"""
-        if 2 * parent_index + 2 < self.size:
-            return True
-        return False
+        return 2 * parent_index + 2 < self.size
 
     def get_left_child(self, parent_index: int) -> int:
         """Get the index of the left child of a given node index"""
@@ -72,7 +66,7 @@ class Heap:
         self.items[index1] = self.items[index2]
         self.items[index2] = temp
 
-    def heapify(self, new_items):
+    def heapify(self, new_items: iter) -> None:
         """Insert new items into the heap, naively"""
         for new_item in new_items:
             self.insert(new_item)
