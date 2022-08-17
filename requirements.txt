@@ -1,9 +1,12 @@
+-e git+https://github.com/andrewt110216/algorithms-and-data-structures.git@e7f7058c2442713d080c3f54dd158575ece1d114#egg=algo
 attrs==21.4.0
 flake8==4.0.1
 iniconfig==1.1.1
 mccabe==0.6.1
 packaging==21.3
+Pillow==9.2.0
 pluggy==1.0.0
+protobuf==4.21.4
 py==1.11.0
 pycodestyle==2.8.0
 pyflakes==2.4.0

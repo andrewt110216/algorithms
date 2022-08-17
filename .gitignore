@@ -7,7 +7,6 @@
 # Files not to be posted
 incomplete/
 temp.py
-data_structures/
 hackerrank/
 
 # Byte-compiled / optimized / DLL files

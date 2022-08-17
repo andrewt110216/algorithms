@@ -1,4 +1,4 @@
-from p0001_solution import Solution
+from leetcode.p0001_solution import Solution
 
 
 class TestClass:
