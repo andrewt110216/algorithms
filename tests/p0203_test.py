@@ -1,6 +1,6 @@
-from leetcode.p0203_solution import Solution
 import copy
-from class_linked_list import list_to_ll
+from leetcode.p0203_solution import Solution
+from data_structures.class_linked_list import list_to_ll
 
 
 class TestClass:

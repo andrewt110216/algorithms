@@ -1,5 +1,5 @@
 from leetcode.p0021_solution import Solution
-from class_linked_list import list_to_ll
+from data_structures.class_linked_list import list_to_ll
 
 
 class TestClass:

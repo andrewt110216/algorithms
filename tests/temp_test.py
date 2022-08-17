@@ -1,5 +1,5 @@
 # **UPDATE 'temp' FILENAME FOR IMPORT AND REMOVE THIS COMMENT**
-from temp_solution import Solution
+from leetcode.temp_solution import Solution
 import copy
 
 
