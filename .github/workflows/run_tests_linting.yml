@@ -19,7 +19,6 @@ jobs:
           python3 setup.py develop
       - name: Lint with flake8
         run: |
-          flake8 leetcode/*
-          flake8 tests/*
+          flake8 leetcode/* tests/*
       - name: Run LC test cases with pytest
         run: pytest tests
