@@ -1,4 +1,3 @@
--e git+https://github.com/andrewt110216/algorithms-and-data-structures.git@e7f7058c2442713d080c3f54dd158575ece1d114#egg=algo
 attrs==21.4.0
 flake8==4.0.1
 iniconfig==1.1.1
