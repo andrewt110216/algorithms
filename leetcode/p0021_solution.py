@@ -1,7 +1,7 @@
 # 020 - Merge Two Sorted (Linked) Lists
 # https://leetcode.com/problems/merge-two-sorted-lists/
 
-from data_structures.class_linked_list import ListNode, list_to_ll
+from data_structures.linked_list import ListNode, list_to_ll
 
 
 class Solution:

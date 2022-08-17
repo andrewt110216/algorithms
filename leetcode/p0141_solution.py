@@ -1,7 +1,7 @@
 # 141 - Linked List Cycle
 # https://leetcode.com/problems/linked-list-cycle/
 
-from data_structures.class_linked_list import ListNode, list_to_ll
+from data_structures.linked_list import ListNode, list_to_ll
 
 
 class Solution:
