@@ -1,4 +1,4 @@
-from p0021_solution import Solution
+from leetcode.p0021_solution import Solution
 from class_linked_list import list_to_ll
 
 

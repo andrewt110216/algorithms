@@ -1,4 +1,4 @@
-from p0189_solution import Solution
+from leetcode.p0189_solution import Solution
 import copy
 
 

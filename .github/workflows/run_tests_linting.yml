@@ -22,4 +22,4 @@ jobs:
           flake8 leetcode/*
           flake8 tests/*
       - name: Run LC test cases with pytest
-        run: pytest tests/p0001_test.py
+        run: pytest tests

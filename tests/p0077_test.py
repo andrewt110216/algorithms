@@ -1,4 +1,4 @@
-from p0077_solution import Solution
+from leetcode.p0077_solution import Solution
 from itertools import combinations
 
 

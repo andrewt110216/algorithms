@@ -1,4 +1,4 @@
-from p0046_solution import Solution
+from leetcode.p0046_solution import Solution
 import copy
 from itertools import permutations
 
