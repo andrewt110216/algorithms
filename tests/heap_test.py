@@ -3,23 +3,23 @@ from data_structures.heap import Heap
 
 
 # Fixtures
-@pytest.fixture
+@pytest.fixture(scope="function")
 def new_heap():
     return Heap()
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def list_ten():
     return [9, 10, 7, 8, 6, 5, 3, 4, 1, 2]
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def heap_ten(new_heap, list_ten):
     new_heap.heapify(list_ten)
     return new_heap
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def heap_ten_expected_items():
     return [1, 2, 5, 4, 3, 9, 6, 10, 7, 8]
 
@@ -79,20 +79,82 @@ def test_extract_min(heap_ten):
 
 
 def test_extract_min_until_empty(heap_ten):
-    print(heap_ten)
     for i in range(1, 11):
         extracted_min = heap_ten.extract_min()
-        print(i, extracted_min, heap_ten)
         assert extracted_min == i
         assert heap_ten.check_invariant()
     assert heap_ten.is_empty()
 
 
-# TODO: Add tests for the following
-# - copy heap
-# - heap sort
-# - insert multiple items at once into heap
-# - swap method
-# - bubble up and bubble down methods
-# - get left child, right, child and parent methods
-# - after tests are successful, consider deleting the in-file tests...
+def test_copy_heap(heap_ten):
+    heap_copy = heap_ten.copy()
+    assert id(heap_copy) != id(heap_ten)
+    assert heap_copy == heap_ten
+
+
+def test_heap_sort_empty(heap_ten, list_ten):
+    sorted = heap_ten.heap_sort(empty=True)
+    list_ten.sort()
+    assert sorted == list_ten
+    assert heap_ten.is_empty()
+
+
+def test_heap_sort_do_not_empty(heap_ten, list_ten, heap_ten_expected_items):
+    sorted = heap_ten.heap_sort(empty=False)
+    list_ten.sort()
+    assert sorted == list_ten
+    assert heap_ten._items == heap_ten_expected_items
+
+
+def test_heapify_into_existing_heap(heap_ten):
+    heap_ten.heapify([0, -5, 12, 5, -2, 8, 14])
+    assert heap_ten.size == 17
+    assert heap_ten.check_invariant()
+
+
+def test_swap_method(heap_ten):
+    item0 = heap_ten.get_value(0)
+    item5 = heap_ten.get_value(5)
+    heap_ten._swap(0, 5)
+    assert heap_ten.get_value(0) == item5
+    assert heap_ten.get_value(5) == item0
+
+
+def test_get_children_methods(heap_ten):
+    assert heap_ten.get_left_child(0) == 1
+    assert heap_ten.get_right_child(0) == 2
+    assert heap_ten.get_left_child(1) == 3
+    assert heap_ten.get_right_child(1) == 4
+    assert heap_ten.get_left_child(2) == 5
+    assert heap_ten.get_right_child(2) == 6
+    assert heap_ten.get_left_child(10) is None
+    assert heap_ten.get_right_child(10) is None
+
+
+def test_get_parent_method(heap_ten):
+    assert heap_ten.get_parent(0) is None
+    assert heap_ten.get_parent(1) == 0
+    assert heap_ten.get_parent(2) == 0
+    assert heap_ten.get_parent(3) == 1
+    assert heap_ten.get_parent(4) == 1
+    assert heap_ten.get_parent(10) == 4
+
+
+def test_bubble_up(heap_ten):
+    heap_ten._items.append(0)
+    heap_ten.size += 1
+    heap_ten._bubble_up()
+    assert heap_ten.check_invariant()
+    assert heap_ten.get_value(0) == 0
+
+
+def test_bubble_down(heap_ten):
+    heap_ten._items.insert(0, 12)
+    heap_ten.size += 1
+    heap_ten._bubble_down()
+    assert heap_ten.check_invariant()
+
+
+def test_str_and_repr(heap_ten):
+    assert str(heap_ten) == "<Heap [1, 2, 5, 4, 3, 9, 6, 10, 7, 8]>"
+    assert repr(heap_ten) == "<Heap [1, 2, 5, 4, 3, 9, 6, 10, 7, 8]>"

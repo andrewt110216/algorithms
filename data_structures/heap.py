@@ -72,15 +72,21 @@ class Heap:
         self._bubble_up()
 
     def extract_min(self) -> int:
-        """Extract and return min value from heap, maintaining heap invariant"""
+        """Extract and return min val from heap, maintaining heap invariant"""
         extracted_min = self._items[0]
         self._items[0] = self._items[self.size - 1]
         self.size -= 1
         self._bubble_down()
         return extracted_min
 
-    def swap(self, i1: int, i2: int) -> None:
-        """Swap items at two indexes"""
+    def _swap(self, i1: int, i2: int) -> None:
+        """
+        Swap items at two indexes
+
+        This method is inteded for use by _bubble_up and _bubble_down.
+        It is discouraged to use _swap directly as it does not force the heap
+        invariant to be maintained.
+        """
         self._items[i1], self._items[i2] = self._items[i2], self._items[i1]
 
     def heapify(self, new_items: list[int] = []) -> None:
@@ -92,7 +98,8 @@ class Heap:
         """Return a copy of the heap"""
         new_heap = Heap()
         new_heap.size = self.size
-        new_heap._items = self.items
+        new_heap._items = self._items.copy()
+        return new_heap
 
     def heap_sort(self, empty=True) -> list:
         """
@@ -103,25 +110,25 @@ class Heap:
         """
         sorted = []
         if empty:
-            while self.is_empty() == False:
+            while not self.is_empty():
                 sorted.append(self.extract_min())
         else:
             heap_copy = self.copy()
-            while heap_copy.is_empty() == False:
+            while not heap_copy.is_empty():
                 sorted.append(heap_copy.extract_min())
         return sorted
 
     def _bubble_up(self) -> None:
         """
         Bubble last item of heap up to maintain heap invariant
-        
+
         This method is intended for use by insert method
         """
         index = self.size - 1
         while index > 0:
             parent_index = self.get_parent(index)
             if self._items[parent_index] > self._items[index]:
-                self.swap(index, parent_index)
+                self._swap(index, parent_index)
                 index = parent_index
             else:
                 return
@@ -140,7 +147,7 @@ class Heap:
                 if self.get_value(right_child) < self.get_value(smaller_child):
                     smaller_child = right_child
             if self.get_value(index) > self.get_value(smaller_child):
-                self.swap(index, smaller_child)
+                self._swap(index, smaller_child)
                 index = smaller_child
             else:
                 break
@@ -156,6 +163,7 @@ class Heap:
                     if val > self.get_value(self.get_right_child(idx)):
                         return False
         return True
+
 
 if __name__ == "__main__":
 
@@ -267,7 +275,30 @@ if __name__ == "__main__":
     assert not my_heap.check_invariant()
     print()
 
-    print("".center(78, "="))
+    # Demonstrate how to use heap sort to get a sorted list of the items
+    print(" Use heap sort to get a sorted list of the items ".center(78, "-"))
     print()
 
-# TODO: Add demonstrations for copy and heap sort (with empty as True and False)
+    print("> `empty` parameter set to True will empty the heap...")
+    my_heap = Heap([10, 8, 7, 9, 6, 5, 4, 3, 2, 1])
+    print(" > my_heap:", my_heap)
+    sorted_list = my_heap.heap_sort(empty=True)
+    print(" > Sorted list from `my_heap.heap_sort()`:", sorted_list)
+    print(" > my_heap after heap_sort with empty=True:", my_heap)
+    assert sorted_list == list(range(1, 11))
+    assert my_heap.is_empty()
+    print()
+
+    print("> `empty` parameter set to False will not change the heap...")
+    my_heap = Heap([10, 8, 7, 9, 6, 5, 4, 3, 2, 1])
+    print(" > my_heap:", my_heap)
+    sorted_list = my_heap.heap_sort(empty=False)
+    print(" > Sorted list from `my_heap.heap_sort()`:", sorted_list)
+    print(" > my_heap after heap_sort with empty=True:", my_heap)
+    assert sorted_list == list(range(1, 11))
+    assert not my_heap.is_empty()
+    assert my_heap == Heap([10, 8, 7, 9, 6, 5, 4, 3, 2, 1])
+    print()
+
+    print("".center(78, "="))
+    print()
