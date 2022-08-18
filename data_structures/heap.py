@@ -88,6 +88,29 @@ class Heap:
         for new_item in new_items:
             self.insert(new_item)
 
+    def copy(self) -> Heap:
+        """Return a copy of the heap"""
+        new_heap = Heap()
+        new_heap.size = self.size
+        new_heap._items = self.items
+
+    def heap_sort(self, empty=True) -> list:
+        """
+        Return a sorted list of the heap elements
+
+        If 'empty' is True (default), this will leave the heap empty
+        Set to False to preserve the heap, as is, by using a copy for sorting
+        """
+        sorted = []
+        if empty:
+            while self.is_empty() == False:
+                sorted.append(self.extract_min())
+        else:
+            heap_copy = self.copy()
+            while heap_copy.is_empty() == False:
+                sorted.append(heap_copy.extract_min())
+        return sorted
+
     def _bubble_up(self) -> None:
         """
         Bubble last item of heap up to maintain heap invariant
@@ -116,18 +139,22 @@ class Heap:
                 right_child = self.get_right_child(index)
                 if self.get_value(right_child) < self.get_value(smaller_child):
                     smaller_child = right_child
-            self.swap(index, smaller_child)
-            index = smaller_child
+            if self.get_value(index) > self.get_value(smaller_child):
+                self.swap(index, smaller_child)
+                index = smaller_child
+            else:
+                break
 
     def check_invariant(self) -> bool:
         """Check if the heap is currently holding the heap invariant"""
-        for idx, val in enumerate(self._items):
-            if self.has_left_child(idx):
-                if val > self.get_value(self.get_left_child(idx)):
-                    return False
-            if self.has_right_child(idx):
-                if val > self.get_value(self.get_right_child(idx)):
-                    return False
+        if self.size > 1:
+            for idx, val in enumerate(self._items):
+                if self.has_left_child(idx):
+                    if val > self.get_value(self.get_left_child(idx)):
+                        return False
+                if self.has_right_child(idx):
+                    if val > self.get_value(self.get_right_child(idx)):
+                        return False
         return True
 
 if __name__ == "__main__":
@@ -215,10 +242,21 @@ if __name__ == "__main__":
     assert my_heap.check_invariant()
     print()
 
+    my_heap = Heap([9, 10, 7, 8, 6, 5, 3, 4, 1, 2])
+    for i in range(1, 11):
+        print(" > my_heap:", my_heap)
+        print(" > Extract Min: ", my_heap.extract_min())
+        print(" > my_heap:", my_heap)
+        print(" > Check Invariant: `my_heap.check_invariant()")
+        print("  > Return:", my_heap.check_invariant())
+        assert my_heap.check_invariant()
+    print()
+
     # Demonstrate why the programmer should not modify the heap items directly
     print(" A programmer should NOT modify heap._items ".center(78, "-"))
     print()
 
+    my_heap = Heap([5, 4, 3, 2, 1])
     print("> IMPROPERLY modify the heap items by: `my_heap._items.append(0)`")
     my_heap._items.append(0)
     print("> Then, IMPROPERLY increase the heap size by: `my_heap.size += 1`")
@@ -231,3 +269,5 @@ if __name__ == "__main__":
 
     print("".center(78, "="))
     print()
+
+# TODO: Add demonstrations for copy and heap sort (with empty as True and False)
