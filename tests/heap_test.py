@@ -3,23 +3,23 @@ from data_structures.heap import Heap
 
 
 # Fixtures
-@pytest.fixture(scope="function")
+@pytest.fixture
 def new_heap():
     return Heap()
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture
 def list_ten():
     return [9, 10, 7, 8, 6, 5, 3, 4, 1, 2]
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture
 def heap_ten(new_heap, list_ten):
     new_heap.heapify(list_ten)
     return new_heap
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture
 def heap_ten_expected_items():
     return [1, 2, 5, 4, 3, 9, 6, 10, 7, 8]
 
