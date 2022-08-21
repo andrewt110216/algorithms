@@ -1,123 +1,184 @@
-class ListNode:
-    """Represent a node of a linked list"""
+"""
+An API to represent a Singly-Linked List of integers and provide basic
+operations, including insert, delete, search, and sort
+"""
 
-    def __init__(self, val=0, next=None, has_cycle=False):
-        """Initialize the node value and next pointer"""
+from __future__ import annotations
+
+
+# TODO: handle errors that would be caused by a list with a cycle
+
+
+class ListNode:
+    """Represent a node of a singly-linked list"""
+
+    def __init__(self, val: int = 0, next: ListNode = None):
         self.val = val
         self.next = next
 
-        # nodes with a cycle cannot be compared since they are infinitely long
-        # use this attribute to work with a linked list with a cycle
-        self.has_cycle = has_cycle
-
     def __repr__(self):
-        """Represent the ListNode with a list of each node value"""
-        if self.has_cycle:
-            return "<ListNode (" + str(self.val) + ") (has_cycle) >"
-        return "<ListNode " + str(ll_to_list(self)) + ">"
+        return (
+            f"<ListNode {self.val} -> "
+            f"({self.next.val if self.next else 'None'})>"
+        )
 
-    def __eq__(self, other):
-        """Two ListNodes are equal if their list representations are equal"""
-        if not isinstance(other, ListNode):
-            return NotImplemented
-        return ll_to_list(self) == ll_to_list(other)
+    def __str__(self):
+        return self.__repr__()
 
 
-def ll_to_list(head):
-    """Convert a linked list to a traditional list"""
-    array = []
-    if head:
-        cur = head
-        while cur and cur.next:
-            array.append(cur.val)
+class LinkedList:
+    """Represent a singly-linked list"""
+
+    def __init__(self, node_values: list[int] = []):
+        self._prehead = ListNode()
+        self._tail = None
+        self._length = 0
+        if node_values:
+            self.from_array(node_values)
+
+    def __len__(self):
+        return self._length
+
+    def __eq__(self, list2):
+        """Compare self to another linked list for equality"""
+        if type(list2) != LinkedList:
+            return False
+        cur1 = self.get_head()
+        cur2 = list2.get_head()
+        while cur1 and cur2:
+            if cur1.val != cur2.val:
+                return False
+            cur1 = cur1.next
+            cur2 = cur2.next
+        if cur1 or cur2:
+            return False
+        return True
+
+    def is_empty(self):
+        """Return self._length == 0"""
+        return self._length == 0
+
+    def get_head(self):
+        """Return head node"""
+        return self._prehead.next
+
+    def get_tail(self):
+        """Return tail node"""
+        return self._tail
+
+    def insert(self, index: int, value: int):
+        """Insert a new node at index"""
+        n = self._length
+        if index < 0 or index > n:
+            raise IndexError
+        cur = 0
+        prev = self._prehead
+        while cur <= n and prev:
+            if cur == index:
+                new_node = ListNode(value)
+                tmp = prev.next
+                prev.next = new_node
+                new_node.next = tmp
+                self._length += 1
+                if cur == self._length - 1:
+                    self._tail = new_node
+                break
+            prev = prev.next
+            cur += 1
+
+    def from_array(self, items: list[int]):
+        """Add items from array to end of list"""
+        prev = self._tail if self._tail else self._prehead
+        for item in items:
+            new_node = ListNode(item)
+            prev.next = new_node
+            prev = new_node
+        self._length += len(items)
+        self._tail = prev
+
+    def get_value(self, index: int) -> int:
+        """Return value of node at index"""
+        if not 0 <= index < self._length:
+            raise IndexError
+        cur = self.get_head()
+        for _ in range(index):
             cur = cur.next
-        array.append(cur.val)
-    return array
+        return cur.val
 
+    def find_value(self, target: int) -> int:
+        """Return index of first occurence of target value in self"""
+        cur_idx = 0
+        cur = self.get_head()
+        while cur:
+            if cur.val == target:
+                return cur_idx
+            cur = cur.next
+            cur_idx += 1
+        raise ValueError
 
-def list_to_ll(array):
-    """Convert a traditional list to a linked list"""
-    n = len(array)
-    if n == 0:
-        return None
-    head = ListNode(array[0])
-    prev = head
-    i = 1
-    while i < n:
-        new_node = ListNode(array[i])
-        prev.next = new_node
-        prev = prev.next
-        i += 1
-    return head
+    def count(self, target: int) -> int:
+        """Count number of ocurrences of target value in self"""
+        count = 0
+        cur = self.get_head()
+        while cur:
+            if cur.val == target:
+                count += 1
+            cur = cur.next
+        return count
 
+    # TODO
+    def find_all(self, target: int) -> list:
+        """Return indices of all occurences of target value in self"""
+        pass
 
-if __name__ == "__main__":
+    def pop(self) -> int:
+        """Delete tail node and return its value"""
+        pass
 
-    # Display a few demonstrations of the ListNode class and related functions
-    print()
-    print(" Demonstrations of ListNode and Related Functions ".center(78, "="))
-    print()
+    def pop_left(self) -> int:
+        """Delete head node and return its value"""
+        pass
 
-    # Demonstrate how to create a linked list from the ListNode class
-    print(" Create a linked list from ListNodes ".center(78, "-"))
-    print()
+    def push(self) -> None:
+        """Push a new node to end of list"""
+        pass
 
-    # create nodes
-    head = ListNode(0)
-    node1 = ListNode(1)
-    node2 = ListNode(2)
-    node3 = ListNode(3)
-    node4 = ListNode(4)
+    def push_left(self) -> None:
+        """Push a new node to front of list"""
+        pass
 
-    # connect them
-    head.next = node1
-    node1.next = node2
-    node2.next = node3
-    node3.next = node4
+    def to_array(self) -> list:
+        """Return a traditional list representation of self"""
+        pass
 
-    # print the head node to see the entire linked list
-    print("> My linked list:", head)
-    assert head.__repr__() == "<ListNode [0, 1, 2, 3, 4]>"
-    print()
+    def show(self) -> None:
+        """Print items of self as a traditional list"""
+        print(self.to_array())
 
-    # Demonstrate how to convert a linked list to a traditional list
-    print(" Convert a linked list to a traditional list ".center(78, "-"))
-    print()
+    def delete(self, target: int) -> None:
+        """Delete first occurence of target value from self"""
+        pass
 
-    my_list = ll_to_list(head)
-    print("> My linked list converted to a traditional list:", my_list)
-    assert my_list == [0, 1, 2, 3, 4]
-    print()
+    def delete_index(self, index: int) -> None:
+        """Delete node at index from self"""
+        pass
 
-    # Demonstrate how to convert traditional list to a linked list
-    print(" Convert a traditional list to a linked list ".center(78, "-"))
-    print()
+    def copy(self) -> LinkedList:
+        """Return a copy of self"""
+        pass
 
-    my_list = [10, 9, 8, 7, 6]
-    print("> My traditonal list is:", my_list)
-    my_linked_list = list_to_ll(my_list)
-    print("> My traditional list converted to a linked list:", my_linked_list)
-    assert my_linked_list == list_to_ll([10, 9, 8, 7, 6])
-    print()
+    def reverse(self) -> None:
+        """Reverse elements of self"""
+        pass
 
-    # Demonstrate comparison of linked lists
-    print(" Compare two ListNodes ".center(78, "-"))
-    print()
+    def sort(self, descending: bool = False) -> None:
+        """Sort list nodes by value"""
+        pass
 
-    linked_list_1 = list_to_ll([1, 2])
-    linked_list_2 = list_to_ll([1, 2, 3])
-    print("> linked_list_1:", linked_list_1)
-    print("> linked_list_2:", linked_list_2)
-    print("> Run Comparison: `linked_list_1 == linked_list_2`")
-    print("  > Return:", linked_list_1 == linked_list_2)
-    print()
+    def sorted(self, descending: bool = False) -> LinkedList:
+        """Return a copy of list with nodes sorted by value"""
+        pass
 
-    linked_list_1 = list_to_ll([1, 2, 3])
-    print("> linked_list_1:", linked_list_1)
-    print("> linked_list_2:", linked_list_2)
-    print("> Run Comparison: `linked_list_1 == linked_list_2`")
-    print("  > Return:", linked_list_1 == linked_list_2)
-    print()
-
-    print("".center(78, "="))
-    print()
+    def has_cycle(self) -> bool:
+        """Check if self has a cycle, using Floyd's cycle-finding algorithm"""
+        pass
