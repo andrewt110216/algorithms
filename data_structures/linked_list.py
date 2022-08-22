@@ -4,24 +4,8 @@ operations, including insert, delete, search, and sort
 """
 
 from __future__ import annotations
+from data_structures.linked_list_node import ListNode
 from functools import wraps
-
-
-class ListNode:
-    """Represent a node of a singly-linked list"""
-
-    def __init__(self, val: int = 0, next: ListNode = None):
-        self.val = val
-        self.next = next
-
-    def __repr__(self):
-        return (
-            f"<ListNode {self.val} -> "
-            f"({self.next.val if self.next else 'None'})>"
-        )
-
-    def __str__(self):
-        return self.__repr__()
 
 
 class CycleException(Exception):
@@ -273,7 +257,7 @@ class LinkedList:
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-            if fast == slow:
+            if id(fast) == id(slow):
                 return True
         return False
 

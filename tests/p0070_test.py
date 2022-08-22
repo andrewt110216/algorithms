@@ -33,8 +33,8 @@ class TestClass:
         self.run_funcs(args, expected)
 
     def test5_large_input(self):
-        args = [30]
-        expected = 1_346_269
+        args = [24]
+        expected = 75_025
         self.run_funcs(args, expected)
 
     # n > 30 is too slow for iterative & brute force solutions

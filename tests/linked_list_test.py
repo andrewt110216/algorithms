@@ -1,6 +1,7 @@
 import pytest
 from string import Template
-from data_structures.linked_list import ListNode, LinkedList
+from data_structures.linked_list_node import ListNode
+from data_structures.linked_list import LinkedList
 
 
 class TestNode:
