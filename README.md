@@ -59,7 +59,7 @@ Each file contains:
 | Count | Data Structure |
 | --- | --- |
 | 1 | [Linked List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/linked_list.py) |
-| 2 | [Binary Tree](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/binary_tree.py) |
+| 2 | [Binary Tree](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/binary_tree_node.py) |
 | 3 | [Heap](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/heap.py) |
 
 ## Algorithms
