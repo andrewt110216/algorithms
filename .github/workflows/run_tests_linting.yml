@@ -1,4 +1,4 @@
-name: LC Tests & Flake8
+name: Tests & Linting
 
 on: push
 
