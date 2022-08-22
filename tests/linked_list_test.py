@@ -306,11 +306,221 @@ class TestLinkedList:
         assert list_ten.get_head().val == -15
         assert len(list_ten) == 11
 
+    # Delete
+    def test_delete_error_empty(self, new_list):
+        with pytest.raises(ValueError, match='value not found'):
+            new_list.delete(2)
+
+    def test_delete_error_ten(self, list_ten):
+        with pytest.raises(ValueError, match='value not found'):
+            list_ten.delete(11)
+
+    def test_delete_one(self):
+        my_list = LinkedList([6])
+        my_list.delete(6)
+        assert my_list.is_empty()
+        assert my_list.get_head(quiet=True) is None
+        assert my_list.get_tail(quiet=True) is None
+
+    def test_delete_head(self, list_ten, array_ten):
+        list_ten.delete(array_ten[0])
+        assert len(list_ten) == 9
+        assert list_ten.find_all(array_ten[0]) == []
+        assert list_ten.get_head().val == array_ten[1]
+        assert list_ten.get_tail().val == array_ten[-1]
+
+    def test_delete_tail(self, list_ten, array_ten):
+        list_ten.delete(array_ten[-1])
+        assert len(list_ten) == 9
+        assert list_ten.find_all(array_ten[-1]) == []
+        assert list_ten.get_head().val == array_ten[0]
+        assert list_ten.get_tail().val == array_ten[-2]
+
+    def test_delete_middle(self, list_ten, array_ten):
+        list_ten.delete(array_ten[4])
+        assert len(list_ten) == 9
+        assert list_ten.find_all(array_ten[4]) == []
+        assert list_ten.get_head().val == array_ten[0]
+        assert list_ten.get_tail().val == array_ten[-1]
+
+    # Delete index
+    def test_delete_index_error_empty(self, new_list):
+        with pytest.raises(IndexError):
+            new_list.delete_index(0)
+
+    def test_delete_index_error_ten(self, list_ten):
+        with pytest.raises(IndexError):
+            list_ten.delete_index(11)
+
+    def test_delete_index_head(self, list_ten, array_ten):
+        list_ten.delete_index(0)
+        assert len(list_ten) == 9
+        assert list_ten.find_all(array_ten[0]) == []
+        assert list_ten.get_head().val == array_ten[1]
+
+    def test_delete_index_tail(self, list_ten, array_ten):
+        list_ten.delete_index(9)
+        assert len(list_ten) == 9
+        assert list_ten.find_all(array_ten[9]) == []
+        assert list_ten.get_head().val == array_ten[0]
+        assert list_ten.get_tail().val == array_ten[-2]
+
+    def test_delete_index_middle(self, list_ten, array_ten):
+        list_ten.delete_index(4)
+        assert len(list_ten) == 9
+        assert list_ten.find_all(array_ten[4]) == []
+        assert list_ten.get_head().val == array_ten[0]
+        assert list_ten.get_value(4) == array_ten[5]
+        assert list_ten.get_tail().val == array_ten[-1]
+
+    # Copy
+    def test_copy_empty(self, new_list):
+        copy = new_list.copy()
+        assert copy == new_list
+        assert id(copy) != id(new_list)
+
+    def test_copy_ten(self, list_ten):
+        copy = list_ten.copy()
+        assert copy == list_ten
+        assert id(copy) != id(list_ten)
+
+    def test_copy_one(self):
+        my_list = LinkedList([7])
+        copy = my_list.copy()
+        assert copy == my_list
+        assert id(copy) != id(my_list)
+
+    # Check for cycle
+    def test_has_cycle_empty(self, new_list):
+        assert new_list.has_cycle() is False
+
+    def test_has_cycle_false_one(self):
+        my_list = LinkedList([3])
+        assert my_list.has_cycle() is False
+
+    def test_has_cycle_false_ten(self, list_ten):
+        assert list_ten.has_cycle() is False
+
+    def test_has_cycle_true_tail(self):
+        list_with_cycle = LinkedList()
+        list_with_cycle.from_array([1, 2, 3])
+        head = list_with_cycle.get_head()
+        tail = list_with_cycle.get_tail()
+        tail.next = head
+        assert list_with_cycle.has_cycle()
+
+    def test_has_cycle_true_mid(self):
+        list_with_cycle = LinkedList()
+        list_with_cycle.from_array([1, 2, 3])
+        head = list_with_cycle.get_head()
+        mid = head.next
+        mid.next = head
+        assert list_with_cycle.has_cycle()
+
+    # Reverse
+    def test_reverse_empty(self, new_list):
+        new_list.reverse()
+        assert new_list.is_empty()
+        assert new_list.get_head(quiet=True) is None
+        assert new_list.get_tail(quiet=True) is None
+
+    def test_reverse_one(self, new_list):
+        new_list.push(2)
+        new_list.reverse()
+        assert len(new_list) == 1
+        assert new_list.get_head().val == 2
+        assert new_list.get_tail().val == 2
+
+    def test_reverse_ten(self, list_ten, array_ten):
+        list_ten.reverse()
+        assert list_ten.to_array() == list(reversed(array_ten))
+        assert list_ten.get_head().val == array_ten[-1]
+        assert list_ten.get_tail().val == array_ten[0]
+
+    # Sorting
+    def test_sort_empty(self, new_list):
+        new_list.sort()
+        assert new_list.to_array() == []
+        assert new_list.get_head(quiet=True) is None
+        assert new_list.get_tail(quiet=True) is None
+        assert new_list.is_empty()
+
+    def test_sorted_empty(self, new_list):
+        sorted_list = new_list.sorted()
+        assert id(sorted_list) != id(new_list)
+        assert sorted_list.to_array() == []
+        assert sorted_list.get_head(quiet=True) is None
+        assert sorted_list.get_tail(quiet=True) is None
+        assert sorted_list.is_empty()
+
+    def test_sort_two(self):
+        my_list = LinkedList([2, 4])
+        my_list.sort()
+        assert my_list.to_array() == [2, 4]
+        assert my_list.get_head().val == 2
+        assert my_list.get_tail().val == 4
+
+    def test_sorted_two(self):
+        my_list = LinkedList([2, 4])
+        sorted_list = my_list.sorted()
+        assert id(sorted_list) != id(my_list)
+        assert my_list.to_array() == [2, 4]
+        assert my_list.get_head().val == 2
+        assert my_list.get_tail().val == 4
+
+    def test_sort_two_rev(self):
+        my_list = LinkedList([2, 4])
+        my_list.sort(reverse=True)
+        assert my_list.to_array() == [4, 2]
+        assert my_list.get_head().val == 4
+        assert my_list.get_tail().val == 2
+
+    def test_sorted_two_rev(self):
+        my_list = LinkedList([2, 4])
+        sorted_list = my_list.sorted(reverse=True)
+        assert id(sorted_list) != id(my_list)
+        assert my_list.to_array() == [2, 4]
+        assert sorted_list.to_array() == [4, 2]
+        assert my_list.get_head().val == 2
+        assert sorted_list.get_head().val == 4
+        assert my_list.get_tail().val == 4
+        assert sorted_list.get_tail().val == 2
+
+    def test_sort_ten(self, list_ten, array_ten):
+        list_ten.sort()
+        array_ten.sort()
+        assert list_ten.to_array() == array_ten
+        assert list_ten.get_head().val == array_ten[0]
+        assert list_ten.get_tail().val == array_ten[-1]
+
+    def test_sorted_ten(self, list_ten, array_ten):
+        sorted_list = list_ten.sorted()
+        sorted_array = sorted(array_ten)
+        assert id(sorted_list) != id(list_ten)
+        assert list_ten.to_array() == array_ten
+        assert list_ten.get_head().val == array_ten[0]
+        assert list_ten.get_tail().val == array_ten[-1]
+        assert sorted_list.to_array() == sorted_array
+        assert sorted_list.get_head().val == sorted_array[0]
+        assert sorted_list.get_tail().val == sorted_array[-1]
+
+    def test_sort_ten_rev(self, list_ten, array_ten):
+        list_ten.sort(reverse=True)
+        array_ten.sort(reverse=True)
+        assert list_ten.to_array() == array_ten
+        assert list_ten.get_head().val == array_ten[0]
+        assert list_ten.get_tail().val == array_ten[-1]
+
+    def test_sorted_ten_rev(self, list_ten, array_ten):
+        sorted_list = list_ten.sorted(reverse=True)
+        sorted_array = sorted(array_ten, reverse=True)
+        assert id(sorted_list) != id(list_ten)
+        assert list_ten.to_array() == array_ten
+        assert list_ten.get_head().val == array_ten[0]
+        assert list_ten.get_tail().val == array_ten[-1]
+        assert sorted_list.to_array() == sorted_array
+        assert sorted_list.get_head().val == sorted_array[0]
+        assert sorted_list.get_tail().val == sorted_array[-1]
+
     # TODO
-    # - delete
-    # - delete_index
-    # - copy
-    # - reverse
-    # - sort
-    # - sorted
-    # - has cycle
+    # change errors for get head and get tail

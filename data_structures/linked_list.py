@@ -72,12 +72,11 @@ class LinkedList:
 
     def insert(self, index: int, value: int):
         """Insert a new node at index"""
-        n = self._length
-        if index < 0 or index > n:
+        if index < 0 or index > self._length:
             raise IndexError
         cur = 0
         prev = self._prehead
-        while cur <= n and prev:
+        while cur <= self._length and prev:
             if cur == index:
                 new_node = ListNode(value)
                 tmp = prev.next
@@ -147,8 +146,7 @@ class LinkedList:
         if self.is_empty():
             raise IndexError("Cannot pop from empty LinkedList")
         prev = self._prehead
-        n = self._length
-        for _ in range(n - 1):
+        for _ in range(self._length - 1):
             prev = prev.next
         popped = prev.next.val
         prev.next = None
@@ -178,7 +176,7 @@ class LinkedList:
     def push(self, value: int) -> None:
         """Push a new node to end of list"""
         new_node = ListNode(value)
-        prev = self._prehead if self.is_empty() else self.get_tail(quiet=True)
+        prev = self._prehead if self.is_empty() else self.get_tail()
         prev.next = new_node
         self._tail = new_node
         self._length += 1
@@ -199,31 +197,128 @@ class LinkedList:
         """Print items of self as a traditional list"""
         print(self.to_array())
 
-    # TODO
     def delete(self, target: int) -> None:
         """Delete first occurence of target value from self"""
-        pass
+        prev = self._prehead
+        cur = prev.next
+        while cur:
+            if cur.val == target:
+                prev.next = cur.next
+                self._length -= 1
+                if self._tail == cur:
+                    self._tail = prev if prev != self._prehead else None
+                return
+            prev = cur
+            cur = cur.next
+        raise ValueError("Target value not found")
 
     def delete_index(self, index: int) -> None:
         """Delete node at index from self"""
-        pass
+        if index < 0 or index > self._length - 1:
+            raise IndexError
+        prev = self._prehead
+        cur = prev.next
+        for _ in range(index):
+            prev = prev.next
+            cur = cur.next
+        prev.next = cur.next
+        self._length -= 1
+        if self._tail == cur:
+            self._tail = prev if index > 0 else None
 
     def copy(self) -> LinkedList:
         """Return a copy of self"""
-        pass
-
-    def reverse(self) -> None:
-        """Reverse elements of self"""
-        pass
-
-    def sort(self, descending: bool = False) -> None:
-        """Sort list nodes by value"""
-        pass
-
-    def sorted(self, descending: bool = False) -> LinkedList:
-        """Return a copy of list with nodes sorted by value"""
-        pass
+        out = LinkedList()
+        cur = self._prehead
+        copy = out._prehead
+        while cur.next:
+            copy.next = ListNode(cur.next.val)
+            if self._tail == cur.next:
+                out._tail = copy.next
+            out._length += 1
+            cur = cur.next
+            copy = copy.next
+        return out
 
     def has_cycle(self) -> bool:
         """Check if self has a cycle, using Floyd's cycle-finding algorithm"""
-        pass
+        if self.is_empty():
+            return False
+        slow = self.get_head()
+        fast = slow
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if fast == slow:
+                return True
+        return False
+
+    def reverse(self) -> None:
+        """Reverse elements of self"""
+        if self._length < 2: return
+        cur = self.get_head()
+        self._prehead.next = self._tail
+        self._tail = cur
+        prev = None
+        while cur:
+            tmp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = tmp
+
+    def sort(self, reverse: bool = False) -> None:
+        """Sort list nodes by value, using mergesort algorithm"""
+        if self._length < 2: return
+
+        def get_mid(head):
+            slow = head
+            fast = head.next
+            while fast and fast.next:
+                slow = slow.next
+                fast = fast.next.next
+            return slow
+
+        def merge(A, B):
+            prehead = ListNode()
+            C = prehead
+            while A and B:
+                C.next = ListNode()
+                C = C.next
+                if (not reverse and A.val < B.val) or (reverse and A.val > B.val):
+                    C.val = A.val
+                    A = A.next
+                else:
+                    C.val = B.val
+                    B = B.next
+            while A:
+                C.next = ListNode()
+                C = C.next
+                C.val = A.val
+                A = A.next
+            while B:
+                C.next = ListNode()
+                C = C.next
+                C.val = B.val
+                B = B.next
+            return prehead.next
+
+        def recurse(head):
+            if head is None or head.next is None:
+                return head
+            mid = get_mid(head)
+            part2 = mid.next
+            mid.next = None
+            return merge(recurse(head), recurse(part2))
+
+        head = self.get_head(quiet=True)
+        cur = recurse(head)
+        self._prehead.next = cur
+        for _ in range(self._length - 1):
+            cur = cur.next
+        self._tail = cur
+
+    def sorted(self, reverse: bool = False) -> LinkedList:
+        """Return a copy of list with nodes sorted by value"""
+        copy = self.copy()
+        copy.sort(reverse=reverse)
+        return copy
