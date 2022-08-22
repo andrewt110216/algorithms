@@ -135,16 +135,14 @@ class TestLinkedList:
 
     # Get value by position
     def test_get_head_none(self, new_list):
-        with pytest.raises(IndexError, match='not get head'):
-            new_list.get_head()
+        assert new_list.get_head() is None
 
     def test_get_head_ten(self, list_ten, array_ten):
         assert len(list_ten) == 10
         assert list_ten.get_head().val == array_ten[0]
 
     def test_get_tail_none(self, new_list):
-        with pytest.raises(IndexError, match='not get tail'):
-            new_list.get_tail()
+        assert new_list.get_tail() is None
 
     def test_get_tail_ten(self, list_ten, array_ten):
         assert len(list_ten) == 10
@@ -319,8 +317,8 @@ class TestLinkedList:
         my_list = LinkedList([6])
         my_list.delete(6)
         assert my_list.is_empty()
-        assert my_list.get_head(quiet=True) is None
-        assert my_list.get_tail(quiet=True) is None
+        assert my_list.get_head() is None
+        assert my_list.get_tail() is None
 
     def test_delete_head(self, list_ten, array_ten):
         list_ten.delete(array_ten[0])
@@ -421,8 +419,8 @@ class TestLinkedList:
     def test_reverse_empty(self, new_list):
         new_list.reverse()
         assert new_list.is_empty()
-        assert new_list.get_head(quiet=True) is None
-        assert new_list.get_tail(quiet=True) is None
+        assert new_list.get_head() is None
+        assert new_list.get_tail() is None
 
     def test_reverse_one(self, new_list):
         new_list.push(2)
@@ -441,16 +439,16 @@ class TestLinkedList:
     def test_sort_empty(self, new_list):
         new_list.sort()
         assert new_list.to_array() == []
-        assert new_list.get_head(quiet=True) is None
-        assert new_list.get_tail(quiet=True) is None
+        assert new_list.get_head() is None
+        assert new_list.get_tail() is None
         assert new_list.is_empty()
 
     def test_sorted_empty(self, new_list):
         sorted_list = new_list.sorted()
         assert id(sorted_list) != id(new_list)
         assert sorted_list.to_array() == []
-        assert sorted_list.get_head(quiet=True) is None
-        assert sorted_list.get_tail(quiet=True) is None
+        assert sorted_list.get_head() is None
+        assert sorted_list.get_tail() is None
         assert sorted_list.is_empty()
 
     def test_sort_two(self):

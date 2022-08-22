@@ -43,8 +43,8 @@ class LinkedList:
         """Compare self to another linked list for equality"""
         if type(list2) != LinkedList:
             return False
-        cur1 = self.get_head(quiet=True)
-        cur2 = list2.get_head(quiet=True)
+        cur1 = self.get_head()
+        cur2 = list2.get_head()
         while cur1 and cur2:
             if cur1.val != cur2.val:
                 return False
@@ -58,16 +58,12 @@ class LinkedList:
         """Return self._length == 0"""
         return self._length == 0
 
-    def get_head(self, quiet: bool = False):
-        """Return head node. Set quiet to True to return None if empty."""
-        if (not quiet) and self.is_empty():
-            raise IndexError("Cannot get head of empty LinkedList")
+    def get_head(self):
+        """Return head node"""
         return self._prehead.next
 
-    def get_tail(self, quiet: bool = False):
-        """Return tail node. Set quiet to True to return None if empty."""
-        if (not quiet) and self.is_empty():
-            raise IndexError("Cannot get tail of empty LinkedList")
+    def get_tail(self):
+        """Return tail node"""
         return self._tail
 
     def insert(self, index: int, value: int):
@@ -103,7 +99,7 @@ class LinkedList:
         """Return value of node at index"""
         if not 0 <= index < self._length:
             raise IndexError
-        cur = self.get_head(quiet=True)
+        cur = self.get_head()
         for _ in range(index):
             cur = cur.next
         return cur.val
@@ -111,7 +107,7 @@ class LinkedList:
     def find_value(self, target: int) -> int:
         """Return index of first occurence of target value in self"""
         cur_idx = 0
-        cur = self.get_head(quiet=True)
+        cur = self.get_head()
         while cur:
             if cur.val == target:
                 return cur_idx
@@ -122,7 +118,7 @@ class LinkedList:
     def count(self, target: int) -> int:
         """Count number of ocurrences of target value in self"""
         count = 0
-        cur = self.get_head(quiet=True)
+        cur = self.get_head()
         while cur:
             if cur.val == target:
                 count += 1
@@ -167,7 +163,7 @@ class LinkedList:
     def to_array(self) -> list:
         """Return a traditional list representation of self"""
         out = []
-        cur = self.get_head(quiet=True)
+        cur = self.get_head()
         while cur:
             out.append(cur.val)
             cur = cur.next
@@ -310,8 +306,7 @@ class LinkedList:
             mid.next = None
             return merge(recurse(head), recurse(part2))
 
-        head = self.get_head(quiet=True)
-        cur = recurse(head)
+        cur = recurse(self.get_head())
         self._prehead.next = cur
         for _ in range(self._length - 1):
             cur = cur.next
