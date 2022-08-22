@@ -1,7 +1,7 @@
 # 619 - Merge Two Binary Trees
 # https://leetcode.com/problems/merge-two-binary-trees/
 
-from data_structures.binary_tree import TreeNode, array_to_tree
+from data_structures.binary_tree_node import TreeNode, array_to_tree
 
 
 class Solution:
