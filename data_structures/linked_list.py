@@ -4,9 +4,7 @@ operations, including insert, delete, search, and sort
 """
 
 from __future__ import annotations
-
-
-# TODO: handle errors that would be caused by a list with a cycle
+from functools import wraps
 
 
 class ListNode:
@@ -26,8 +24,17 @@ class ListNode:
         return self.__repr__()
 
 
+class CycleException(Exception):
+    pass
+
+
 class LinkedList:
-    """Represent a singly-linked list"""
+    """
+    Represent a singly-linked list
+
+    While it is discouraged, LinkedList allows cycles. However, most operations
+    are disallowed on a list with a cycle to prevent infinite loops.
+    """
 
     def __init__(self, node_values: list[int] = []):
         self._prehead = ListNode()
@@ -36,9 +43,20 @@ class LinkedList:
         if node_values:
             self.from_array(node_values)
 
+    def _no_cycle(f):
+        @wraps(f)
+        def wrapped(self, *args, **kwargs):
+            if self.has_cycle():
+                msg = f'Cannot run "{f.__name__}" on a list with a cycle'
+                raise CycleException(msg)
+            return f(self, *args, **kwargs)
+        return wrapped
+
+    @_no_cycle
     def __len__(self):
         return self._length
 
+    @_no_cycle
     def __eq__(self, list2):
         """Compare self to another linked list for equality"""
         if type(list2) != LinkedList:
@@ -66,6 +84,7 @@ class LinkedList:
         """Return tail node"""
         return self._tail
 
+    @_no_cycle
     def insert(self, index: int, value: int):
         """Insert a new node at index"""
         if index < 0 or index > self._length:
@@ -85,6 +104,7 @@ class LinkedList:
             prev = prev.next
             cur += 1
 
+    @_no_cycle
     def from_array(self, items: list[int]):
         """Add items from array to end of list"""
         prev = self._tail if self._tail else self._prehead
@@ -95,6 +115,7 @@ class LinkedList:
         self._length += len(items)
         self._tail = prev
 
+    @_no_cycle
     def get_value(self, index: int) -> int:
         """Return value of node at index"""
         if not 0 <= index < self._length:
@@ -104,6 +125,7 @@ class LinkedList:
             cur = cur.next
         return cur.val
 
+    @_no_cycle
     def find_value(self, target: int) -> int:
         """Return index of first occurence of target value in self"""
         cur_idx = 0
@@ -115,6 +137,7 @@ class LinkedList:
             cur_idx += 1
         raise ValueError
 
+    @_no_cycle
     def count(self, target: int) -> int:
         """Count number of ocurrences of target value in self"""
         count = 0
@@ -125,6 +148,7 @@ class LinkedList:
             cur = cur.next
         return count
 
+    @_no_cycle
     def find_all(self, target: int) -> list:
         """Return indices of all occurences of target value in self"""
         indices = []
@@ -137,6 +161,7 @@ class LinkedList:
             cur_idx += 1
         return indices
 
+    @_no_cycle
     def pop(self) -> int:
         """Delete tail node and return its value"""
         if self.is_empty():
@@ -160,6 +185,7 @@ class LinkedList:
         self._length -= 1
         return popped
 
+    @_no_cycle
     def to_array(self) -> list:
         """Return a traditional list representation of self"""
         out = []
@@ -189,10 +215,12 @@ class LinkedList:
         prev.next = new_node
         self._length += 1
 
+    @_no_cycle
     def show(self) -> None:
         """Print items of self as a traditional list"""
         print(self.to_array())
 
+    @_no_cycle
     def delete(self, target: int) -> None:
         """Delete first occurence of target value from self"""
         prev = self._prehead
@@ -208,6 +236,7 @@ class LinkedList:
             cur = cur.next
         raise ValueError("Target value not found")
 
+    @_no_cycle
     def delete_index(self, index: int) -> None:
         """Delete node at index from self"""
         if index < 0 or index > self._length - 1:
@@ -222,6 +251,7 @@ class LinkedList:
         if self._tail == cur:
             self._tail = prev if index > 0 else None
 
+    @_no_cycle
     def copy(self) -> LinkedList:
         """Return a copy of self"""
         out = LinkedList()
@@ -238,8 +268,6 @@ class LinkedList:
 
     def has_cycle(self) -> bool:
         """Check if self has a cycle, using Floyd's cycle-finding algorithm"""
-        if self.is_empty():
-            return False
         slow = self.get_head()
         fast = slow
         while fast and fast.next:
@@ -249,9 +277,11 @@ class LinkedList:
                 return True
         return False
 
+    @_no_cycle
     def reverse(self) -> None:
         """Reverse elements of self"""
-        if self._length < 2: return
+        if self._length < 2:
+            return
         cur = self.get_head()
         self._prehead.next = self._tail
         self._tail = cur
@@ -262,9 +292,11 @@ class LinkedList:
             prev = cur
             cur = tmp
 
+    @_no_cycle
     def sort(self, reverse: bool = False) -> None:
         """Sort list nodes by value, using mergesort algorithm"""
-        if self._length < 2: return
+        if self._length < 2:
+            return
 
         def get_mid(head):
             slow = head
@@ -280,7 +312,7 @@ class LinkedList:
             while A and B:
                 C.next = ListNode()
                 C = C.next
-                if (not reverse and A.val < B.val) or (reverse and A.val > B.val):
+                if not reverse and A.val < B.val or reverse and A.val > B.val:
                     C.val = A.val
                     A = A.next
                 else:
@@ -312,6 +344,7 @@ class LinkedList:
             cur = cur.next
         self._tail = cur
 
+    @_no_cycle
     def sorted(self, reverse: bool = False) -> LinkedList:
         """Return a copy of list with nodes sorted by value"""
         copy = self.copy()

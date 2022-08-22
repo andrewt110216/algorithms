@@ -1,16 +1,17 @@
 import pytest
+from string import Template
 from data_structures.linked_list import ListNode, LinkedList
 
 
 class TestNode:
     """Tests for ListNode class"""
 
-    # Fixtures
+    # === Fixtures ===
     @pytest.fixture
     def new_node(self):
         return ListNode()
 
-    # Tests
+    # === Tests ===
     def test_create_node(self):
         node = ListNode()
         assert node.val == 0
@@ -32,7 +33,7 @@ class TestNode:
 class TestLinkedList:
     """Tests for LinkedList class"""
 
-    # Fixtures
+    # === Fixtures ===
     @pytest.fixture
     def new_list(self):
         return LinkedList()
@@ -59,7 +60,27 @@ class TestLinkedList:
     def list_twos(self, array_twos):
         return LinkedList(array_twos)
 
-    # Tests
+    @pytest.fixture
+    def list_cycle_end(self, list_ten):
+        head = list_ten.get_head()
+        tail = list_ten.get_tail()
+        tail.next = head
+        return list_ten
+
+    @pytest.fixture
+    def list_cycle_mid(self, list_ten):
+        head = list_ten.get_head()
+        mid = head.next.next.next
+        mid.next = head
+        return list_ten
+
+    @pytest.fixture
+    def list_cycle_head(self, list_ten):
+        head = list_ten.get_head()
+        head.next = head
+        return list_ten
+
+    # === Tests ===
 
     # Initialization
     def test_create_new_list(self):
@@ -156,6 +177,10 @@ class TestLinkedList:
         for index in [-1, 10, 11]:
             with pytest.raises(IndexError):
                 list_ten.get_value(index)
+
+    def test_get_head_cycle(self, list_cycle_mid, array_ten):
+        assert list_cycle_mid.get_head().val == array_ten[0]
+        assert list_cycle_mid.get_tail().val == array_ten[-1]
 
     # Find value
     def test_find_value(self, list_ten, array_ten):
@@ -388,33 +413,6 @@ class TestLinkedList:
         assert copy == my_list
         assert id(copy) != id(my_list)
 
-    # Check for cycle
-    def test_has_cycle_empty(self, new_list):
-        assert new_list.has_cycle() is False
-
-    def test_has_cycle_false_one(self):
-        my_list = LinkedList([3])
-        assert my_list.has_cycle() is False
-
-    def test_has_cycle_false_ten(self, list_ten):
-        assert list_ten.has_cycle() is False
-
-    def test_has_cycle_true_tail(self):
-        list_with_cycle = LinkedList()
-        list_with_cycle.from_array([1, 2, 3])
-        head = list_with_cycle.get_head()
-        tail = list_with_cycle.get_tail()
-        tail.next = head
-        assert list_with_cycle.has_cycle()
-
-    def test_has_cycle_true_mid(self):
-        list_with_cycle = LinkedList()
-        list_with_cycle.from_array([1, 2, 3])
-        head = list_with_cycle.get_head()
-        mid = head.next
-        mid.next = head
-        assert list_with_cycle.has_cycle()
-
     # Reverse
     def test_reverse_empty(self, new_list):
         new_list.reverse()
@@ -520,5 +518,56 @@ class TestLinkedList:
         assert sorted_list.get_head().val == sorted_array[0]
         assert sorted_list.get_tail().val == sorted_array[-1]
 
-    # TODO
-    # change errors for get head and get tail
+    # Check for cycle
+    def test_has_cycle_empty(self, new_list):
+        assert new_list.has_cycle() is False
+
+    def test_has_cycle_false_one(self):
+        my_list = LinkedList([3])
+        assert my_list.has_cycle() is False
+
+    def test_has_cycle_false_ten(self, list_ten):
+        assert list_ten.has_cycle() is False
+
+    def test_has_cycle(self, list_cycle_head, list_cycle_mid, list_cycle_end):
+        assert list_cycle_head.has_cycle()
+        assert list_cycle_mid.has_cycle()
+        assert list_cycle_end.has_cycle()
+
+    # Make sure methods that traverse the list abort if there is a cycle
+    def test_methods_with_cycle(self, list_cycle_mid, list_ten):
+        t = Template('not run "$f" on a list with a cycle')
+        with pytest.raises(Exception, match=t.substitute(f='__len__')):
+            len(list_cycle_mid)
+        with pytest.raises(Exception, match=t.substitute(f='__eq__')):
+            list_cycle_mid == list_ten
+        with pytest.raises(Exception, match=t.substitute(f='__eq__')):
+            list_ten == list_cycle_mid
+        with pytest.raises(Exception, match=t.substitute(f='insert')):
+            list_cycle_mid.insert(3, 12)
+        with pytest.raises(Exception, match=t.substitute(f='from_array')):
+            list_cycle_mid.from_array([11, 12, 13])
+        with pytest.raises(Exception, match=t.substitute(f='get_value')):
+            list_cycle_mid.get_value(6)
+        with pytest.raises(Exception, match=t.substitute(f='count')):
+            list_cycle_mid.count(6)
+        with pytest.raises(Exception, match=t.substitute(f='find_all')):
+            list_cycle_mid.find_all(6)
+        with pytest.raises(Exception, match=t.substitute(f='pop')):
+            list_cycle_mid.pop(6)
+        with pytest.raises(Exception, match=t.substitute(f='to_array')):
+            list_cycle_mid.to_array()
+        with pytest.raises(Exception, match=t.substitute(f='show')):
+            list_cycle_mid.show()
+        with pytest.raises(Exception, match=t.substitute(f='delete')):
+            list_cycle_mid.delete(5)
+        with pytest.raises(Exception, match=t.substitute(f='delete_index')):
+            list_cycle_mid.delete_index(4)
+        with pytest.raises(Exception, match=t.substitute(f='copy')):
+            list_cycle_mid.copy()
+        with pytest.raises(Exception, match=t.substitute(f='reverse')):
+            list_cycle_mid.reverse()
+        with pytest.raises(Exception, match=t.substitute(f='sort')):
+            list_cycle_mid.sort()
+        with pytest.raises(Exception, match=t.substitute(f='sorted')):
+            list_cycle_mid.sorted()
