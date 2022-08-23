@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from dijkstra_min_path import read_graph, dijkstra
+from algorithms.dijkstra_min_path import read_graph, dijkstra
 
 
 @pytest.fixture(scope="session")
@@ -39,8 +39,10 @@ class TestCase:
         assert dijkstra(E, 5) == [0, 10, 2, 14, 44]
 
     def test_dijkstra_large(self):
-        BASE = Path(__file__).resolve().parent
-        E = read_graph(str(BASE / "input-files/dijkstra_input.txt"), 200)
+        BASE = Path(__file__).resolve().parent.parent
+        E = read_graph(
+            str(BASE / "algorithms/input-files/dijkstra_input.txt"), 200
+            )
         assert dijkstra(E, 200) == [
             0,
             2971,
