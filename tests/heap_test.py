@@ -159,6 +159,7 @@ def test_str_and_repr(heap_ten):
     assert str(heap_ten) == "<Heap [1, 2, 5, 4, 3, 9, 6, 10, 7, 8]>"
     assert repr(heap_ten) == "<Heap [1, 2, 5, 4, 3, 9, 6, 10, 7, 8]>"
 
+
 def test_multiple_ops(new_heap):
     new_heap.insert(1)
     new_heap.insert(2)
