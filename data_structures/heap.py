@@ -27,6 +27,10 @@ class Heap:
         """Return self.size == 0"""
         return self.size == 0
 
+    def get_items(self) -> list:
+        """Return a copy of the items of the heap"""
+        return self._items.copy()
+
     def get_value(self, i: int) -> int:
         """Return the value at index i in the heap"""
         return self._items[i]
@@ -75,6 +79,7 @@ class Heap:
         """Extract and return min val from heap, maintaining heap invariant"""
         extracted_min = self._items[0]
         self._items[0] = self._items[self.size - 1]
+        self._items.pop()
         self.size -= 1
         self._bubble_down()
         return extracted_min

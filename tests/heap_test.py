@@ -158,3 +158,18 @@ def test_bubble_down(heap_ten):
 def test_str_and_repr(heap_ten):
     assert str(heap_ten) == "<Heap [1, 2, 5, 4, 3, 9, 6, 10, 7, 8]>"
     assert repr(heap_ten) == "<Heap [1, 2, 5, 4, 3, 9, 6, 10, 7, 8]>"
+
+def test_multiple_ops(new_heap):
+    new_heap.insert(1)
+    new_heap.insert(2)
+    assert new_heap.size == 2
+    assert new_heap.get_items() == [1, 2]
+    new_heap.insert(-2)
+    assert new_heap.size == 3
+    assert new_heap.get_value(0) == -2
+    assert new_heap.check_invariant()
+    assert new_heap.extract_min() == -2
+    assert new_heap.extract_min() == 1
+    assert new_heap.size == 1
+    assert new_heap.extract_min() == 2
+    assert new_heap.is_empty()
