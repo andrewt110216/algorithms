@@ -1,10 +1,10 @@
-# Algorithms & Data Structures
+# Leetcode - Algorithms & Data Structures
 
 ![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange) ![Data Structures](https://img.shields.io/badge/Data%20Structures-3-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
-<em>A collection of files created while learning algorithms & data structures and solving Leetcode problems</em>
+<em>Python solutions to Leetcode problems</em>
 
 All Leetcode problems include tests that can be run from within the solution file (using the PrintTests class from [class_print_tests.py](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_print_tests.py)) and automated tests using Pytest that are checked on each push to the repo. The files are also formatted using black with automated linting using flake8.
 
@@ -62,13 +62,3 @@ Each file contains:
 | 1 | [Linked List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/linked_list.py) |
 | 2 | [Binary Tree](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/binary_tree_node.py) |
 | 3 | [Heap](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/heap.py) |
-
-## Algorithms
-
-The 'algorithms' folder contains an assortment of files, such as:
-
-- implementations of traditional algorithms (e.g. sorting, searching, etc.)
-- solutions to specific assignments from my online classes or YouTube series
-- any other algorithm-adjacent topics that caught my interest at one time or another
-
-Next, I plan to add similar automated tests for the algorithm files, and organize them here with a TOC.
