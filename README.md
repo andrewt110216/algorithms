@@ -8,7 +8,7 @@
 
 All Leetcode problems include tests that can be run from within the solution file (using the PrintTests class from [class_print_tests.py](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_print_tests.py)) and automated tests using Pytest that are checked on each push to the repo. The files are also formatted using black with automated linting using flake8.
 
-## Leetcode Problem Solutions
+## Table of Contents
 
 | Count | LC # | Description | Difficulty |
 | --- | --- | --- | --- |
