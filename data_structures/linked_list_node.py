@@ -12,9 +12,8 @@ class ListNode:
         self.has_cycle = has_cycle
 
     def __repr__(self):
-        return (
-            f"<ListNode {self.val} -> " f"({self.next.val if self.next else 'None'})>"
-        )
+        val = self.next.val if self.next else "None"
+        return f"<ListNode {self.val} -> " f"({val})>"
 
     def __str__(self):
         return self.__repr__()

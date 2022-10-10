@@ -9,8 +9,8 @@ class TestNode:
         node = Node(1, "a")
         assert node.key == 1
         assert node.value == "a"
-        assert node.prev == None
-        assert node.next == None
+        assert node.prev is None
+        assert node.next is None
 
     def test_node_str(self):
         assert str(Node(1, "a")) == "(1, 'a')"
