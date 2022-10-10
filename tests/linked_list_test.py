@@ -332,11 +332,11 @@ class TestLinkedList:
 
     # Delete
     def test_delete_error_empty(self, new_list):
-        with pytest.raises(ValueError, match='value not found'):
+        with pytest.raises(ValueError, match="value not found"):
             new_list.delete(2)
 
     def test_delete_error_ten(self, list_ten):
-        with pytest.raises(ValueError, match='value not found'):
+        with pytest.raises(ValueError, match="value not found"):
             list_ten.delete(11)
 
     def test_delete_one(self):
@@ -538,37 +538,37 @@ class TestLinkedList:
     # Make sure methods that traverse the list abort if there is a cycle
     def test_methods_with_cycle(self, list_cycle_mid, list_ten):
         t = Template('not run "$f" on a list with a cycle')
-        with pytest.raises(Exception, match=t.substitute(f='__len__')):
+        with pytest.raises(Exception, match=t.substitute(f="__len__")):
             len(list_cycle_mid)
-        with pytest.raises(Exception, match=t.substitute(f='__eq__')):
+        with pytest.raises(Exception, match=t.substitute(f="__eq__")):
             list_cycle_mid == list_ten
-        with pytest.raises(Exception, match=t.substitute(f='__eq__')):
+        with pytest.raises(Exception, match=t.substitute(f="__eq__")):
             list_ten == list_cycle_mid
-        with pytest.raises(Exception, match=t.substitute(f='insert')):
+        with pytest.raises(Exception, match=t.substitute(f="insert")):
             list_cycle_mid.insert(3, 12)
-        with pytest.raises(Exception, match=t.substitute(f='from_array')):
+        with pytest.raises(Exception, match=t.substitute(f="from_array")):
             list_cycle_mid.from_array([11, 12, 13])
-        with pytest.raises(Exception, match=t.substitute(f='get_value')):
+        with pytest.raises(Exception, match=t.substitute(f="get_value")):
             list_cycle_mid.get_value(6)
-        with pytest.raises(Exception, match=t.substitute(f='count')):
+        with pytest.raises(Exception, match=t.substitute(f="count")):
             list_cycle_mid.count(6)
-        with pytest.raises(Exception, match=t.substitute(f='find_all')):
+        with pytest.raises(Exception, match=t.substitute(f="find_all")):
             list_cycle_mid.find_all(6)
-        with pytest.raises(Exception, match=t.substitute(f='pop')):
+        with pytest.raises(Exception, match=t.substitute(f="pop")):
             list_cycle_mid.pop(6)
-        with pytest.raises(Exception, match=t.substitute(f='to_array')):
+        with pytest.raises(Exception, match=t.substitute(f="to_array")):
             list_cycle_mid.to_array()
-        with pytest.raises(Exception, match=t.substitute(f='show')):
+        with pytest.raises(Exception, match=t.substitute(f="show")):
             list_cycle_mid.show()
-        with pytest.raises(Exception, match=t.substitute(f='delete')):
+        with pytest.raises(Exception, match=t.substitute(f="delete")):
             list_cycle_mid.delete(5)
-        with pytest.raises(Exception, match=t.substitute(f='delete_index')):
+        with pytest.raises(Exception, match=t.substitute(f="delete_index")):
             list_cycle_mid.delete_index(4)
-        with pytest.raises(Exception, match=t.substitute(f='copy')):
+        with pytest.raises(Exception, match=t.substitute(f="copy")):
             list_cycle_mid.copy()
-        with pytest.raises(Exception, match=t.substitute(f='reverse')):
+        with pytest.raises(Exception, match=t.substitute(f="reverse")):
             list_cycle_mid.reverse()
-        with pytest.raises(Exception, match=t.substitute(f='sort')):
+        with pytest.raises(Exception, match=t.substitute(f="sort")):
             list_cycle_mid.sort()
-        with pytest.raises(Exception, match=t.substitute(f='sorted')):
+        with pytest.raises(Exception, match=t.substitute(f="sorted")):
             list_cycle_mid.sorted()

@@ -13,8 +13,7 @@ class ListNode:
 
     def __repr__(self):
         return (
-            f"<ListNode {self.val} -> "
-            f"({self.next.val if self.next else 'None'})>"
+            f"<ListNode {self.val} -> " f"({self.next.val if self.next else 'None'})>"
         )
 
     def __str__(self):

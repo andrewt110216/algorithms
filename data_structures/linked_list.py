@@ -34,6 +34,7 @@ class LinkedList:
                 msg = f'Cannot run "{f.__name__}" on a list with a cycle'
                 raise CycleException(msg)
             return f(self, *args, **kwargs)
+
         return wrapped
 
     @_no_cycle
