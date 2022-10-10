@@ -1,6 +1,6 @@
 # Leetcode - Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange) ![Data Structures](https://img.shields.io/badge/Data%20Structures-3-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange) ![Data Structures](https://img.shields.io/badge/Data%20Structures-4-blue)
 
 <!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
 
@@ -52,13 +52,9 @@ All Leetcode problems include tests that can be run from within the solution fil
 
 I created my own implementations of a few data structures, either out of personal interest or convenience in testing Leetcode solutions.
 
-Each file contains:
-
-- Class representing my implementation of the data structure
-- Demonstrations of the class and its methods/related functions, meant to be run directly in the file
-
 | Count | Data Structure |
 | --- | --- |
 | 1 | [Linked List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/linked_list.py) |
 | 2 | [Binary Tree](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/binary_tree_node.py) |
 | 3 | [Heap](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/heap.py) |
+| 4 | [LRU Cache](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/lru_cache.py)
