@@ -1,15 +1,12 @@
 # Randomized QuickSort
 # Sorts an array in-place by recursively partitioning around a pivot element
 
-# Time Complexity
-#  Case           TC          Comments
-#  ----           --          --------
-#  Worst          O(n^2)      Partitions are always smallest or greatest vals
-#  Average        O(nlogn)    Average partition lands in middle 50%
-#  Best           O(nlogn)
-
-# Space Complexity
-# O(1)
+# Analysis
+#  Case     TC        SC    Comments
+#  ----     --        --    --------
+#  Worst    O(n^2)    O(1)  Partitions are always smallest or greatest vals
+#  Average  O(nlogn)  O(1)  Average partition lands in middle 50%
+#  Best     O(nlogn)  O(1)
 
 # Stable
 # No
