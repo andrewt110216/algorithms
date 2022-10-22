@@ -1,5 +1,5 @@
 from setuptools import setup
-setup(
-    name='algo',
-    packages=['leetcode', 'data_structures'],
-)
+
+
+# Allows for pip install in editable mode
+setup()

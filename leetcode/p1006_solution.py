@@ -61,7 +61,7 @@ class Solution:
 
         # first solution - can be optimized
 
-        stack = deque(list(range(1, n+1)))
+        stack = deque(list(range(1, n + 1)))
         add_sub = deque()
         op = 0
 

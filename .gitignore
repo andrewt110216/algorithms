@@ -5,9 +5,8 @@
 .vscode/
 
 # Files not to be posted
-algorithms/
+tests/temp_test.py
 incomplete/
-temp.py
 hackerrank/
 
 # Byte-compiled / optimized / DLL files

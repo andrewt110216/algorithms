@@ -1,14 +1,31 @@
-# Leetcode - Algorithms & Data Structures
+# Algorithms & Data Structures
 
-![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange) ![Data Structures](https://img.shields.io/badge/Data%20Structures-4-blue)
+![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/run_tests_linting.yml/badge.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-<!-- # OF LC PROBLEMS IS HARD CODED IN THE BADGE. UPDATE AS NEEDED -->
+<!-- THESE 3 BADGE VALUES ARE HARD CODED -->
+![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange) ![Algorithms](https://img.shields.io/badge/Algorithms-1-red) ![Data Structures](https://img.shields.io/badge/Data%20Structures-4-blue)
 
+## Algorithms
+
+| Count | Algorithm |
+| --- | --- |
+| 1 | [QuickSort](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/algorithms/quick_sort.py) |
+
+
+## Data Structures
+
+| Count | Data Structure |
+| --- | --- |
+| 1 | [Linked List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/linked_list.py) |
+| 2 | [Binary Tree](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/binary_tree_node.py) |
+| 3 | [Heap](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/heap.py) |
+| 4 | [LRU Cache](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/lru_cache.py)
+
+
+## Leetcode
 <em>Python solutions to Leetcode problems</em>
 
-All Leetcode problems include tests that can be run from within the solution file (using the PrintTests class from [class_print_tests.py](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_print_tests.py)) and automated tests using Pytest that are checked on each push to the repo. The files are also formatted using black with automated linting using flake8.
-
-## Table of Contents
+All Leetcode problems include tests that can be run from within the solution file (using the PrintTests class from [class_print_tests.py](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_print_tests.py)) and automated tests using Pytest that are checked on each push to the repo.
 
 | Count | LC # | Description | Difficulty |
 | --- | --- | --- | --- |
@@ -46,15 +63,3 @@ All Leetcode problems include tests that can be run from within the solution fil
 | 32 | 994 | [Rotting Oranges](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p0994_solution.py) | Medium |
 | 33 | 1006 | [Clumsy Factorial](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1006_solution.py) | Medium |
 | 34 | 1029 | [Two City Scheduling](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/p1029_solution.py) | Medium |
-
-
-## Data Structure Implementations
-
-I created my own implementations of a few data structures, either out of personal interest or convenience in testing Leetcode solutions.
-
-| Count | Data Structure |
-| --- | --- |
-| 1 | [Linked List](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/linked_list.py) |
-| 2 | [Binary Tree](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/binary_tree_node.py) |
-| 3 | [Heap](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/heap.py) |
-| 4 | [LRU Cache](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/lru_cache.py)

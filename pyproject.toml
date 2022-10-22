@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["algorithms*", "data_structures*", "leetcode*"]
+
+[project]
+name = "algo"
+version = "0.0.0"
+description = "Data Structures, Algorithms, and Leetcode solutions"
+authors = [
+    {name = "Andrew Tracey"},
+]
+readme = "README.md"
+requires-python = ">=3.7"
+
+[project.optional-dependencies]
+dev = ["pytest", "black"]
+
+[project.urls]
+Homepage = "https://github.com/andrewt110216/algorithms-and-data-structures"
+
+[tool.black]
+# Set line length to PEP 8 suggested length
+line-length = 79
+target-version = ['py37']
+include = '\.pyi?$'

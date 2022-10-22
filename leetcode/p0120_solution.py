@@ -52,7 +52,7 @@ class Solution:
         n = len(triangle)
 
         # initialize our minimum sums array for the first row
-        min_sums = [triangle[0][0]] + [math.inf for _ in range(n-1)]
+        min_sums = [triangle[0][0]] + [math.inf for _ in range(n - 1)]
 
         # iterate over each row in triangle (starting with 2nd)
         for row in range(1, n):

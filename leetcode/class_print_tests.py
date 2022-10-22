@@ -44,7 +44,7 @@ class PrintTests:
             display = (
                 str(var)[: self.max_io_len // 2]
                 + "... "
-                + str(var)[-self.max_io_len // 2:]
+                + str(var)[-self.max_io_len // 2 :]
             )
             return display
         else:
