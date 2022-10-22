@@ -36,7 +36,10 @@ def quick_sort(nums):
         _quick_sort(k + 1, end)
 
     def partition(start, end):
-        """Partition nums from start to end around a random pivot and return the pivot index"""
+        """
+        Partition nums from start to end around a random pivot and return the
+        pivot index
+        """
 
         # Choose a pivot index at random and swap it into start index
         pivot_idx = random.randint(start, end)
