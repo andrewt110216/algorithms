@@ -1,16 +1,20 @@
 # Algorithms & Data Structures
 
+<em>Python implementations of Algorithms & Data Structures and Leetcode solutions</em>
+
+Each file includes tests and also has as a corresponding test file using Pytest.
+
 ![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/tests.yml/badge.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 <!-- THESE 3 BADGE VALUES ARE HARD CODED -->
-![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange) ![Algorithms](https://img.shields.io/badge/Algorithms-1-red) ![Data Structures](https://img.shields.io/badge/Data%20Structures-4-blue)
+![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange) ![Algorithms](https://img.shields.io/badge/Algorithms-2-red) ![Data Structures](https://img.shields.io/badge/Data%20Structures-4-blue)
 
 ## Algorithms
 
 | Count | Algorithm |
 | --- | --- |
 | 1 | [QuickSort](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/algorithms/quick_sort.py) |
-
+| 2 | [MergeSort](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/algorithms/merge_sort.py) |
 
 ## Data Structures
 
@@ -23,9 +27,6 @@
 
 
 ## Leetcode
-<em>Python solutions to Leetcode problems</em>
-
-All Leetcode problems include tests that can be run from within the solution file (using the PrintTests class from [class_print_tests.py](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/leetcode/class_print_tests.py)) and automated tests using Pytest that are checked on each push to the repo.
 
 | Count | LC # | Description | Difficulty |
 | --- | --- | --- | --- |
