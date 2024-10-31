@@ -14,7 +14,9 @@ class Solution:
         pointer can jump ahead when repeat characters are encountered
 
         Time: O(n) (one pass through s)
-        Space: O(n) (max size of the dictionary)
+        Space: O(1) (max size of the dictionary)
+	    There is a limited number of possible characters (per the problem
+	    description, so the space is O(1) not O(n))
         """
 
         max_len = 0
