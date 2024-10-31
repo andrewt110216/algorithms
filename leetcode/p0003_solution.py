@@ -15,8 +15,8 @@ class Solution:
 
         Time: O(n) (one pass through s)
         Space: O(1) (max size of the dictionary)
-	    There is a limited number of possible characters (per the problem
-	    description, so the space is O(1) not O(n))
+            There is a limited number of possible characters (per the problem
+            description, so the space is O(1) not O(n))
         """
 
         max_len = 0
