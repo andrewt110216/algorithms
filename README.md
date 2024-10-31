@@ -7,7 +7,7 @@ Each file has a corresponding test file and some files also include examples tha
 ![GitHub Workflow Results - Tests & Linting](https://github.com/andrewt110216/algorithms-and-data-structures/actions/workflows/tests.yml/badge.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 <!-- THESE 3 BADGE VALUES ARE HARD CODED -->
-![Algorithms](https://img.shields.io/badge/Algorithms-4-red) ![Data Structures](https://img.shields.io/badge/Data%20Structures-4-blue) ![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange)
+![Algorithms](https://img.shields.io/badge/Algorithms-4-red) ![Data Structures](https://img.shields.io/badge/Data%20Structures-5-blue) ![LC Problems](https://img.shields.io/badge/LC%20Problems-34-orange)
 
 ## Algorithms
 
@@ -26,6 +26,7 @@ Each file has a corresponding test file and some files also include examples tha
 | 2 | [Binary Tree](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/binary_tree_node.py) |
 | 3 | [Heap](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/heap.py) |
 | 4 | [LRU Cache](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/lru_cache.py)
+| 5 | [Red Black BST](https://github.com/andrewt110216/algorithms-and-data-structures/blob/main/data_structures/red_black_bst.py)
 
 
 ## Leetcode
